@@ -219,15 +219,15 @@ export default function HealthManagementPage() {
     return () => window.clearInterval(timer);
   }, [localizedDemoScreens.length]);
 
-  return <div className={styles.page} lang={locale}>
+  return <div className={`${styles.page} hse-module-page`} lang={locale}>
     <CustomerHeader locale={locale} active="solutions" chrome="csms" localePath="/health-management" />
 
     <main id="top">
-      <section className={styles.hero}>
+      <section className={`${styles.hero} hse-module-hero`}>
         <div className={styles.heroBackdrop}>{localizedHeroSlides.map(([image, alt], index) => <img key={image} className={index === heroSlide ? styles.activeHeroImage : ""} src={hm(image)} alt={index === heroSlide ? alt : ""} />)}</div>
         <div className={styles.heroInner}>
-          <div className={styles.heroCopy}>
-            <h1>{semanticTitle(pageCopy.heroTitle)}{pageCopy.heroAccent ? <> <em>{semanticTitle(pageCopy.heroAccent)}</em></> : null}</h1>
+          <div className={`${styles.heroCopy} hse-module-hero-title`}>
+            <h1>{pageCopy.heroTitle}{pageCopy.heroAccent ? <> <em>{pageCopy.heroAccent}</em></> : null}</h1>
           </div>
         </div>
       </section>

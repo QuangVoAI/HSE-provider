@@ -102,13 +102,13 @@ export default async function ContractorManagementPage({ searchParams }: { searc
     { title: "Danh sách nhân viên nhà thầu", image: "/assets/contractor-management/original-screenshots/worker-list.png" },
   ] as const;
 
-  return <div className={`${base.page} ${styles.page}`} lang={locale} id="top"><ScrollToTop />
+  return <div className={`${base.page} ${styles.page} hse-module-page`} lang={locale} id="top"><ScrollToTop />
     <CustomerHeader locale={locale} active="solutions" chrome="csms" localePath="/contractor-management" />
     <main className={base.main}>
-      <section className={`${base.hero} ${styles.hero}`} aria-labelledby="contractor-hero-title">
+      <section className={`${base.hero} ${styles.hero} hse-module-hero`} aria-labelledby="contractor-hero-title">
         <img className={styles.heroImage} src="/assets/contractor-management/value-industry-adaptability.png" alt="" />
         <div className={base.heroOverlay}/>
-        <h1 className={styles.heroTitle} id="contractor-hero-title">{copy.heroTitle}</h1>
+        <div className="hse-module-hero-title"><h1 className={styles.heroTitle} id="contractor-hero-title">{copy.heroTitle}</h1></div>
       </section>
 
       <section className={`${trainingStyles.overview} ${styles.overviewSection}`} aria-labelledby="contractor-solution-overview-title">
@@ -118,7 +118,7 @@ export default async function ContractorManagementPage({ searchParams }: { searc
           <span className={trainingStyles.overviewRule}/>
           <p>{copy.overviewText}</p>
           <div className={trainingStyles.overviewBenefits}>{copy.overviewBenefits.map(item => <span key={item}><b>✓</b>{item}</span>)}</div>
-          <div className={trainingStyles.overviewActions}><Link href={`/contact${query}`}>{copy.trial}</Link><Link href={`/contact${query}`} className={trainingStyles.overviewSecondary}>{copy.contact}</Link></div>
+          <div className={trainingStyles.overviewActions}><Link className="hse-primary-action" href={`/contact${query}`}>{copy.trial}</Link><Link href={`/contact${query}`} className={trainingStyles.overviewSecondary}>{copy.contact}</Link></div>
         </div>
       </section>
 

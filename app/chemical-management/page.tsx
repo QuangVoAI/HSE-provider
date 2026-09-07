@@ -50,14 +50,14 @@ export default async function ChemicalManagementPage({ searchParams }: { searchP
   const query = `?lang=${locale}`;
   const footerSolutionLinks = getSolutionLinks(locale);
 
-  return <div className={`${trainingStyles.page} ${styles.page}`} lang={locale} id="top">
+  return <div className={`${trainingStyles.page} ${styles.page} hse-module-page`} lang={locale} id="top">
     <ScrollToTop />
     <CustomerHeader locale={locale} active="solutions" chrome="csms" localePath="/chemical-management" />
     <main>
       <div className={styles.constructionScene}>
-        <section className={`${trainingStyles.hero} ${riskStyles.hero} ${styles.heroElevated}`} style={{backgroundImage:"url(/assets/chemical-management/chemical-radiation-hero.png)"}} aria-label={t.title}>
+        <section className={`${trainingStyles.hero} ${riskStyles.hero} ${styles.heroElevated} hse-module-hero`} style={{backgroundImage:"url(/assets/chemical-management/chemical-radiation-hero.png)"}} aria-label={t.title}>
           <div className={`${trainingStyles.heroOverlay} ${riskStyles.heroOverlay}`}/>
-          <div className={trainingStyles.heroCopy} style={{position:"absolute",inset:0,width:"100%",display:"flex",alignItems:"center",justifyContent:"center",padding:"0 24px",textAlign:"center"}}><h1 style={{width:"100%",maxWidth:1150,margin:0,textAlign:"center"}}>{t.title}</h1></div>
+          <div className={`${trainingStyles.heroCopy} hse-module-hero-title`} style={{position:"absolute",inset:0,width:"100%",display:"flex",alignItems:"center",justifyContent:"center",padding:"0 24px",textAlign:"center"}}><h1 style={{width:"100%",maxWidth:1150,margin:0,textAlign:"center"}}>{t.title}</h1></div>
         </section>
 
         <ConstructionReveal>

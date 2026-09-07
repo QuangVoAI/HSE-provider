@@ -78,6 +78,88 @@ img {
   max-width: 100%;
 }
 
+/* Shared solution-page title hero. Keep every module aligned with the
+   Safety Observation visual: image, blue veil, centered white title. */
+.hse-module-page .hse-module-hero {
+  position: relative !important;
+  width: min(1680px, calc(100% - 48px)) !important;
+  height: clamp(380px, 30vw, 500px) !important;
+  min-height: 0 !important;
+  margin: 0 auto !important;
+  overflow: hidden !important;
+  isolation: isolate;
+  border-radius: 0 0 88px 88px !important;
+  background-color: #071b31;
+  background-repeat: no-repeat;
+  background-position: center 48%;
+  background-size: cover;
+}
+
+.hse-module-page .hse-module-hero-title {
+  position: absolute !important;
+  z-index: 4;
+  inset: 0;
+  width: 100% !important;
+  max-width: none !important;
+  height: 100%;
+  padding: 0 32px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hse-module-page .hse-module-hero-title h1,
+.hse-module-page .hse-module-hero-title.hse-module-hero-title h1 {
+  position: static !important;
+  width: 100%;
+  height: auto !important;
+  max-width: 1160px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  color: #fff !important;
+  font-size: clamp(48px, 5.2vw, 76px) !important;
+  line-height: 1.06 !important;
+  font-weight: 850 !important;
+  letter-spacing: -.035em !important;
+  text-align: center !important;
+  text-wrap: balance;
+  text-shadow: 0 5px 24px rgba(0, 18, 39, .45);
+}
+
+.hse-module-page .hse-module-hero-title h1 em,
+.hse-module-page .hse-module-hero-title h1 span {
+  color: #fff !important;
+}
+
+.hse-module-page .hse-primary-action {
+  color: #fff !important;
+}
+
+@media (max-width: 900px) {
+  .hse-module-page .hse-module-hero {
+    height: 400px !important;
+    border-radius: 0 0 72px 72px !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .hse-module-page .hse-module-hero {
+    width: calc(100% - 20px) !important;
+    height: 320px !important;
+    border-radius: 0 0 44px 44px !important;
+  }
+
+  .hse-module-page .hse-module-hero-title {
+    padding: 0 20px !important;
+  }
+
+  .hse-module-page.hse-module-page .hse-module-hero .hse-module-hero-title h1 {
+    font-size: 38px !important;
+    line-height: 1.1 !important;
+  }
+}
+
 /* Subtle section reveal as each page block enters the viewport. */
 @keyframes hse-section-reveal {
   from { opacity: .18; transform: translate3d(0, 28px, 0); }

@@ -77,7 +77,9 @@ export default function ModuleLanding({ config, locale }: { config: ModulePageCo
   // Keep the equipment title breakable at word boundaries on narrow screens.
   // Replacing the whole phrase with non-breaking spaces forces Safari to split
   // inside "Equipment" once the title no longer fits the mobile hero.
-  const balancedTitle = config.slug === "equipment-management" ? copy.title : semanticTitle(copy.title);
+  const balancedTitle = config.slug === "equipment-management" || config.slug === "environmental-management"
+    ? copy.title
+    : semanticTitle(copy.title);
   const keepTitleOnOneLine = config.slug === "safety-observation";
   const safetyObservationOverviewTitle = locale === "vi"
     ? ["Quan sát an toàn", "& Báo cáo an toàn"]
@@ -137,13 +139,13 @@ export default function ModuleLanding({ config, locale }: { config: ModulePageCo
     title: locale === "vi" ? `Màn hình trải nghiệm ${index + 1}` : `User experience screen ${index + 1}`,
     image,
   }));
-  return <div className={`${styles.page} ${trainingStyles.page}`} lang={locale} id="top">
+  return <div className={`${styles.page} ${trainingStyles.page} hse-module-page`} lang={locale} id="top">
     <ScrollToTop />
     <CustomerHeader locale={locale} active="solutions" chrome="csms" localePath={`/${config.slug}`} />
     <main>
-      <section className={`${trainingStyles.hero} ${riskStyles.hero} ${styles.moduleHero}`} style={{ backgroundImage: `url(${config.heroImage})` }} aria-labelledby={`${config.slug}-title`}>
+      <section className={`${trainingStyles.hero} ${riskStyles.hero} ${styles.moduleHero} hse-module-hero`} style={{ backgroundImage: `url(${config.heroImage})` }} aria-labelledby={`${config.slug}-title`}>
         <div className={`${trainingStyles.heroOverlay} ${riskStyles.heroOverlay}`}/>
-        <div className={trainingStyles.heroCopy} style={{ position:"absolute", inset:0, width:"100%", display:"flex", alignItems:"center", justifyContent:"center", padding:"0 24px", textAlign:"center" }}>
+        <div className={`${trainingStyles.heroCopy} hse-module-hero-title`} style={{ position:"absolute", inset:0, width:"100%", display:"flex", alignItems:"center", justifyContent:"center", padding:"0 24px", textAlign:"center" }}>
           <h1 id={`${config.slug}-title`} className={`${keepTitleOnOneLine ? styles.singleLineHeroTitle : ""} ${config.slug === "legal-compliance" ? styles.legalHeroTitle : ""}`} style={{ width:"100%", maxWidth:1050, margin:0, textAlign:"center" }}>{balancedTitle}</h1>
         </div>
       </section>
@@ -156,7 +158,7 @@ export default function ModuleLanding({ config, locale }: { config: ModulePageCo
           <p>{copy.overview}</p>
           {copy.overviewContinuation ? <p className={`${styles.overviewContinuation} ${config.slug === "legal-compliance" ? styles.legalOverviewContinuation : ""}`}>{copy.overviewContinuation}</p> : null}
           <div className={trainingStyles.overviewBenefits}>{copy.benefits.map(item => <span key={item}><b>✓</b>{item}</span>)}</div>
-          <div className={trainingStyles.overviewActions}><Link href={`/contact${query}`}>{copy.demo}</Link><Link href={`/contact${query}`} className={trainingStyles.overviewSecondary}>{copy.contact}</Link></div>
+          <div className={trainingStyles.overviewActions}><Link className="hse-primary-action" href={`/contact${query}`}>{copy.demo}</Link><Link href={`/contact${query}`} className={trainingStyles.overviewSecondary}>{copy.contact}</Link></div>
         </div>
       </section>
 
