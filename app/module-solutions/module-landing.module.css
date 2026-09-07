@@ -206,6 +206,8 @@
 }
 
 /* The long Safety Observation overview title must fit its desktop column. */
+.safetyObservationOverviewTitle span{display:block;white-space:nowrap}
+.safetyObservationOverviewTitle span+span{margin-top:.08em}
 .page h2.singleLineOverviewTitle {
   max-width:none!important;
   white-space:nowrap!important;

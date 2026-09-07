@@ -75,6 +75,9 @@ export default function ModuleLanding({ config, locale }: { config: ModulePageCo
   };
   const balancedTitle = semanticTitle(copy.title);
   const keepTitleOnOneLine = config.slug === "safety-observation";
+  const safetyObservationOverviewTitle = locale === "vi"
+    ? ["Quan sát an toàn", "& Báo cáo an toàn"]
+    : ["Safety Observation", "& Reporting"];
   const usePreferredOverviewLayout = config.slug === "legal-compliance" || config.slug === "environmental-management" || config.slug === "safety-culture";
   const workflowNote = config.slug === "legal-compliance"
     ? undefined
@@ -144,7 +147,7 @@ export default function ModuleLanding({ config, locale }: { config: ModulePageCo
       <section className={`${trainingStyles.overview} ${riskStyles.overview} ${usePreferredOverviewLayout ? styles.legalOverview : ""} ${config.slug === "safety-culture" ? styles.safetyCultureOverview : ""}`} aria-labelledby={`${config.slug}-overview-title`}>
         <OverviewCarousel images={[...config.overviewImages]} label={copy.title} autoPlayMs={4500}/>
         <div className={`${trainingStyles.sectionCopy} ${usePreferredOverviewLayout ? styles.legalOverviewCopy : ""} ${config.slug === "safety-culture" ? styles.safetyCultureOverviewCopy : ""}`}>
-          <h2 id={`${config.slug}-overview-title`} className={keepTitleOnOneLine ? styles.singleLineOverviewTitle : undefined}>{balancedTitle}</h2>
+          <h2 id={`${config.slug}-overview-title`} className={keepTitleOnOneLine ? styles.safetyObservationOverviewTitle : undefined}>{keepTitleOnOneLine ? safetyObservationOverviewTitle.map((line) => <span key={line}>{line}</span>) : balancedTitle}</h2>
           <span className={trainingStyles.overviewRule}/>
           <p>{copy.overview}</p>
           {copy.overviewContinuation ? <p className={`${styles.overviewContinuation} ${config.slug === "legal-compliance" ? styles.legalOverviewContinuation : ""}`}>{copy.overviewContinuation}</p> : null}
