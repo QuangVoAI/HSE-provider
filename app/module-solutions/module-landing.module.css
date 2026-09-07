@@ -214,6 +214,17 @@
 /* The long Safety Observation overview title must fit its desktop column. */
 .safetyObservationOverviewTitle span{display:block;white-space:nowrap}
 .safetyObservationOverviewTitle span+span{margin-top:.08em}
+.page.page .moduleOverviewTitle.moduleOverviewTitle {
+  width:100%;
+  max-width:760px!important;
+  font-size:42px!important;
+  line-height:1.14!important;
+  letter-spacing:-.035em!important;
+  white-space:normal!important;
+  overflow-wrap:normal;
+  word-break:normal;
+  text-wrap:wrap;
+}
 .page h2.singleLineOverviewTitle {
   max-width:none!important;
   white-space:nowrap!important;
@@ -231,6 +242,7 @@
   .page h2.singleLineOverviewTitle {font-size:36px!important}
 }
 @media(max-width:620px){
+  .page.page .moduleOverviewTitle.moduleOverviewTitle{font-size:34px!important;line-height:1.14!important}
   .page h2.singleLineOverviewTitle {
     white-space:nowrap!important;
     font-size:clamp(22px,6.2vw,26px)!important;

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 const content = {
   vi: {
     heroTitle: "Quản lý nhà thầu",
-    overviewTitle: "Tổng quan giải pháp",
+    overviewTitle: "Quản lý nhà thầu",
     overviewText: "Phần mềm Quản lý Nhà thầu giúp bạn tối ưu hóa việc quản lý và đảm bảo nhà thầu tuân thủ các quy định an toàn trong suốt quá trình thực hiện dự án. Tự động hóa và tinh gọn các khâu tiếp nhận, giám sát và lưu trữ hồ sơ.",
     overviewBenefits: ["Chuẩn hóa quy trình tiếp nhận nhà thầu", "Kiểm soát điều kiện an toàn và tuân thủ"],
     trial: "Dùng thử miễn phí", contact: "Liên hệ",

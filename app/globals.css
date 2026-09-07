@@ -143,6 +143,13 @@ img {
   }
 }
 
+@media (min-width: 1800px) {
+  .hse-module-page.hse-module-page .hse-module-hero {
+    width: calc(100% - 48px) !important;
+    max-width: none !important;
+  }
+}
+
 @media (max-width: 620px) {
   .hse-module-page .hse-module-hero {
     width: calc(100% - 20px) !important;

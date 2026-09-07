@@ -184,12 +184,6 @@ export default function HealthManagementPage() {
   const [heroSlide, setHeroSlide] = useState(0);
   const [locale, setLocale] = useState<Locale>("vi");
   const pageCopy = pageTranslations[locale];
-  const semanticTitle = (text: string) => {
-    const phrases = locale === "vi"
-      ? ["Quản lý sức khỏe nghề nghiệp", "Quản lý sức khỏe", "nghề nghiệp", "người lao động", "Quyết định chủ động hơn"]
-      : ["occupational health", "health management", "proactive decisions"];
-    return phrases.sort((a, b) => b.length - a.length).reduce((result, phrase) => result.replaceAll(phrase, phrase.replaceAll(" ", "\u00a0")), text);
-  };
   const footerSolutionLinks = getSolutionLinks(locale);
   const localizedExamGroups = locale === "en" ? examGroupsEn : examGroups;
   const localizedWorkflow = locale === "en" ? workflowEn : workflow;
@@ -234,7 +228,7 @@ export default function HealthManagementPage() {
 
       <section className={styles.overview} id="overview"><div className={styles.container}>
         <div className={styles.sectionIntro}>
-          <h2>{semanticTitle(pageCopy.overviewTitle)} <span className={styles.h2Accent}>{semanticTitle(pageCopy.overviewAccent)}</span></h2>
+          <h2>{pageCopy.overviewTitle} <span className={styles.h2Accent}>{pageCopy.overviewAccent}</span></h2>
           <p>{pageCopy.overviewDesc}</p>
         </div>
         <div className={styles.examGrid}>
@@ -336,7 +330,7 @@ export default function HealthManagementPage() {
         </div>
       </section>
 
-      <section className={styles.value}><div className={styles.container}><div className={styles.valueIntro}><h2><span>{semanticTitle(pageCopy.valueTitle)}</span><span>{semanticTitle(pageCopy.valueAccent)}</span></h2></div><div className={styles.valueList}>{localizedValues.map(([title, description], index) => { const Icon = valueIcons[index]; return <article key={title} tabIndex={0}><div className={styles.valueCardFront}><div className={styles.valueIconWrapper}><Icon aria-hidden="true" strokeWidth={1.5} /></div><h3>{localizedValueTitleLines[index].map((line) => <span className={styles.valueTitleLine} key={line}>{line}</span>)}</h3></div><p className={styles.valueCardDescription}>{description}</p></article>; })}</div></div></section>
+      <section className={styles.value}><div className={styles.container}><div className={styles.valueIntro}><h2><span>{pageCopy.valueTitle}</span><span>{pageCopy.valueAccent}</span></h2></div><div className={styles.valueList}>{localizedValues.map(([title, description], index) => { const Icon = valueIcons[index]; return <article key={title} tabIndex={0}><div className={styles.valueCardFront}><div className={styles.valueIconWrapper}><Icon aria-hidden="true" strokeWidth={1.5} /></div><h3>{localizedValueTitleLines[index].map((line) => <span className={styles.valueTitleLine} key={line}>{line}</span>)}</h3></div><p className={styles.valueCardDescription}>{description}</p></article>; })}</div></div></section>
 
       <div className={styles.experienceBrandGroup}>
         <section className={styles.workflowDemo}><div className={styles.container}>

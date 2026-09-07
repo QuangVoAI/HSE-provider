@@ -68,22 +68,13 @@ export default function ModuleLanding({ config, locale }: { config: ModulePageCo
   const footer = footerCopy[locale];
   const footerSolutionLinks = getSolutionLinks(locale);
   const query = `?lang=${locale}`;
-  const semanticTitle = (text: string) => {
-    const phrases = locale === "vi"
-      ? ["Từ quan sát hiện trường", "đến dữ liệu phòng ngừa", "đến quy trình minh bạch", "Thiết bị rủi ro cao", "Tuân thủ Pháp luật", "Văn Hóa An Toàn", "Môi trường lao động", "đánh giá tuân thủ", "yêu cầu phức tạp", "quan sát an toàn", "quản lý nhà thầu", "TỐI ƯU HIỆU SUẤT", "DẪN BƯỚC TƯƠNG LAI", "CHUẨN HÓA ĐÁNH GIÁ", "MINH BẠCH KHOẢNG TRỐNG", "CHỦ ĐỘNG CẢI TIẾN", "TUÂN THỦ MINH BẠCH", "CẢI TIẾN CHỦ ĐỘNG", "AN TOÀN CHỦ ĐỘNG"]
-      : ["High Risk Equipment", "Legal Compliance", "Safety Culture", "Occupational Hygiene Monitoring", "Behavior-Based Safety", "Contractor Management", "TRANSPARENT COMPLIANCE", "PROACTIVE IMPROVEMENT", "DATA-DRIVEN PREVENTION"];
-    return phrases.sort((a, b) => b.length - a.length).reduce((result, phrase) => result.replaceAll(phrase, phrase.replaceAll(" ", "\u00a0")), text);
-  };
-  // Keep the equipment title breakable at word boundaries on narrow screens.
-  // Replacing the whole phrase with non-breaking spaces forces Safari to split
-  // inside "Equipment" once the title no longer fits the mobile hero.
-  const balancedTitle = config.slug === "equipment-management" || config.slug === "environmental-management"
-    ? copy.title
-    : semanticTitle(copy.title);
+  // Keep headings breakable. Non-breaking phrase replacements made Safari
+  // create unnecessary or awkward line breaks in otherwise wide columns.
+  const balancedTitle = copy.title;
   const keepTitleOnOneLine = config.slug === "safety-observation";
-  const safetyObservationOverviewTitle = locale === "vi"
-    ? ["Quan sát an toàn", "& Báo cáo an toàn"]
-    : ["Safety Observation", "& Reporting"];
+  const overviewHeading = config.slug === "safety-observation"
+    ? (locale === "vi" ? "Báo cáo quan sát an toàn" : "Safety Observation & Reporting")
+    : copy.title;
   const usePreferredOverviewLayout = config.slug === "legal-compliance" || config.slug === "environmental-management" || config.slug === "safety-culture";
   const workflowNote = config.slug === "legal-compliance"
     ? undefined
@@ -153,7 +144,7 @@ export default function ModuleLanding({ config, locale }: { config: ModulePageCo
       <section className={`${trainingStyles.overview} ${riskStyles.overview} ${styles.moduleOverview} ${usePreferredOverviewLayout ? styles.legalOverview : ""} ${config.slug === "safety-culture" ? styles.safetyCultureOverview : ""}`} aria-labelledby={`${config.slug}-overview-title`}>
         <OverviewCarousel images={[...config.overviewImages]} label={copy.title} autoPlayMs={4500}/>
         <div className={`${trainingStyles.sectionCopy} ${usePreferredOverviewLayout ? styles.legalOverviewCopy : ""} ${config.slug === "safety-culture" ? styles.safetyCultureOverviewCopy : ""}`}>
-          <h2 id={`${config.slug}-overview-title`} className={keepTitleOnOneLine ? styles.safetyObservationOverviewTitle : undefined}>{keepTitleOnOneLine ? safetyObservationOverviewTitle.map((line) => <span key={line}>{line}</span>) : balancedTitle}</h2>
+          <h2 id={`${config.slug}-overview-title`} className={styles.moduleOverviewTitle}>{overviewHeading}</h2>
           <span className={trainingStyles.overviewRule}/>
           <p>{copy.overview}</p>
           {copy.overviewContinuation ? <p className={`${styles.overviewContinuation} ${config.slug === "legal-compliance" ? styles.legalOverviewContinuation : ""}`}>{copy.overviewContinuation}</p> : null}
@@ -164,15 +155,15 @@ export default function ModuleLanding({ config, locale }: { config: ModulePageCo
 
       <div id="workflow">
         {config.slug === "equipment-management"
-          ? <EquipmentWorkflow title={semanticTitle(copy.workflowTitle)} steps={copy.workflow} note={equipmentWorkflowNote}/>
+          ? <EquipmentWorkflow title={copy.workflowTitle} steps={copy.workflow} note={equipmentWorkflowNote}/>
           : config.slug === "environmental-management"
-            ? <EnvironmentalWorkflow title={semanticTitle(copy.workflowTitle)} steps={copy.workflow} descriptions={environmentalWorkflowDescriptions}/>
-          : <ModuleWorkflow title={semanticTitle(copy.workflowTitle)} steps={copy.workflow} note={workflowNote}/>} 
+            ? <EnvironmentalWorkflow title={copy.workflowTitle} steps={copy.workflow} descriptions={environmentalWorkflowDescriptions}/>
+          : <ModuleWorkflow title={copy.workflowTitle} steps={copy.workflow} note={workflowNote}/>}
       </div>
 
       <section className={riskStyles.featureStrip} aria-labelledby={`${config.slug}-features-title`}>
         <div className={riskStyles.featureInner}>
-          <h2 id={`${config.slug}-features-title`}>{semanticTitle(copy.featuresTitle)}</h2>
+          <h2 id={`${config.slug}-features-title`}>{copy.featuresTitle}</h2>
           <div className={riskStyles.featureGrid}>{copy.features.map((feature,index) => {
           const Icon = (config.slug === "safety-observation" ? safetyFeatureIcons : config.slug === "equipment-management" ? equipmentFeatureIcons : featureIcons)[index];
           return <article className={riskStyles.featureCard} key={feature.title} tabIndex={0}><Icon aria-hidden="true" strokeWidth={1.7}/><h3>{feature.title}</h3></article>;
@@ -182,7 +173,7 @@ export default function ModuleLanding({ config, locale }: { config: ModulePageCo
 
       <section className={`${healthStyles.healthDetail} ${riskStyles.detailSection} ${config.slug === "equipment-management" ? styles.equipmentDetailSection : ""}`} aria-labelledby={`${config.slug}-detail-title`}>
         <div className={`${healthStyles.healthDetailInner} ${riskStyles.detailInner}`}>
-          <div className={healthStyles.healthDetailHeading}><h2 id={`${config.slug}-detail-title`}>{semanticTitle(copy.detailTitle)}</h2></div>
+          <div className={healthStyles.healthDetailHeading}><h2 id={`${config.slug}-detail-title`}>{copy.detailTitle}</h2></div>
           <div className={`${healthStyles.healthDetailContent} ${riskStyles.detailContent}`}>{copy.detail.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div>
           <div className={healthStyles.healthDetailActions}><Link href={`/contact${query}`}>{copy.demo}</Link><Link href={`/contact${query}`}>{copy.contact}</Link></div>
         </div>
@@ -190,7 +181,7 @@ export default function ModuleLanding({ config, locale }: { config: ModulePageCo
 
       <section className={`${healthStyles.features} ${riskStyles.valuesSection} ${styles.moduleValues}`} aria-labelledby={`${config.slug}-values-title`}>
         <div className={`${healthStyles.container} ${riskStyles.valuesContainer}`}>
-          <h2 className={`${healthStyles.featuresCenterTitle} ${riskStyles.valuesTitle}`} id={`${config.slug}-values-title`}>{semanticTitle(copy.valuesTitle)}</h2>
+          <h2 className={`${healthStyles.featuresCenterTitle} ${riskStyles.valuesTitle}`} id={`${config.slug}-values-title`}>{copy.valuesTitle}</h2>
           <div className={`${healthStyles.featureTimeline} ${riskStyles.valuesGrid}`}>{copy.values.map((value,index) => {
           const Icon = valueIcons[index];
           return <article className={`${healthStyles.featureCard} ${riskStyles.valueCard}`} key={value.title} tabIndex={0}>
@@ -204,7 +195,7 @@ export default function ModuleLanding({ config, locale }: { config: ModulePageCo
       </section>
 
       <div className={styles.experienceGroup}>
-        <TrainingExperience title={semanticTitle(copy.experienceTitle)} slides={slides} locale={locale}/>
+        <TrainingExperience title={copy.experienceTitle} slides={slides} locale={locale}/>
         <BrandSignature locale={locale}/>
       </div>
     </main>
