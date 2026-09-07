@@ -1,0 +1,245 @@
+.page{--contractor-blue:#075bb9;--contractor-navy:#071b31;background:#fff;font-family:Inter,Arial,sans-serif}
+.hero{width:min(1680px,calc(100% - 48px));height:clamp(380px,30vw,500px);border-radius:0 0 88px 88px}
+.heroImage{object-position:center 42%!important;filter:saturate(.9) contrast(1.02)}
+.heroTitle{padding:0 32px;font-size:clamp(48px,5.2vw,76px)!important;line-height:1.06!important;text-wrap:balance}
+.overviewSection{background:#fff}
+.workflow{position:relative;padding:72px 20px 80px;overflow:hidden;background:radial-gradient(circle at 10% 16%,rgba(25,185,214,.075),transparent 25%),radial-gradient(circle at 91% 82%,rgba(7,91,185,.07),transparent 27%),linear-gradient(180deg,#fbfdff,#f3f8fd)}
+.workflow::before{display:none}
+.workflowInner{position:relative;z-index:1;width:1680px;max-width:calc(100vw - 40px);margin:0 auto}
+.workflow h2{margin:0;text-align:center;color:#071b31;font-size:54px;line-height:1.16;font-weight:850;letter-spacing:-.035em}
+.workflow h2::after{content:"";display:block;width:60px;height:4px;margin:18px auto 0;border-radius:99px;background:#071b31}
+.workflowStage{position:relative;height:680px;margin-top:56px}
+.workflowPath{position:absolute;z-index:1;inset:0;width:100%;height:100%;overflow:hidden;pointer-events:none}
+.workflowPath>.workflowLink{fill:none;stroke:#7ca5c8;stroke-width:2;stroke-dasharray:5 10;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;transition:stroke .3s,stroke-width .3s,opacity .3s}
+.flowArrow{position:absolute;z-index:1;width:18px;height:18px;color:#7ca5c8;offset-anchor:50% 50%;offset-distance:50%;offset-rotate:auto;filter:drop-shadow(0 1px 1px #fff);transition:color .16s,filter .16s}
+.flowArrow::before{display:none}
+.flowArrow::after{content:"";position:absolute;left:4px;top:4px;width:8px;height:8px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg)}
+.arrow1{left:25%;top:25%}.arrow2{left:50%;top:25%}.arrow3{left:75%;top:25%}
+.arrow1,.arrow2,.arrow3{offset-path:path("M -24 0 L 24 0")}
+.arrow4{left:87.5%;top:50%;offset-path:path("M 0 -24 L 0 24")}
+.arrow5{left:75%;top:75%}.arrow6{left:50%;top:75%}.arrow7{left:25%;top:75%}
+.arrow5,.arrow6,.arrow7{offset-path:path("M 24 0 L -24 0")}
+.arrow8{left:12.5%;top:50%;offset-path:path("M 0 24 L 0 -24")}
+.workflowGrid{position:relative;z-index:2;height:100%;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(2,1fr);column-gap:20px;list-style:none}
+.workflowCard{position:relative;z-index:2;isolation:isolate;width:100%;max-width:320px;min-height:240px;margin:auto;padding:72px 28px 32px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;border:1px solid #d2e0ec;border-radius:26px;background:#fff;box-shadow:0 18px 40px rgba(7,51,94,.11);color:#071b31;text-align:center;outline:none;transition:transform .38s cubic-bezier(.2,.75,.25,1),border-color .32s,box-shadow .38s,background .32s,opacity .32s,filter .32s}
+.workflowNode{position:absolute;top:-48px;left:50%;width:96px;height:96px;display:grid;place-items:center;border:5px solid #fff;border-radius:50%;background:linear-gradient(145deg,#075bb9,#034985);box-shadow:0 14px 31px rgba(3,73,133,.27);color:#fff;transform:translateX(-50%);transition:transform .32s cubic-bezier(.34,1.56,.64,1),background .3s,box-shadow .3s}
+.workflowNode svg{width:42px;height:42px}
+.workflowNode b{position:absolute;right:-10px;bottom:-5px;min-width:39px;height:32px;padding:0 7px;display:grid;place-items:center;border:3px solid #fff;border-radius:99px;background:#19a9cd;color:#fff;font-size:13px;line-height:1;font-weight:900;letter-spacing:.04em}
+.workflowCard h3{position:relative;z-index:2;width:100%;max-width:270px;height:154px;min-height:154px;margin:0;display:flex;align-items:flex-start;justify-content:center;color:#0b2037;font-size:30px;line-height:1.28;font-weight:800;transition:color .3s,transform .35s}
+.workflowCard:is(:hover,:focus-visible){transform:translateY(-4px);border-color:#28a9d1;background:#fff;box-shadow:0 20px 40px rgba(3,73,133,.14),0 0 0 4px rgba(40,169,209,.08)}
+.workflowCard:is(:hover,:focus-visible) .workflowNode{background:linear-gradient(145deg,#0870d1,#034985);box-shadow:0 15px 30px rgba(7,91,185,.25),0 0 0 5px rgba(25,185,214,.09);transform:translateX(-50%) translateY(-2px) scale(1.05)}
+.workflowCard:is(:hover,:focus-visible) h3{color:#034985}
+.workflowCard:focus-visible{outline:3px solid rgba(25,185,214,.35);outline-offset:5px}
+.workflowStage:has(.workflowCard:nth-child(1):is(:hover,:focus-visible)) .link1,
+.workflowStage:has(.workflowCard:nth-child(2):is(:hover,:focus-visible)) .link2,
+.workflowStage:has(.workflowCard:nth-child(3):is(:hover,:focus-visible)) .link3,
+.workflowStage:has(.workflowCard:nth-child(4):is(:hover,:focus-visible)) .link4,
+.workflowStage:has(.workflowCard:nth-child(5):is(:hover,:focus-visible)) .link5,
+.workflowStage:has(.workflowCard:nth-child(6):is(:hover,:focus-visible)) .link6,
+.workflowStage:has(.workflowCard:nth-child(7):is(:hover,:focus-visible)) .link7,
+.workflowStage:has(.workflowCard:nth-child(8):is(:hover,:focus-visible)) .link8{stroke:#19a9cd;stroke-width:2.8;animation:workflowLinkPulse .3s ease-out 1}
+.workflowStage:has(.workflowCard:nth-child(1):is(:hover,:focus-visible)) .arrow1,
+.workflowStage:has(.workflowCard:nth-child(2):is(:hover,:focus-visible)) .arrow2,
+.workflowStage:has(.workflowCard:nth-child(3):is(:hover,:focus-visible)) .arrow3,
+.workflowStage:has(.workflowCard:nth-child(4):is(:hover,:focus-visible)) .arrow4,
+.workflowStage:has(.workflowCard:nth-child(5):is(:hover,:focus-visible)) .arrow5,
+.workflowStage:has(.workflowCard:nth-child(6):is(:hover,:focus-visible)) .arrow6,
+.workflowStage:has(.workflowCard:nth-child(7):is(:hover,:focus-visible)) .arrow7,
+.workflowStage:has(.workflowCard:nth-child(8):is(:hover,:focus-visible)) .arrow8{color:#00a5ca;filter:drop-shadow(0 3px 5px rgba(0,165,202,.42));animation:workflowArrowTravel .38s cubic-bezier(.16,.84,.28,1) 1 both}
+.workflowStage:has(.workflowCard:nth-child(1):is(:hover,:focus-visible)) .workflowCard:nth-child(2),
+.workflowStage:has(.workflowCard:nth-child(2):is(:hover,:focus-visible)) .workflowCard:nth-child(3),
+.workflowStage:has(.workflowCard:nth-child(3):is(:hover,:focus-visible)) .workflowCard:nth-child(4),
+.workflowStage:has(.workflowCard:nth-child(4):is(:hover,:focus-visible)) .workflowCard:nth-child(5),
+.workflowStage:has(.workflowCard:nth-child(5):is(:hover,:focus-visible)) .workflowCard:nth-child(6),
+.workflowStage:has(.workflowCard:nth-child(6):is(:hover,:focus-visible)) .workflowCard:nth-child(7),
+.workflowStage:has(.workflowCard:nth-child(7):is(:hover,:focus-visible)) .workflowCard:nth-child(8),
+.workflowStage:has(.workflowCard:nth-child(8):is(:hover,:focus-visible)) .workflowCard:nth-child(1){animation:workflowNextCardLift .2s cubic-bezier(.16,.9,.24,1) .24s 1 forwards}
+@keyframes workflowLinkPulse{from{stroke-dashoffset:18}to{stroke-dashoffset:0}}
+@keyframes workflowArrowTravel{0%{opacity:0;offset-distance:0%;transform:scale(.76)}12%{opacity:1}72%{opacity:1}100%{opacity:0;offset-distance:100%;transform:scale(1.12)}}
+@keyframes workflowNextCardLift{to{transform:translateY(-10px);border-color:#22a8ca;box-shadow:0 28px 52px rgba(3,73,133,.2),0 0 0 5px rgba(0,165,202,.1)}}
+.featureStrip{position:relative;padding:68px 20px 80px;overflow:hidden;background:#fff}
+.featureInner{width:1680px;max-width:calc(100vw - 40px);margin:0 auto}
+.featureStrip h2{margin:0 0 48px;text-align:center;color:#071b31;font-size:54px;line-height:1.14;font-weight:850;letter-spacing:-.035em}
+.featureGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.featureCard{position:relative;isolation:isolate;min-height:300px;padding:40px 34px 36px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;overflow:hidden;border-radius:42px;background:linear-gradient(145deg,#082e66,#061f4d);box-shadow:0 24px 38px rgba(5,34,75,.22);color:#fff;text-align:center;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s,background .3s}
+.featureCard:nth-child(even){background:linear-gradient(145deg,#0b52b0,#0a3784)}
+.featureCard::before{content:"";position:absolute;z-index:-1;inset:-55% 35% 48% -35%;border-radius:50%;background:radial-gradient(circle,rgba(40,190,226,.32),transparent 68%);opacity:.55;transition:transform .4s,opacity .3s}
+.featureCard svg{width:68px;height:68px;flex:0 0 auto;color:#fff;filter:drop-shadow(0 8px 16px rgba(0,0,0,.16));transition:transform .32s cubic-bezier(.2,.85,.2,1),filter .32s}
+.featureCard h3{max-width:330px;min-height:92px;margin:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;line-height:1.48;font-weight:750;text-wrap:balance}
+.featureCard:hover{transform:translateY(-9px);background:linear-gradient(145deg,#075bb9,#043d7b);box-shadow:0 34px 56px rgba(5,56,111,.28)}
+.featureCard:hover::before{opacity:.9;transform:translate(14%,12%) scale(1.15)}
+.featureCard:hover svg{transform:translateY(-5px) scale(1.08);filter:drop-shadow(0 12px 22px rgba(24,191,220,.3))}
+.detailSection{position:relative;z-index:2;padding:0 24px!important;background:linear-gradient(180deg,#fff 0%,#f2fafb 100%)!important}
+.detailSection>div{margin-bottom:-52px;border:1px solid rgba(116,190,207,.28);border-radius:46px!important;box-shadow:0 30px 70px rgba(8,71,105,.16),0 8px 24px rgba(8,71,105,.08);transform:translateY(-52px);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.detailSection>div:hover{box-shadow:0 38px 84px rgba(8,71,105,.2),0 12px 30px rgba(8,71,105,.1);transform:translateY(-58px)}
+.detailInner{width:1680px!important;padding:68px clamp(48px,6vw,112px) 62px!important}
+.detailHeading{max-width:1080px!important;margin-bottom:46px!important}
+.detailHeading h2{margin-bottom:22px!important;font-size:50px!important;line-height:1.08!important;letter-spacing:-1.4px!important}
+.detailHeading p{color:#294c63!important;font-size:21px!important;line-height:1.65!important;font-weight:500}
+.detailContent{width:1380px!important;gap:0 72px!important}
+.detailContent p{padding:30px 0!important;color:#35576d!important;font-size:20px!important;line-height:1.65!important}
+.detailContent strong{margin-bottom:10px!important;color:#071b31!important;font-size:24px!important;line-height:1.35!important}
+.detailActions{margin-top:38px!important;gap:20px!important}
+.detailActions a{min-width:248px!important;padding:16px 28px!important;font-size:16px!important}
+.valuesSection{position:relative;margin-top:-28px;padding:52px 20px 76px!important;background:#f2fafb!important}
+.valuesContainer{width:1680px!important;max-width:calc(100vw - 40px)!important;margin:0 auto!important}
+.valuesTitle{margin:0 0 48px!important;font-size:54px!important;line-height:1.14!important;font-weight:850!important;letter-spacing:-.035em!important}
+.valuesGrid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:28px!important;padding:0!important}
+.valuesSection article.valueCard{width:100%;min-height:360px;padding:48px 30px 42px;justify-content:center;border-radius:38px;gap:34px}
+.valuesSection .valueIcon{width:112px;height:112px;flex-basis:112px;box-shadow:0 14px 34px rgba(2,26,51,.4),inset 0 0 0 9px rgba(255,255,255,.1)}
+.valuesSection .valueIcon svg{width:58px;height:58px}
+.valuesSection .valueCard h3{max-width:285px;min-height:86px;display:flex;align-items:center;justify-content:center;font-size:25px;line-height:1.38;font-weight:780;text-wrap:balance}
+.experienceBrandGroup{background:#f2fafb}
+.experienceBrandGroup>section:first-child{border-top:0;border-bottom:0;background:#f2fafb!important}
+.experienceBrandGroup>section:last-child{margin-top:-36px}
+.brandSignature{position:relative;z-index:2;width:min(1680px,calc(100% - 48px));height:clamp(500px,42vw,620px);margin:-36px auto 0;display:grid;place-items:center;overflow:hidden;border-radius:54px 54px 0 0;background:linear-gradient(125deg,#034985,#007da2 62%,#00a5bd);isolation:isolate}
+.brandSignatureBackdrop{position:absolute;z-index:-2;inset:0;background:linear-gradient(90deg,rgba(1,36,71,.82),rgba(2,75,118,.7)),url('/assets/contractor-management/brand-construction-blue-hour.png') center 58%/cover no-repeat;transform:scale(1.025)}
+.brandSignature::after{content:"";position:absolute;z-index:-1;inset:0;background:radial-gradient(circle at 50% 45%,rgba(255,255,255,.16),transparent 38%)}
+.brandSignatureContent{width:min(820px,calc(100% - 48px));display:flex;flex-direction:column;align-items:center;gap:30px;text-align:center}
+.brandLogoPlate{width:min(550px,85%);display:grid;place-items:center}
+.brandLogoPlate img{display:block;width:100%;height:auto;object-fit:contain;filter:brightness(0) invert(1) drop-shadow(0 10px 24px rgba(0,34,59,.28))}
+.brandSignature p{max-width:760px;margin:0;color:#fff;font-size:clamp(24px,2.2vw,38px);line-height:1.28;font-weight:800;letter-spacing:-.025em;text-wrap:balance;text-shadow:0 4px 20px rgba(0,36,64,.32)}
+@media(min-width:821px){
+  .overviewSection{height:590px;min-height:590px}
+}
+@media(max-width:820px){
+  .hero{height:420px;border-radius:0 0 72px 72px}
+  .workflow{padding:64px 24px 72px}
+  .workflowInner{max-width:720px}
+  .workflow h2{font-size:38px}
+  .workflowStage{height:auto;margin-top:42px}
+  .workflowPath{display:none}
+  .flowArrow{display:none}
+  .workflowGrid{height:auto;display:grid;grid-template-columns:1fr;grid-template-rows:none;gap:18px}
+  .workflowGrid::before{content:"";position:absolute;z-index:-1;top:28px;bottom:28px;left:39px;border-left:2px dashed #8eafcb}
+  .workflowCard{grid-area:auto!important;max-width:none;min-height:104px;margin:0;padding:20px 24px 20px 100px;display:flex;align-items:flex-start;justify-content:center;gap:5px;text-align:left}
+  .workflowCard:not(:last-child)::after{content:"\2193";position:absolute;left:29px;bottom:-25px;z-index:3;color:#19a9cd;font-size:22px;line-height:1;font-weight:800}
+  .workflowNode{top:50%;left:38px;width:64px;height:64px;transform:translate(-50%,-50%)}
+  .workflowNode svg{width:26px;height:26px}
+  .workflowCard h3{width:100%;max-width:none;height:auto;min-height:0;display:block}
+  .workflowCard h3{font-size:24px}
+  .workflowCard:is(:hover,:focus-visible) .workflowNode{transform:translate(-50%,-50%) scale(1.06)}
+  .featureStrip{padding:66px 24px 76px}
+  .featureInner{max-width:720px}
+  .featureStrip h2{margin-bottom:38px;font-size:38px}
+  .featureGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .featureCard{min-height:250px;padding:32px 24px;border-radius:30px}
+  .featureCard h3{font-size:20px}
+  .valuesSection{margin-top:-20px;padding:50px 24px 70px!important}
+  .valuesContainer{max-width:720px!important}
+  .valuesTitle{margin-bottom:38px!important;font-size:38px!important}
+  .valuesGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:18px!important}
+  .valuesSection article.valueCard{min-height:300px;padding:38px 24px;border-radius:30px;gap:26px}
+  .valuesSection .valueIcon{width:92px;height:92px;flex-basis:92px}
+  .valuesSection .valueIcon svg{width:47px;height:47px}
+  .valuesSection .valueCard h3{max-width:260px;min-height:64px;font-size:21px;line-height:1.38}
+  .detailSection{padding:0 18px!important}
+  .detailSection>div{margin-bottom:-38px;border-radius:34px!important;transform:translateY(-38px)}
+  .detailSection>div:hover{transform:translateY(-42px)}
+  .detailInner{padding:58px 34px 56px!important}
+  .detailHeading h2{font-size:42px!important}
+  .detailHeading p{font-size:18px!important}
+  .detailContent{gap:0 36px!important}
+  .detailContent p{font-size:17px!important}
+  .detailContent strong{font-size:21px!important}
+  .brandSignature{width:calc(100% - 32px);height:clamp(460px,62vw,540px);border-radius:38px 38px 0 0}
+  .brandLogoPlate{width:min(500px,88%)}
+}
+@media(max-width:620px){
+  .hero{width:calc(100% - 20px);height:320px;border-radius:0 0 44px 44px}
+  .heroTitle{font-size:38px!important}
+  .workflow{padding:54px 18px 60px}
+  .workflowInner{max-width:100%}
+  .workflow h2{font-size:31px}
+  .workflowGrid{gap:14px}
+  .workflowCard{min-height:92px;padding:16px 16px 16px 86px;gap:4px;border-radius:17px}
+  .workflowNode{left:32px;width:56px;height:56px}
+  .workflowNode svg{width:23px;height:23px}
+  .workflowCard h3{font-size:20px}
+  .featureStrip{padding:54px 18px 62px}
+  .featureInner{max-width:100%}
+  .featureStrip h2{margin-bottom:30px;font-size:31px}
+  .featureGrid{grid-template-columns:1fr;gap:16px}
+  .featureCard{min-height:220px;border-radius:24px}
+  .featureCard svg{width:58px;height:58px}
+  .featureCard h3{min-height:0;font-size:19px}
+  .valuesSection{margin-top:-14px;padding:42px 18px 58px!important}
+  .valuesContainer{max-width:100%!important}
+  .valuesTitle{margin-bottom:30px!important;font-size:31px!important}
+  .valuesGrid{grid-template-columns:1fr!important;gap:16px!important}
+  .valuesSection article.valueCard{min-height:260px;padding:36px 24px;border-radius:24px;display:flex;gap:24px;text-align:center}
+  .valuesSection .valueIcon{width:88px;height:88px;flex-basis:88px}
+  .valuesSection .valueIcon svg{width:45px;height:45px}
+  .valuesSection .valueCard h3{max-width:270px;min-height:0;font-size:20px;line-height:1.38;text-align:center}
+  .detailSection{padding:0 12px!important}
+  .detailSection>div{margin-bottom:-26px;border-radius:26px!important;transform:translateY(-26px)}
+  .detailSection>div:hover{transform:translateY(-29px)}
+  .detailInner{padding:44px 20px 46px!important}
+  .detailHeading{margin-bottom:30px!important}
+  .detailHeading h2{font-size:34px!important;letter-spacing:-.7px!important}
+  .detailHeading p{font-size:16px!important;line-height:1.6!important}
+  .detailContent{width:100%!important}
+  .detailContent p{padding:20px 0!important;font-size:16px!important;line-height:1.6!important}
+  .detailContent strong{font-size:19px!important}
+  .detailActions{margin-top:30px!important}
+  .detailActions a{width:min(100%,300px)!important;min-width:0!important;font-size:14px!important}
+  .brandSignature{width:calc(100% - 20px);height:clamp(410px,112vw,470px);border-radius:26px 26px 0 0}
+  .brandSignatureContent{width:calc(100% - 32px);gap:22px}
+  .brandLogoPlate{width:92%}
+  .brandSignature p{font-size:22px}
+}
+@media(prefers-reduced-motion:reduce){.workflowCard,.workflowNode,.workflowPath>.workflowLink,.flowArrow{transition:none!important;animation:none!important}}
+
+.page main p {
+  text-wrap: pretty;
+}
+/* Shared solution-page section title scale. */
+.overviewSection h2,
+.workflow h2,
+.featureStrip h2,
+.detailHeading h2,
+.valuesTitle,
+.experienceBrandGroup>section:first-child h2 {
+  font-family:Inter,Arial,sans-serif!important;
+  font-size:54px!important;
+  line-height:1.14!important;
+  font-style:normal!important;
+  font-weight:850!important;
+  letter-spacing:-.035em!important;
+  text-wrap:balance!important;
+}
+@media(max-width:900px){
+  .overviewSection h2,
+  .workflow h2,
+  .featureStrip h2,
+  .detailHeading h2,
+  .valuesTitle,
+  .experienceBrandGroup>section:first-child h2 {font-size:38px!important}
+}
+@media(max-width:620px){
+  .overviewSection h2,
+  .workflow h2,
+  .featureStrip h2,
+  .detailHeading h2,
+  .valuesTitle,
+  .experienceBrandGroup>section:first-child h2 {font-size:31px!important}
+}
+
+/* Match the tighter vertical rhythm used across the solution family. */
+@media(min-width:901px){
+  .overviewSection{min-height:0!important;padding-top:52px!important;padding-bottom:52px!important}
+  .workflow{padding-top:52px;padding-bottom:58px}
+  .featureStrip{padding-top:52px;padding-bottom:60px}
+  .detailInner{padding-top:52px!important;padding-bottom:48px!important}
+  .valuesSection{padding-top:44px!important;padding-bottom:58px!important}
+}
+@media(max-width:900px){
+  .overviewSection{padding-top:48px!important;padding-bottom:48px!important}
+  .workflow,.featureStrip{padding-top:48px;padding-bottom:54px}
+  .valuesSection{padding-top:40px!important;padding-bottom:54px!important}
+}
+@media(max-width:620px){
+  .overviewSection{padding-top:42px!important;padding-bottom:44px!important}
+  .workflow,.featureStrip{padding-top:44px;padding-bottom:48px}
+  .valuesSection{padding-top:36px!important;padding-bottom:48px!important}
+}
