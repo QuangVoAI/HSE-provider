@@ -4,7 +4,6 @@ import { cloudflare } from "@cloudflare/vite-plugin";
 import { cdnAdapter } from "@vinext/cloudflare/cache/cdn-adapter";
 
 export default defineConfig({
-  publicDir: false,
   plugins: [
     vinext({
       cache: { cdn: cdnAdapter() },
