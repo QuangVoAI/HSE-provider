@@ -107,7 +107,8 @@
 .environmentalWorkflowHeading{display:flex!important;justify-content:center;text-align:center}
 .environmentalWorkflowHeading>div{align-items:center!important}
 .environmentalWorkflowHeading h2{max-width:1050px;font-size:54px!important;line-height:1.16!important;letter-spacing:-.035em!important;text-wrap:balance}
-.environmentalWorkflowVisual{height:410px!important;margin-top:42px!important}
+.environmentalWorkflowVisual{height:485px!important;margin-top:42px!important}
+.environmentalWorkflowVisual>svg:first-child{height:410px!important}
 .environmentalWorkflowNode{width:230px!important}
 .environmentalWorkflowBox{width:168px!important;height:154px!important;padding:16px 18px!important;border-radius:22px!important}
 .environmentalWorkflowNum{width:44px!important;height:44px!important;margin-bottom:12px!important;font-size:18px!important}

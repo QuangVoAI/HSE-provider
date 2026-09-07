@@ -1350,19 +1350,27 @@
 
 .valueCardDescription {
   position: absolute;
-  inset: 20px 22px;
+  inset: 24px;
   display: grid;
   place-items: center;
   margin: 0;
   color: #d4dce7;
-  font-size: 19px;
-  line-height: 1.55;
-  font-weight: 500;
+  font-size: clamp(21px, 1.45vw, 27px);
+  line-height: 1.42;
+  font-weight: 650;
   text-align: center;
   opacity: 0;
   transform: translateY(14px);
   transition: opacity 0.3s ease, transform 0.3s ease;
   pointer-events: none;
+}
+
+@media (min-width: 1001px) {
+  .valueCardDescription {
+    inset: 22px 20px;
+    width: calc(100% - 40px);
+    max-width: none;
+  }
 }
 
 .valueList article:hover .valueCardFront,

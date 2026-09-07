@@ -7,11 +7,12 @@ import styles from "./training-management.module.css";
 type TrainingExperienceProps = {
   title: string;
   slides: readonly { title: string; image: string }[];
+  locale?: "vi" | "en";
 };
 
 const healthAsset = (name: string) => `/assets/health-management/${name}`;
 
-export default function TrainingExperience({ title, slides }: TrainingExperienceProps) {
+export default function TrainingExperience({ title, slides, locale = title.startsWith("ELEVATING") ? "en" : "vi" }: TrainingExperienceProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
@@ -77,9 +78,9 @@ export default function TrainingExperience({ title, slides }: TrainingExperience
               role="button"
               tabIndex={0}
             />
-            <button type="button" className={healthStyles.imageInteractionHint} onClick={(event) => { event.stopPropagation(); setIsLightboxOpen(true); }} aria-label="Mở ảnh chi tiết toàn màn hình">
-              <span className={healthStyles.hintDesktop}>Bấm vào ảnh để xem chi tiết toàn màn hình</span>
-              <span className={healthStyles.hintMobile}>Chạm vào ảnh để xem chi tiết toàn màn hình</span>
+            <button type="button" className={healthStyles.imageInteractionHint} onClick={(event) => { event.stopPropagation(); setIsLightboxOpen(true); }} aria-label={locale === "en" ? "Open image full screen" : "Mở ảnh chi tiết toàn màn hình"}>
+              <span className={healthStyles.hintDesktop}>{locale === "en" ? "Click the image to view it full screen" : "Bấm vào ảnh để xem chi tiết toàn màn hình"}</span>
+              <span className={healthStyles.hintMobile}>{locale === "en" ? "Tap the image to view it full screen" : "Chạm vào ảnh để xem chi tiết toàn màn hình"}</span>
             </button>
           </div>
         </div>
