@@ -1,165 +1,205 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { VIETNAM_MOBILE_PATTERN } from "@/lib/lead-validation";
+import CustomerHeader from "../customers/customer-header";
+import BrandSignature from "../shared/brand-signature";
+import SiteFooter from "../shared/site-footer";
+import { getSolutionLinks } from "../shared/solution-links";
 import styles from "./csms.module.css";
 
+type Locale = "vi" | "en";
+
+const asset = (name: string) => `/assets/csms/${name}`;
+const figma = (name: string) => `/assets/csms/figma-vn/${name}`;
+
 const modules = [
-  ["Training", "Management", "module-training.svg"],
-  ["Risk", "Management", "module-risk.svg"],
-  ["Behavior-Based", "Safety", "module-behavior.svg"],
-  ["Health", "Management", "module-health.svg"],
-  ["High Risk Equipment", "Management", "module-equipment.svg"],
-  ["Occupational Hygiene", "Monitoring", "module-hygiene.svg"],
-  ["Contractor", "Management", "module-contractor.svg"],
-  ["Safety", "Culture", "module-culture.svg"],
-  ["Legal", "Compliance", "module-legal.svg"],
-  ["Chemical & Radiation", "Management", "module-chemical.svg"],
+  { icon: "training.png", vi: ["Quản lý", ["Huấn luyện"]], en: ["Training", ["Management"]], href: "/training-management" },
+  { icon: "risk.png", vi: ["Quản lý", ["Rủi ro"]], en: ["Risk", ["Management"]], href: "/risk-management" },
+  { icon: "behavior.png", vi: ["Báo cáo", ["Quan sát", "An toàn"]], en: ["Behavior-Based", ["Safety"]], href: "/safety-observation" },
+  { icon: "health.png", vi: ["Quản lý", ["Sức khỏe", "Nghề nghiệp"]], en: ["Health", ["Management"]], href: "/health-management" },
+  { icon: "equipment.png", vi: ["Quản lý", ["Thiết bị", "Rủi ro cao"]], en: ["High Risk", ["Equipment", "Management"]], href: "/equipment-management" },
+  { icon: "environment.png", vi: ["Quan trắc", ["Môi trường", "Lao động"]], en: ["Occupational", ["Hygiene", "Monitoring"]], href: "/environmental-management" },
+  { icon: "contractor.png", vi: ["Quản lý", ["Nhà thầu"]], en: ["Contractor", ["Management"]], href: "/contractor-management" },
+  { icon: "culture.png", vi: ["Đánh giá", ["Văn hóa", "An toàn"]], en: ["Safety", ["Culture"]], href: "/safety-culture" },
+  { icon: "legal.png", vi: ["Đánh giá", ["Tuân thủ", "Pháp luật"]], en: ["Legal", ["Compliance"]], href: "/legal-compliance" },
+  { icon: "chemical.png", vi: ["Quản lý", ["Hóa chất &", "Phóng xạ"]], en: ["Chemical & Radiation", ["Management"]], href: "/chemical-management" },
 ] as const;
 
 const customers = [
-  ["SCG", "customer-scg.png"], ["TEKCOM", "customer-tekcom.png"],
-  ["Heineken", "customer-heineken.png"], ["Savills", "customer-savills.png"],
-  ["Ajinomoto", "customer-ajinomoto.png"], ["Saint-Gobain", "customer-saint-gobain.png"],
-  ["First Solar", "customer-first-solar.png"], ["De Heus", "customer-de-heus.png"],
-  ["Suntory PepsiCo", "customer-suntory-pepsico.png"], ["Bosch", "customer-bosch.png"],
-  ["Fujikura", "customer-fujikura.png"], ["FrieslandCampina", "customer-frieslandcampina.png"],
+  ["SCG", "customer-scg.png"], ["TEKCOM", "customer-tekcom.png"], ["Heineken", "customer-heineken.png"],
+  ["Savills", "customer-savills.png"], ["Ajinomoto", "customer-ajinomoto.png"], ["Saint-Gobain", "customer-saint-gobain.png"],
+  ["First Solar", "customer-first-solar.png"], ["De Heus", "customer-de-heus.png"], ["Suntory PepsiCo", "customer-suntory-pepsico.png"],
+  ["Bosch", "customer-bosch.png"], ["Fujikura", "customer-fujikura.png"], ["FrieslandCampina", "customer-frieslandcampina.png"],
 ] as const;
 
-const asset = (name: string) => `/assets/csms/${name}`;
+const featureImages = [
+  {
+    src: "/assets/csms/figma-vn/workplace.png",
+    vi: "Chuyên viên an toàn tại nơi làm việc",
+    en: "Workplace safety professional",
+    position: "center",
+  },
+  {
+    src: "/assets/risk-management/risk-management-meeting.png",
+    vi: "Nhóm chuyên gia trao đổi về quản lý rủi ro",
+    en: "Specialists discussing risk management",
+    position: "center",
+  },
+  {
+    src: "/assets/health-management/hero-workplace-checkup-v3.png",
+    vi: "Khám sức khỏe nghề nghiệp tại nhà máy",
+    en: "Occupational health examination at a factory",
+    position: "68% center",
+  },
+  {
+    src: "/assets/contractor-management/hero-construction.png",
+    vi: "Giám sát an toàn tại công trường",
+    en: "Safety supervision at a construction site",
+    position: "center",
+  },
+] as const;
 
-function Logo({ footer = false }: { footer?: boolean }) {
-  return <img className={styles.logo} src={asset(footer ? "hse-provider-logo-footer.png" : "hse-provider-logo.png")} alt="HSE Provider" />;
-}
+const videos = [
+  {
+    id: "Mn9PsElz7cs",
+    vi: "HSE Lawsoft – Người bạn đồng hành của người làm HSE",
+    en: "HSE Lawsoft – Your companion for HSE management",
+  },
+  {
+    id: "TQBrve8ekV4",
+    vi: "SOR – Báo cáo quan sát an toàn tại nơi làm việc",
+    en: "SOR – Workplace safety observation reporting",
+  },
+  {
+    id: "lEV9_ikz0Ps",
+    vi: "VHAT – Thiết lập chiến dịch đánh giá văn hóa an toàn",
+    en: "VHAT – Set up a safety culture assessment campaign",
+    start: 1,
+  },
+  {
+    id: "E_afodd4d6U",
+    vi: "VHAT – Hướng dẫn đánh giá văn hóa an toàn",
+    en: "VHAT – Safety culture assessment guide",
+  },
+] as const;
+
+const translations = {
+  vi: {
+    utilityAddress: "Toà nhà Hà Nam, 26/5 Quốc lộ 13, TP.HCM",
+    language: "Ngôn ngữ", login: "Đăng nhập", overview: "Tổng quan", solutions: "Giải pháp",
+    customers: "Khách hàng", contact: "Liên hệ", demo: "Đăng ký demo", menu: "Mở menu",
+    heroTitle: "Hệ thống phần mềm Quản lý An toàn", tagline: "Sức khỏe – An toàn – Môi trường (HSE)",
+    heroAlt: "Đội ngũ an toàn tại nơi làm việc", coreTitle: "Tính năng Cốt lõi EHS", customersTitle: "Khách hàng của chúng tôi",
+    videoHeading: "Video giới thiệu & hướng dẫn", previousVideo: "Video trước", nextVideo: "Video tiếp theo", contactTitle: "Thông tin liên hệ",
+    addressLines: ["Toà nhà Hà Nam, 26/5 Quốc lộ 13,", "Khu phố Tây, Phường Lái Thiêu, TP.HCM"],
+    consultTitle: "Đăng ký tư vấn", consultText: "Vui lòng để lại thông tin. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.",
+    fullName: "Họ tên", fullNamePlaceholder: "Nguyễn Văn A", phone: "Số điện thoại", company: "Tên công ty", submitted: "Đã ghi nhận thông tin. Đội ngũ HSE Provider sẽ liên hệ với bạn sớm nhất.",
+    companyPlaceholder: "Tên doanh nghiệp", submit: "Gửi yêu cầu",
+    footerText: "Giải pháp phần mềm quản lý Sức khỏe, An toàn và Môi trường hàng đầu Việt Nam, giúp doanh nghiệp đạt chuẩn quốc tế.",
+    solutionHeading: "GIẢI PHÁP", companyHeading: "CÔNG TY", contactHeading: "LIÊN HỆ",
+    companyLinks: ["Về chúng tôi", "Khách hàng", "Blog & Tin tức", "Liên hệ"],
+    verified: "Đã xác thực ISO 27001", terms: "Điều khoản sử dụng", privacy: "Chính sách bảo mật",
+  },
+  en: {
+    utilityAddress: "Ha Nam Building, 26/5 National Highway 13, HCMC",
+    language: "Language", login: "Log in", overview: "Overview", solutions: "Solutions",
+    customers: "Customers", contact: "Contact", demo: "Book a demo", menu: "Open menu",
+    heroTitle: "Safety Management Software System", tagline: "Health – Safety – Environment (HSE)",
+    heroAlt: "Safety team at the workplace", coreTitle: "Core EHS Features", customersTitle: "Our Customers",
+    videoHeading: "Introduction & tutorial videos", previousVideo: "Previous video", nextVideo: "Next video", contactTitle: "Contact Information",
+    addressLines: ["Ha Nam Building, 26/5 National Highway 13, Lai Thieu Ward, Ho Chi Minh City"],
+    consultTitle: "Request a Consultation", consultText: "Leave your information and our team will contact you as soon as possible.",
+    fullName: "Full name", fullNamePlaceholder: "Your full name", phone: "Phone number", company: "Company name", submitted: "Your request has been recorded. The HSE Provider team will contact you soon.",
+    companyPlaceholder: "Your company", submit: "Submit request",
+    footerText: "A leading Health, Safety and Environment management software solution for Vietnamese businesses pursuing international standards.",
+    solutionHeading: "SOLUTIONS", companyHeading: "COMPANY", contactHeading: "CONTACT",
+    companyLinks: ["About Us", "Customers", "Blog & News", "Contact"],
+    verified: "ISO 27001 Verified", terms: "Terms of Use", privacy: "Privacy Policy",
+  },
+} as const;
 
 export default function CsmsOverview() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [locale, setLocale] = useState<Locale>("vi");
+  const [currentFeatureImage, setCurrentFeatureImage] = useState(0);
+  const [currentVideo, setCurrentVideo] = useState(0);
+  const [consultationSubmitted, setConsultationSubmitted] = useState(false);
+  const [consultationDemo, setConsultationDemo] = useState(false);
+  const [consultationSending, setConsultationSending] = useState(false);
+  const [consultationError, setConsultationError] = useState("");
+  const videoFrames = useRef<Array<HTMLIFrameElement | null>>([]);
+  const copy = translations[locale];
+  const footerSolutionLinks = getSolutionLinks(locale);
+  const pauseCurrentVideo = () => videoFrames.current[currentVideo]?.contentWindow?.postMessage(JSON.stringify({ event: "command", func: "pauseVideo", args: [] }), "*");
+  const showPreviousVideo = () => { pauseCurrentVideo(); setCurrentVideo((current) => (current - 1 + videos.length) % videos.length); };
+  const showNextVideo = () => { pauseCurrentVideo(); setCurrentVideo((current) => (current + 1) % videos.length); };
 
-  return (
-    <div className={styles.page} id="top">
-      <header className={styles.header}>
-        <div className={styles.utility}>
-          <div className={styles.utilityInner}>
-            <div className={styles.utilityGroup}>
-              <span><img src={asset("icon-location-utility.svg")} alt="" />Ha Nam Building, 26/5 National Highway 13, HCMC</span>
-              <span><img src={asset("icon-email-utility.svg")} alt="" />cskh@atld.vn - my@atld.vn</span>
-            </div>
-            <div className={styles.utilityGroup}>
-              <span><img src={asset("icon-language.svg")} alt="" />Language</span>
-              <span><img src={asset("icon-login.svg")} alt="" />Login</span>
-            </div>
+  useEffect(() => {
+    const requestedLocale = new URLSearchParams(window.location.search).get("lang");
+    if (requestedLocale === "vi" || requestedLocale === "en") {
+      setLocale(requestedLocale);
+    }
+  }, []);
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (reducedMotion.matches) return;
+
+    const interval = window.setInterval(() => {
+      setCurrentFeatureImage((current) => (current + 1) % featureImages.length);
+    }, 4500);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
+  return <div className={styles.page} id="top" lang={locale}>
+    <CustomerHeader locale={locale} active="overview" chrome="csms" localePath="/csms" />
+
+    <main className={styles.main}>
+      <section className={styles.hero}><div className={styles.heroCopy}><h1>CSMS</h1><h2>{copy.heroTitle}</h2><i /><p>{copy.tagline}</p><a href="https://qlat.1hse.vn/login">{copy.login}</a></div><div className={styles.heroImage}><img src={figma("hero.png")} alt={copy.heroAlt} /></div></section>
+
+      <section className={styles.core} id="solutions"><h2>{copy.coreTitle}</h2><div className={styles.coreContent}><div className={styles.moduleGrid}>{modules.map((module, index) => {
+        const [prefix, nameLines] = module[locale];
+        const name = nameLines.join(" ");
+        const destination = `${module.href}?lang=${locale}`;
+        return <a href={destination} id={`solution-${index + 1}`} className={styles.moduleCard} key={module.icon}><span className={styles.moduleIcon}><img src={asset(`module-icons/${module.icon}`)} alt={`${prefix} ${name}`} /></span><p><span>{prefix}</span><strong>{nameLines.map((line) => <span className={styles.moduleNameLine} key={line}>{line}</span>)}</strong></p></a>;
+      })}</div><div className={styles.workplace}>{featureImages.map((image, index) => <img className={index === currentFeatureImage ? styles.activeWorkplaceImage : ""} src={image.src} alt={image[locale]} style={{ objectPosition: image.position }} aria-hidden={index !== currentFeatureImage} key={image.src} />)}</div></div></section>
+
+      <section className={styles.customers} id="customers"><h2>{copy.customersTitle}</h2><div className={styles.logoGrid}>{customers.map(([name, image]) => <div data-logo={name.toLowerCase().replace(/[^a-z0-9]+/g, "-")} key={name}><img src={asset(image)} alt={name} /></div>)}</div></section>
+
+      <section className={styles.video} id="demo">
+        <h2>{copy.videoHeading}</h2>
+        <div className={styles.videoCarousel} tabIndex={0} onKeyDown={(event) => {
+          if (event.key === "ArrowLeft") showPreviousVideo();
+          if (event.key === "ArrowRight") showNextVideo();
+        }}>
+          <div className={styles.videoCard}>
+            {videos.map((item, index) => <iframe
+              className={index === currentVideo ? styles.activeVideo : ""}
+              ref={(frame) => { videoFrames.current[index] = frame; }}
+              src={`https://www.youtube-nocookie.com/embed/${item.id}?rel=0&enablejsapi=1${"start" in item ? `&start=${item.start}` : ""}`}
+              title={item[locale]}
+              loading="eager"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              aria-hidden={index !== currentVideo}
+              tabIndex={index === currentVideo ? 0 : -1}
+              key={item.id}
+            />)}
+            <button className={`${styles.videoArrow} ${styles.videoArrowPrevious}`} type="button" onClick={showPreviousVideo} aria-label={copy.previousVideo}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 5-7 7 7 7" /></svg></button>
+            <button className={`${styles.videoArrow} ${styles.videoArrowNext}`} type="button" onClick={showNextVideo} aria-label={copy.nextVideo}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 5 7 7-7 7" /></svg></button>
           </div>
         </div>
-        <div className={styles.navbar}>
-          <a href="#top" aria-label="HSE Provider home"><Logo /></a>
-          <nav className={styles.desktopNav} aria-label="Main navigation">
-            <a className={styles.active} href="#top">Overview</a>
-            <a href="#solutions">Solutions</a>
-            <a href="#customers">Customers</a>
-            <a href="#contact">Contact</a>
-          </nav>
-          <div className={styles.navActions}>
-            <a href="tel:+842812345678">+84 28 1234 5678</a>
-            <a className={styles.demoButton} href="#contact">Schedule a demo</a>
-          </div>
-          <button className={styles.menuButton} type="button" aria-label="Open menu" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
-            <span /><span /><span />
-          </button>
-        </div>
-        {menuOpen && (
-          <nav className={styles.mobileMenu} aria-label="Mobile navigation">
-            {[["Overview", "#top"], ["Solutions", "#solutions"], ["Customers", "#customers"], ["Contact", "#contact"]].map(([label, href]) => (
-              <a key={label} href={href} onClick={() => setMenuOpen(false)}>{label}</a>
-            ))}
-            <div className={styles.mobileRule} />
-            <span>English</span><span>Login</span>
-            <a className={styles.mobileDemo} href="#contact" onClick={() => setMenuOpen(false)}>Request a Demo</a>
-            <a className={styles.mobilePhone} href="tel:+842812345678">+84 28 1234 5678</a>
-          </nav>
-        )}
-      </header>
+      </section>
 
-      <main className={styles.main}>
-        <section className={styles.hero}>
-          <div className={styles.heroCopy}>
-            <span className={styles.eyebrow}>HSE Provider / CSMS</span>
-            <h1><em>Safety, made<br />operational.</em><span>One connected system for Health, Safety and Environment teams.</span></h1>
-            <i className={styles.blueLine} />
-            <p>Health – Safety – Environment (HSE)</p>
-            <a className={styles.signIn} href="#contact">Talk to our team <b>→</b></a>
-            <div className={styles.mobileHeroActions}>
-              <a href="#contact">Talk to our team</a><a href="#solutions">Explore features</a>
-            </div>
-          </div>
-          <div className={styles.heroImage}><img src={asset("hero-workplace.jpg")} alt="Safety professionals in a workplace" /><span>Built for the field</span></div>
-        </section>
+      <section className={styles.contact} id="contact"><div className={styles.contactCard}>
+        <aside><h2>{copy.contactTitle}</h2><p><img src={asset("icon-location.svg")} alt="" /><span>{copy.addressLines[0]}<br />{copy.addressLines[1]}</span></p><p><img src={asset("icon-email.svg")} alt="" /><span>duy@atld.vn<br />kimlinh@atld.vn</span></p><p><img src={asset("icon-phone.svg")} alt="" /><span className={styles.contactPhoneList}><span>0917-267-397 (Mr. Linh)</span><span>0944-220-601 (Mr. Duy)</span><span>0345-062-815 (Ms. My)</span></span></p></aside>
+        <form onSubmit={async (event) => { event.preventDefault(); setConsultationSending(true); setConsultationError(""); const form = event.currentTarget; const values = Object.fromEntries(new FormData(form).entries()); try { const response = await fetch("/api/leads", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...values, locale, requestType: "consultation", source: "csms-page" }) }); if (!response.ok) throw new Error("lead_failed"); const result = await response.json() as { demo?: boolean }; setConsultationDemo(Boolean(result.demo)); setConsultationSubmitted(true); form.reset(); } catch { setConsultationError(locale === "vi" ? "Không thể gửi yêu cầu lúc này. Vui lòng thử lại sau." : "We could not send your request. Please try again."); } finally { setConsultationSending(false); } }}><div className={styles.formIntro}><h2>{copy.consultTitle}</h2><p>{copy.consultText}</p>{consultationSubmitted && <p role="status" className={styles.formSuccess}>{consultationDemo ? (locale === "vi" ? "Đã gửi thử thành công. Đây là bản demo nên thông tin không được lưu." : "Demo submission successful. Your information was not stored.") : copy.submitted}</p>}{consultationError && <p role="alert" className={styles.formError}>{consultationError}</p>}</div><div className={styles.formFields}><label>{copy.fullName}<input required minLength={2} maxLength={100} name="name" autoComplete="name" placeholder={copy.fullNamePlaceholder} /></label><label>Email<input required maxLength={254} name="email" type="email" autoComplete="email" placeholder="email@company.com" /></label><label>{copy.phone}<span className={styles.requiredMark} aria-hidden="true">*</span><input required name="phone" type="tel" inputMode="tel" autoComplete="tel" pattern={VIETNAM_MOBILE_PATTERN} title={locale === "vi" ? "Nhập số di động Việt Nam, ví dụ 0917 267 397 hoặc +84 917 267 397" : "Enter a Vietnamese mobile number, for example 0917 267 397 or +84 917 267 397"} placeholder="0900 000 000" /></label><label>{copy.company}<input maxLength={150} name="company" autoComplete="organization" placeholder={copy.companyPlaceholder} /></label><label className={styles.formMessage}>{locale === "vi" ? "Nội dung yêu cầu" : "Message"}<textarea required minLength={5} maxLength={2000} name="message" placeholder={locale === "vi" ? "Bạn cần hỗ trợ điều gì?" : "How can we help?"} /></label></div><button type="submit" disabled={consultationSending}>{consultationSending ? (locale === "vi" ? "ĐANG GỬI..." : "SENDING...") : copy.submit}</button></form>
+      </div></section>
+      <BrandSignature locale={locale}/>
+    </main>
 
-        <section className={styles.core} id="solutions">
-          <div className={styles.sectionIntro}><span>01 / Product capabilities</span><h2>Core functions for<br />every HSE workflow.</h2><p>Clear ownership, consistent processes and the operational visibility teams need each day.</p></div>
-          <div className={styles.coreContent}>
-            <div className={styles.moduleGrid}>
-              {modules.map(([title, subtitle, icon]) => (
-                <article className={styles.moduleCard} key={title + subtitle}>
-                  <span className={styles.moduleIcon}><img src={asset(icon)} alt="" /></span>
-                  <div><h3>{title}</h3><p>{subtitle}</p></div>
-                  <span className={styles.chevron} aria-hidden="true">›</span>
-                </article>
-              ))}
-            </div>
-            <div className={styles.coreImage}><img src={asset("core-workplace.jpg")} alt="Engineers and safety officers in an industrial workplace" /><p>One platform. Every site.</p></div>
-          </div>
-        </section>
-
-        <section className={styles.customers} id="customers">
-          <div className={styles.contentWidth}>
-            <div className={styles.sectionHeader}><span>02 / Trusted across industry</span><h2>Teams that put safety to work.</h2></div>
-            <div className={styles.logoGrid}>
-              {customers.map(([name, image]) => <div className={styles.logoTile} key={name}><img src={asset(image)} alt={name} /></div>)}
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.compliance}>
-          <div className={styles.complianceCopy}><span>03 / See CSMS in action</span><h2>Confidence comes from clarity.</h2><p>See how a connected HSE workflow can make day-to-day safety work easier to manage.</p><a className={styles.textLink} href="#contact">Request a tailored walkthrough <b>→</b></a></div>
-          <div className={styles.guideVisual}>
-            <img src={asset("product-guide.jpg")} alt="HSE product guide preview" />
-            <button type="button" className={styles.playButton} aria-label="Play user guide"><img src={asset("icon-play.svg")} alt="" /></button>
-            <div className={styles.guideLabel}><span>CSMS walkthrough</span><strong>Watch the overview</strong></div>
-          </div>
-        </section>
-
-        <section className={styles.contact} id="contact">
-          <div className={styles.contactCard}>
-            <aside className={styles.office}>
-              <span>Start a conversation</span><h2>Talk to an<br />HSE specialist.</h2>
-              <p><img src={asset("icon-location.svg")} alt="" />Ha Nam Building, 26/5 National Highway 13, Tay Quarter, Lai Thieu Ward, Ho Chi Minh City</p>
-              <p><img src={asset("icon-email.svg")} alt="" />duy@atld.vn - kimlinh@atld.vn</p>
-              <p className={styles.phoneList}><img src={asset("icon-phone.svg")} alt="" /><span>0917-267-397 (Mr.Linh)<br />0944-220-601 (Mr.Duy)<br />0345-062-815 (Ms.My)</span></p>
-            </aside>
-            <form className={styles.form} onSubmit={(event) => event.preventDefault()}>
-              <p>Tell us a little about your team and we&apos;ll help you find the right next step.</p>
-              <label><span>Name</span><input aria-label="Name" /></label>
-              <label><span>Email</span><input aria-label="Email" type="email" /></label>
-              <label><span>Phone</span><input aria-label="Phone" type="tel" /></label>
-              <label><span>Company name</span><input aria-label="Company name" /></label>
-              <button type="submit">Submit</button>
-            </form>
-          </div>
-        </section>
-      </main>
-
-      <footer className={styles.footer}>
-        <div className={styles.footerGrid}>
-          <div className={styles.footerBrand}>
-            <Logo footer />
-            <p>Vietnam&apos;s leading Health, Safety, and Environmental digital management software platform. Helping businesses achieve international standards.</p>
-            <div className={styles.socials}>{[1, 2, 3].map((n) => <span key={n}><img src={asset(`icon-social-${n}.svg`)} alt="" /></span>)}</div>
-          </div>
-          <div><h3>Solutions</h3><a href="#solutions">Risk Management</a><a href="#solutions">Occupational Safety</a><a href="#solutions">Health Management</a><a href="#solutions">Environment (ESG)</a></div>
-          <div><h3>Company</h3><a href="#top">About Us</a><a href="#customers">Customers</a><a href="#top">Blog & News</a><a href="#contact">Contact</a></div>
-          <div><h3>Contact</h3><p><img src={asset("icon-location.svg")} alt="" />Ha Nam Building, 26/5 National Highway 13, Tay Quarter, Lai Thieu Ward, Ho Chi Minh City</p><p><img src={asset("icon-email-footer.svg")} alt="" />duy@atld.vn - kimlinh@atld.vn</p><p><img src={asset("icon-phone.svg")} alt="" />0917-267-397 (Mr.Linh)<br />0944-220-601 (Mr.Duy)<br />0345-062-815 (Ms.My)</p><p><img src={asset("icon-certification.svg")} alt="" />ISO 27001 Certified</p></div>
-        </div>
-        <div className={styles.footerBottom}><span>© 2025 HSE Provider. All rights reserved.</span><span>Terms of Service&nbsp;&nbsp;&nbsp;&nbsp; Privacy Policy</span></div>
-      </footer>
-    </div>
-  );
+    <SiteFooter locale={locale}/>
+  </div>;
 }

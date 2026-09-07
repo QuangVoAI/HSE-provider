@@ -1,0 +1,8 @@
+.section{position:relative;z-index:2;width:min(1680px,calc(100% - 48px));height:clamp(390px,34vw,500px);margin:0 auto;display:grid;place-items:center;overflow:hidden;border-radius:54px 54px 0 0;background:#d9edf7;isolation:isolate}
+.backdrop{position:absolute;z-index:-2;inset:0;background:linear-gradient(rgba(32,117,176,.08),rgba(32,117,176,.08)),url('/assets/contractor-management/brand-construction-blue-hour.png') center 58%/cover no-repeat;transform:scale(1.025)}
+.section:after{content:"";position:absolute;z-index:-1;inset:0;background:radial-gradient(ellipse 36% 62% at 50% 45%,rgba(240,248,252,.9),rgba(236,246,251,.58) 36%,rgba(230,243,249,.16) 60%,transparent 77%)}
+.content{width:min(850px,calc(100% - 48px));display:flex;align-items:center;justify-content:center;text-align:center}
+.content img{display:block;width:min(580px,100%);height:auto;object-fit:contain;filter:drop-shadow(0 10px 24px rgba(0,33,70,.32))}
+@media(max-width:900px){.section{width:calc(100% - 32px);height:clamp(350px,54vw,440px);border-radius:38px 38px 0 0}.content img{width:min(560px,96%)}}
+@media(max-width:620px){.section{width:calc(100% - 20px);height:clamp(230px,68vw,290px);border-radius:26px 26px 0 0}.content{width:calc(100% - 32px)}.content img{width:min(360px,100%);filter:drop-shadow(0 7px 18px rgba(0,33,70,.3))}}
+@media(min-width:1800px){.section{width:calc(100% - 48px)}}
