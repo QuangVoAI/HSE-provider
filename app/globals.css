@@ -83,7 +83,7 @@ img {
 .hse-module-page .hse-module-hero {
   position: relative !important;
   width: min(1680px, calc(100% - 48px)) !important;
-  height: clamp(380px, 30vw, 864px) !important;
+  height: clamp(380px, 30vw, 500px) !important;
   min-height: 0 !important;
   margin: 0 auto !important;
   overflow: hidden !important;
@@ -97,7 +97,9 @@ img {
 
 @media (min-width: 901px) {
   .hse-module-page.hse-module-page .hse-module-hero.hse-module-hero {
-    height: clamp(380px, 30vw, 864px) !important;
+    width: min(1680px, calc(100% - 48px)) !important;
+    max-width: 1680px !important;
+    height: clamp(380px, 30vw, 500px) !important;
   }
 }
 
@@ -146,13 +148,6 @@ img {
   .hse-module-page .hse-module-hero {
     height: 400px !important;
     border-radius: 0 0 72px 72px !important;
-  }
-}
-
-@media (min-width: 1800px) {
-  .hse-module-page.hse-module-page .hse-module-hero {
-    width: calc(100% - 48px) !important;
-    max-width: none !important;
   }
 }
 
