@@ -83,7 +83,7 @@ img {
 .hse-module-page .hse-module-hero {
   position: relative !important;
   width: min(1680px, calc(100% - 48px)) !important;
-  height: clamp(380px, 30vw, 500px) !important;
+  height: clamp(380px, 30vw, 864px) !important;
   min-height: 0 !important;
   margin: 0 auto !important;
   overflow: hidden !important;
@@ -93,6 +93,12 @@ img {
   background-repeat: no-repeat;
   background-position: center 48%;
   background-size: cover;
+}
+
+@media (min-width: 901px) {
+  .hse-module-page.hse-module-page .hse-module-hero.hse-module-hero {
+    height: clamp(380px, 30vw, 864px) !important;
+  }
 }
 
 .hse-module-page .hse-module-hero-title {
