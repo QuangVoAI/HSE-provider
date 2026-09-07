@@ -38,6 +38,18 @@
   text-decoration: none;
 }
 
+/* CustomerHeader is fixed; keep this page's shared module hero aligned with
+   the same header offset used by the other solution pages. */
+.moduleMain {
+  padding-top: 132px;
+}
+
+@media (max-width: 900px) {
+  .moduleMain {
+    padding-top: 76px;
+  }
+}
+
 .header {
   position: relative;
   z-index: 20;

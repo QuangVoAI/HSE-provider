@@ -24,6 +24,8 @@ import {
   Wind,
 } from "lucide-react";
 import styles from "./health-management.module.css";
+import trainingStyles from "../training-management/training-management.module.css";
+import riskStyles from "../risk-management/risk-management.module.css";
 import BrandSignature from "../shared/brand-signature";
 import CustomerHeader from "../customers/customer-header";
 import SiteFooter from "../shared/site-footer";
@@ -216,13 +218,29 @@ export default function HealthManagementPage() {
   return <div className={`${styles.page} hse-module-page`} lang={locale}>
     <CustomerHeader locale={locale} active="solutions" chrome="csms" localePath="/health-management" />
 
-    <main id="top">
-      <section className={`${styles.hero} hse-module-hero`}>
-        <div className={styles.heroBackdrop}>{localizedHeroSlides.map(([image, alt], index) => <img key={image} className={index === heroSlide ? styles.activeHeroImage : ""} src={hm(image)} alt={index === heroSlide ? alt : ""} />)}</div>
-        <div className={styles.heroInner}>
-          <div className={`${styles.heroCopy} hse-module-hero-title`}>
-            <h1>{pageCopy.heroTitle}{pageCopy.heroAccent ? <> <em>{pageCopy.heroAccent}</em></> : null}</h1>
-          </div>
+    <main id="top" className={styles.moduleMain}>
+      <section
+        className={`${trainingStyles.hero} ${riskStyles.hero} hse-module-hero`}
+        style={{ backgroundImage: `url(${hm(localizedHeroSlides[heroSlide][0])})` }}
+        aria-label={localizedHeroSlides[heroSlide][1]}
+      >
+        <div className={`${trainingStyles.heroOverlay} ${riskStyles.heroOverlay}`} />
+        <div
+          className={`${trainingStyles.heroCopy} hse-module-hero-title`}
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "0 24px",
+            textAlign: "center",
+          }}
+        >
+          <h1 style={{ width: "100%", maxWidth: 1050, margin: 0, textAlign: "center" }}>
+            {pageCopy.heroTitle}{pageCopy.heroAccent ? <> <em>{pageCopy.heroAccent}</em></> : null}
+          </h1>
         </div>
       </section>
 
