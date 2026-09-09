@@ -103,7 +103,7 @@ export default async function TrainingManagementPage({ searchParams }: { searchP
         </div>
       </section>
       <section className={`${healthStyles.features} ${riskStyles.valuesSection}`} aria-labelledby="training-values-title"><div className={`${healthStyles.container} ${riskStyles.valuesContainer}`}>
-        <h2 className={`${healthStyles.featuresCenterTitle} ${riskStyles.valuesTitle}`} id="training-values-title">{t.valueTitle}</h2>
+        <h2 className={`${healthStyles.featuresCenterTitle} ${riskStyles.valuesTitle} ${styles.trainingValuesTitle}`} id="training-values-title">{t.valueTitle}</h2>
         <div className={`${healthStyles.featureTimeline} ${riskStyles.valuesGrid}`}>
           {t.values.map((item,index)=>{const Icon=valueIcons[index];return <article className={`${healthStyles.featureCard} ${riskStyles.valueCard}`} key={item[0]} tabIndex={0}>
             <img src={valueImages[index]} alt="" className={healthStyles.featureCardBg}/>
