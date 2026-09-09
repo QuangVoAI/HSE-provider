@@ -35,7 +35,7 @@ const copy = {
       "Phân hệ tập trung thông tin người lao động, khóa đào tạo và toàn bộ nội dung học tập. Người dùng có thể tải lên tài liệu, video, bài giảng e-learning và bài kiểm tra; người lao động đăng nhập để hoàn thành các khóa đào tạo trực tuyến được phân công.",
       "Lịch đào tạo, thông báo nhắc nhở, tiến độ học tập, kết quả và báo cáo được quản lý trong một quy trình thống nhất, giúp doanh nghiệp dễ dàng theo dõi năng lực nhân sự và duy trì hồ sơ đào tạo sẵn sàng cho công tác kiểm tra tuân thủ.",
     ], detailDemo:"Đăng ký demo", detailContact:"Liên hệ tư vấn",
-    valueTag:"GIÁ TRỊ MANG LẠI", valueTitle:"Giá trị nền tảng quản lý đào tạo", values:[
+    valueTag:"GIÁ TRỊ MANG LẠI", valueTitle:"Giá trị nền tảng quản lý huấn luyện", values:[
       ["Phát triển lực lượng lao động","Nâng cao nhận thức và kỹ năng cho mọi nhân viên"],["Tuân thủ pháp luật & tiêu chuẩn","Đáp ứng yêu cầu về hồ sơ đào tạo ATVSLĐ"],["Tăng cường an toàn nơi làm việc","Giảm thiểu nguy cơ tai nạn lao động và bệnh nghề nghiệp"],["Tối ưu hóa hiệu quả & năng suất","Rút ngắn thời gian quản lý hồ sơ và tổng hợp báo cáo"]
     ],
     ctaTag:"BẮT ĐẦU NGAY HÔM NAY", ctaTitle:"Nâng cao năng lực nhân sự\nXây dựng văn hóa an toàn bền vững", consult:"Đăng ký tư vấn", document:"Tài liệu giải pháp",

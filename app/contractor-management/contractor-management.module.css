@@ -1,4 +1,4 @@
-.page{--contractor-blue:#075bb9;--contractor-navy:#071b31;background:#fff;font-family:var(--font-inter),Arial,sans-serif}
+.page{--contractor-blue:#075bb9;--contractor-navy:#071b31;background:#fff!important;font-family:var(--font-inter),Arial,sans-serif}
 .hero{width:min(1680px,calc(100% - 48px));height:clamp(380px,30vw,500px);border-radius:0 0 88px 88px}
 .heroImage{object-position:center 42%!important;filter:saturate(.9) contrast(1.02)}
 .heroTitle{padding:0 32px;font-size:clamp(48px,5.2vw,76px)!important;line-height:1.06!important;text-wrap:balance}
@@ -80,7 +80,7 @@
 .detailContent p{padding:30px 0!important;color:#35576d!important;font-size:20px!important;line-height:1.65!important}
 .detailContent strong{margin-bottom:10px!important;color:#071b31!important;font-size:24px!important;line-height:1.35!important}
 .detailActions{margin-top:38px!important;gap:20px!important}
-.detailActions a{min-width:248px!important;padding:16px 28px!important;font-size:16px!important}
+.detailActions a{min-width:248px!important;padding:16px 28px!important;color:#fff!important;font-size:16px!important}
 .valuesSection{position:relative;margin-top:-28px;padding:52px 20px 76px!important;background:#f2fafb!important}
 .valuesContainer{width:1680px!important;max-width:calc(100vw - 40px)!important;margin:0 auto!important}
 .valuesTitle{margin:0 0 48px!important;font-size:54px!important;line-height:1.14!important;font-weight:850!important;letter-spacing:-.035em!important}
