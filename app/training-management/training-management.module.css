@@ -493,11 +493,13 @@
 .trainingExperience { padding-bottom:88px!important; margin-bottom:88px!important; }
 .page .trainingExperience { padding-bottom:88px!important; margin-bottom:88px!important; }
 
-/* Use a supported fixed Inter weight so stacked Vietnamese tone marks remain
-   distinct instead of merging at the synthetic 850 weight. */
+/* Reserve vertical ink space for stacked Vietnamese accents (ề, ấ).
+   The shared 1.14 line-height cuts off their upper tone marks. */
 .page .trainingValuesTitle {
   font-weight:800!important;
   letter-spacing:-.02em!important;
+  line-height:1.3!important;
+  padding-block:.12em;
 }
 .trainingExperience .experienceViewer { margin-top:30px!important; padding-top:18px!important; }
 .trainingExperience .experienceViewerCaption { margin:0 0 14px!important; color:#17324f; font-size:17px!important; line-height:1.4; font-weight:800; text-align:left; }
