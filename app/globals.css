@@ -148,7 +148,9 @@ input {
 
 @media (prefers-reduced-motion: reduce) {
   :where(button, a) { transition: none !important; }
-  [class*="mobileSolutionMenu"] { animation: none !important; }
+  [class*="mobileSolutionMenu"],
+  [class*="mobileMenuBackdrop"],
+  [class*="mobileMenu"] { animation: none !important; }
   .scrollToTopButton,
   button[class*="menuButton"] i,
   button[class*="mobileHeaderLanguageButton"] b,
