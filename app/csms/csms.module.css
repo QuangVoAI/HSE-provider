@@ -303,7 +303,7 @@
   .main { padding-top: 68px; }
   .hero { width: calc(100% - 24px); margin: 12px auto 0; border: 1px solid rgba(0,89,192,.1); border-radius: 22px; box-shadow: 0 12px 28px rgba(11,47,74,.11); }
   .heroCopy { padding: 24px 20px 22px; }
-  .heroCopy h1 { margin-bottom: 8px; font-size: 38px; line-height: 42px; letter-spacing: -.7px; }
+  .heroCopy h1 { margin-bottom: 8px; font-size: 36px; line-height: 40px; letter-spacing: -.6px; }
   .heroCopy h2 { max-width: 100%; margin-bottom: 8px; font-size: 18px; line-height: 24px; white-space: normal; text-wrap: balance; }
   .heroCopy i { width: 42px; height: 3px; margin: 2px 0 12px; }
   .heroCopy p { margin-bottom: 18px; font-size: 15px; line-height: 21px; }
@@ -311,7 +311,7 @@
   .heroImage { height: 194px; }
   .heroImage img { object-position: 52% center; }
   .core { padding: 34px 12px 30px; }
-  .core > h2, .customers > h2, .video > h2 { margin-bottom: 22px; font-size: 22px; line-height: 28px; }
+  .core > h2, .customers > h2, .video > h2 { margin-bottom: 20px; font-size: 21px; line-height: 27px; }
   .moduleGrid { grid-template-columns: 1fr; gap: 8px; }
   .moduleCard { min-height: 76px; padding: 5px; }
   .moduleIcon { width: 62px; height: 62px; }
@@ -322,7 +322,7 @@
   .moduleCard:nth-child(2):hover .moduleIcon img,
   .moduleCard:nth-child(5):hover .moduleIcon img { transform: scale(1.16); }
   .moduleCard p > span, .page[lang="en"] .moduleCard p > span { font-size: 12px; line-height: 16px; }
-  .moduleCard p strong, .page[lang="en"] .moduleCard p strong { font-size: 19px; line-height: 22px; }
+  .moduleCard p strong, .page[lang="en"] .moduleCard p strong { font-size: 18px; line-height: 21px; }
   .workplace { height: 230px; }
   .customers { padding: 38px 0 40px; }
   .logoGrid { max-width: calc(100% - 28px); padding: 0; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px 14px; }
