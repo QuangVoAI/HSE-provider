@@ -3052,3 +3052,43 @@
   .page .experienceBrandGroup .experienceViewer { margin-top:24px!important; padding-top:12px!important; }
   .page .experienceBrandGroup .experienceViewerCaption { margin-bottom:10px!important; padding:0 2px; font-size:14px!important; }
 }
+
+/* Compact the health value cards on narrow screens. Keep the same visual
+   language while placing the icon and copy on one line to avoid oversized
+   empty cards on phones. */
+@media (max-width:620px) {
+  .page .value { padding: 40px 0 44px !important; }
+  .page .valueIntro { margin-bottom: 20px; padding: 0 18px; }
+  .page .valueIntro h2 { font-size: 30px !important; line-height: 1.12 !important; }
+  .page .valueList { gap: 12px; padding: 0 16px; }
+  .page .valueList article {
+    min-height: 0 !important;
+    height: auto;
+    padding: 18px 16px !important;
+    border-radius: 20px;
+    display: block;
+  }
+  .page .valueCardFront {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 14px;
+    text-align: left;
+  }
+  .page .valueIconWrapper { width: 56px !important; height: 56px !important; flex-basis: 56px; border-radius: 15px; }
+  .page .valueIconWrapper svg { width: 30px !important; height: 30px !important; }
+  .page .valueList h3 {
+    min-height: 0;
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+    text-align: left;
+    place-items: initial;
+  }
+  .page .valueTitleLine { white-space: normal; }
+  .page .valueCardDescription {
+    margin: 12px 0 0 70px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    text-align: left;
+  }
+}
