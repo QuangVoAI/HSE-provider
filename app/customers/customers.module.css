@@ -160,11 +160,11 @@
   .utility,.desktopNav,.navbar > .demoButton { display:none; }
   .navbar { width:100%; max-width:none; height:76px; padding:0 20px; }
   .logo { width:205px; height:76px; }
-  .mobileHeaderActions { margin-left:auto; display:flex; align-items:center; gap:4px; }
+  .mobileHeaderActions { margin-left:auto; display:flex; align-items:center; gap:2px; }
   .mobileHeaderLanguagePicker { position:relative; }
-  .mobileHeaderLanguageButton { min-width:126px; height:44px; padding:0 7px; display:flex; align-items:center; justify-content:center; gap:7px; border:1px solid #d4e4f2; border-radius:12px; background:#f4f8fc; color:#005994; font-size:13px; font-weight:800; white-space:nowrap; cursor:pointer; touch-action:manipulation; }
-  .mobileHeaderLanguageButton:active,.mobileHeaderLanguageButton[aria-expanded="true"] { background:#edf5fc; }
-  .mobileHeaderLanguageButton img { width:28px; height:28px; padding:6px; border-radius:50%; background:#0065b3; box-shadow:0 3px 9px rgba(0,89,148,.24); }
+  .mobileHeaderLanguageButton { min-width:120px; height:44px; padding:0 5px; display:flex; align-items:center; justify-content:center; gap:7px; border:0; border-radius:9px; background:transparent; color:#005994; font-size:13px; font-weight:700; white-space:nowrap; cursor:pointer; touch-action:manipulation; }
+  .mobileHeaderLanguageButton:hover,.mobileHeaderLanguageButton:active,.mobileHeaderLanguageButton[aria-expanded="true"] { background:#edf5fc; }
+  .mobileHeaderLanguageButton img { width:24px; height:24px; padding:5px; border-radius:50%; background:#0065b3; box-shadow:none; }
   .mobileHeaderLanguageButton b { width:7px; height:7px; margin-top:-4px; border-right:2px solid currentColor; border-bottom:2px solid currentColor; transform:rotate(45deg); }
   .mobileHeaderLanguageButton[aria-expanded="true"] b { margin-top:4px; transform:rotate(225deg); }
   .mobileHeaderLanguageMenu { position:absolute; z-index:102; top:48px; right:0; width:132px; padding:6px; border:1px solid #d9e4ee; border-radius:9px; background:#fff; box-shadow:0 12px 28px rgba(0,29,53,.18); }
@@ -255,6 +255,6 @@
 @media(max-width:360px){
   .navbar { padding-inline:max(12px,env(safe-area-inset-left)); }
   .logo { width:120px; }
-  .mobileHeaderLanguageButton { min-width:120px; padding-inline:5px; }
+  .mobileHeaderLanguageButton { min-width:116px; padding-inline:3px; }
 }
 @media(prefers-reduced-motion:reduce){.page *{scroll-behavior:auto!important;transition:none!important}.logoGrid img{transition:none}.testimonials::before,.testimonials::after,.selectingLanguage,.mobileLanguageMenu{animation:none}.testimonialSection,.testimonialCopy,.testimonialBrand,.testimonialBrand img{transition:none}}
