@@ -48,7 +48,7 @@ export default function ContactForm({ locale }: { locale: "vi" | "en" }) {
       <label><span className={styles.labelText}>{vi ? "Email công việc" : "Work email"}<em>*</em></span><input required maxLength={254} name="email" autoComplete="email" type="email" placeholder="name@company.com" /></label>
       <label><span className={styles.labelText}>{vi ? "Số điện thoại" : "Phone number"}<em>*</em></span><input required name="phone" autoComplete="tel" type="tel" inputMode="tel" pattern={VIETNAM_MOBILE_PATTERN} title={vi ? "Nhập số di động Việt Nam, ví dụ 0917 267 397 hoặc +84 917 267 397" : "Enter a Vietnamese mobile number, for example 0917 267 397 or +84 917 267 397"} placeholder={vi ? "0917 267 397" : "0917 267 397"} /></label>
     </div>
-    <div className={styles.formRow}>
+    <div className={`${styles.formRow} ${styles.scheduleRow}`}>
       <label><span className={styles.labelText}>{vi ? "Ngày muốn tư vấn" : "Preferred date"}</span><input name="preferredDate" type="date" min={minimumDate} /></label>
       <label><span className={styles.labelText}>{vi ? "Khung giờ mong muốn" : "Preferred time"}</span><input name="preferredTime" type="time" /></label>
     </div>
