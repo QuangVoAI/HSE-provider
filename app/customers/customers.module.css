@@ -128,6 +128,7 @@
 .logoTile[data-logo="first-solar"] { --logo-scale:1.08; --logo-hover-scale:1.16; }
 .logoTile img { width:210px; max-width:100%; height:108px; object-fit:contain; transform:scale(var(--logo-scale)); transform-origin:center; transition:transform .26s ease,filter .26s ease; }
 .logoTile:hover img { transform:translateY(-6px) scale(var(--logo-hover-scale)); filter:drop-shadow(0 10px 14px rgba(0,47,91,.18)); }
+.logoMarquee { display:none; }
 
 .footer { padding:68px 40px 28px; color:rgba(255,255,255,.78); background:#063a64; }
 .footerInner { width:1400px; max-width:100%; margin:auto; }
@@ -267,6 +268,14 @@
   .logoGrid { max-width:calc(100% - 28px); padding:0; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px 14px; }
   .logoTile { height:82px; }
   .logoTile img { width:140px; height:72px; }
+  .logoGrid { display:none; }
+  .logoMarquee { width:100%; display:grid; gap:10px; overflow:hidden; -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent); mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent); }
+  .logoMarqueeRow { width:max-content; display:flex; align-items:center; gap:14px; animation:logoMarqueeForward 26s linear infinite; }
+  .logoMarqueeRowReverse { animation-name:logoMarqueeReverse; animation-duration:30s; }
+  .logoMarqueeTile { width:132px; height:68px; flex:none; display:grid; place-items:center; border:1px solid rgba(183,204,230,.6); border-radius:13px; background:rgba(255,255,255,.72); box-shadow:0 5px 14px rgba(23,68,111,.06); }
+  .logoMarqueeTile img { width:112px; height:54px; object-fit:contain; }
+  @keyframes logoMarqueeForward { from { transform:translateX(0); } to { transform:translateX(calc(-50% - 7px)); } }
+  @keyframes logoMarqueeReverse { from { transform:translateX(calc(-50% - 7px)); } to { transform:translateX(0); } }
   .footer { padding:48px 24px 24px; }
   .footerInner { width:100%; }
   .footerGrid { grid-template-columns:1fr; gap:34px; }
@@ -278,4 +287,4 @@
   .logo { width:120px; }
   .mobileHeaderLanguageButton { min-width:76px; padding-inline:4px; }
 }
-@media(prefers-reduced-motion:reduce){.page *{scroll-behavior:auto!important;transition:none!important}.logoGrid img{transition:none}.testimonials::before,.testimonials::after,.selectingLanguage,.mobileLanguageMenu{animation:none}.testimonialSection,.testimonialCopy,.testimonialBrand,.testimonialBrand img{transition:none}}
+@media(prefers-reduced-motion:reduce){.page *{scroll-behavior:auto!important;transition:none!important}.logoGrid img{transition:none}.logoMarqueeRow{animation:none}.testimonials::before,.testimonials::after,.selectingLanguage,.mobileLanguageMenu{animation:none}.testimonialSection,.testimonialCopy,.testimonialBrand,.testimonialBrand img{transition:none}}
