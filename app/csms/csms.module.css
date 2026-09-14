@@ -322,14 +322,14 @@
   .footer a { min-height: 44px; display: inline-flex; align-items: center; }
   .footer .socials a { width: 44px; height: 44px; min-height: 44px; justify-content: center; }
   .main { padding-top: 68px; }
-  .hero { width: calc(100% - 24px); margin: 12px auto 0; border: 1px solid rgba(0,89,192,.1); border-radius: 22px; box-shadow: 0 12px 28px rgba(11,47,74,.11); }
-  .heroCopy { padding: 24px 20px 22px; }
-  .heroCopy h1 { margin-bottom: 8px; font-size: 36px; line-height: 40px; letter-spacing: -.6px; }
-  .heroCopy h2 { max-width: 100%; margin-bottom: 8px; font-size: 18px; line-height: 24px; white-space: normal; text-wrap: balance; }
-  .heroCopy i { width: 42px; height: 3px; margin: 2px 0 12px; }
-  .heroCopy p { margin-bottom: 18px; font-size: 15px; line-height: 21px; }
-  .heroCopy a { width: 164px; height: 46px; padding: 10px 16px; border-radius: 10px; font-size: 15px; }
-  .heroImage { height: 194px; }
+  .hero { width: calc(100% - 24px); height:220px; margin: 12px auto 0; border: 1px solid rgba(0,89,192,.1); border-radius: 22px; box-shadow: 0 12px 28px rgba(11,47,74,.11); }
+  .heroCopy { height:145px; padding: 10px 18px; }
+  .heroCopy h1 { margin-bottom: 3px; font-size: 28px; line-height: 30px; letter-spacing: -.45px; }
+  .heroCopy h2 { max-width: 100%; margin-bottom: 3px; font-size: 14px; line-height: 18px; white-space: normal; text-wrap: balance; }
+  .heroCopy i { width: 34px; height: 2px; margin: 1px 0 5px; }
+  .heroCopy p { margin-bottom: 6px; font-size: 11px; line-height: 16px; }
+  .heroCopy a { width: 142px; height: 34px; padding: 7px 12px; border-radius: 8px; font-size: 12px; }
+  .heroImage { height:75px; }
   .heroImage img { object-position: 52% center; }
   .core { padding: 34px 12px 30px; }
   .core > h2, .customers > h2, .video > h2 { margin-bottom: 20px; font-size: 21px; line-height: 27px; }
