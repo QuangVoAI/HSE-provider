@@ -71,7 +71,7 @@
 .demoButton { padding: 9px 20px; border-radius: 8px; background: var(--navy); color: #fff !important; font-size: 17px; font-weight: 800; letter-spacing: .025em; text-transform: uppercase; transition: transform .2s, background .2s, box-shadow .2s; }
 .demoButton:hover { transform: translateY(-2px); background: #06436e; box-shadow: 0 8px 18px rgba(0,29,53,.22); }
 .demoButton:active { transform: translateY(0) scale(.97); }
-.menuButton, .mobileMenu, .mobileMenuBackdrop { display: none; }
+.menuButton, .mobileMenu, .mobileMenuBackdrop, .mobileHeaderActions { display: none; }
 
 .main { padding-top: 160px; }
 .hero { width: 1184px; max-width: calc(100% - 48px); height: 429px; margin: auto; display: grid; grid-template-columns: 568px 1fr; overflow: hidden; border: 1px solid rgba(192,199,211,.3); border-radius: 32px; background: #fff; box-shadow: 0 10px 40px rgba(0,0,0,.08); }
@@ -206,6 +206,16 @@
   .utility, .desktopNav, .navbar > .demoButton { display: none; }
   .navbar { width: 100%; max-width: none; height: 76px; padding: 0 20px; }
   .logo { width: 205px; height: 76px; }
+  .mobileHeaderActions { margin-left: auto; display: flex; align-items: center; gap: 4px; }
+  .mobileHeaderLanguagePicker { position: relative; }
+  .mobileHeaderLanguageButton { min-width: 56px; height: 44px; padding: 0 8px; display: flex; align-items: center; justify-content: center; gap: 6px; border: 0; border-radius: 10px; background: transparent; color: #005994; font-size: 14px; font-weight: 800; cursor: pointer; touch-action: manipulation; }
+  .mobileHeaderLanguageButton:active, .mobileHeaderLanguageButton[aria-expanded="true"] { background: #edf5fc; }
+  .mobileHeaderLanguageButton img { width: 17px; height: 17px; }
+  .mobileHeaderLanguageButton b { width: 7px; height: 7px; margin-top: -4px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); }
+  .mobileHeaderLanguageButton[aria-expanded="true"] b { margin-top: 4px; transform: rotate(225deg); }
+  .mobileHeaderLanguageMenu { position: absolute; z-index: 102; top: 48px; right: 0; width: 132px; padding: 6px; border: 1px solid #d9e4ee; border-radius: 9px; background: #fff; box-shadow: 0 12px 28px rgba(0,29,53,.18); }
+  .mobileHeaderLanguageMenu button { width: 100%; min-height: 44px; padding: 9px 10px; border: 0; border-radius: 6px; background: transparent; color: #314b5f; font-size: 13px; text-align: left; cursor: pointer; }
+  .mobileHeaderLanguageMenu button:hover, .mobileHeaderLanguageMenu .selectedLanguage { background: #edf5fc; color: #0065b3; font-weight: 700; }
   .menuButton { width: 42px; height: 42px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; border: 0; border-radius: 8px; background: transparent; transition: transform .2s, background .2s; }
   .menuButton:active { transform: scale(.94); background: #edf5fc; }
   .menuButton i { display: block; width: 24px; height: 2px; background: var(--navy); }
@@ -281,7 +291,7 @@
 
 @media (max-width: 600px) {
   .navbar { height: 68px; padding: 0 max(18px,env(safe-area-inset-right)) 0 max(18px,env(safe-area-inset-left)); }
-  .logo { width: 185px; height: 68px; }
+  .logo { width: 172px; height: 68px; }
   .menuButton { position: relative; z-index: 101; width: 44px; height: 44px; padding: 0; touch-action: manipulation; -webkit-appearance: none; -webkit-tap-highlight-color: transparent; }
   .menuButton i { width: 22px; }
   .mobileMenu { top: 68px; max-height: calc(100vh - 68px); max-height: calc(100dvh - 68px); }
@@ -292,34 +302,34 @@
   .footer .socials a { width: 44px; height: 44px; min-height: 44px; justify-content: center; }
   .main { padding-top: 68px; }
   .hero { width: calc(100% - 24px); margin: 12px auto 0; border: 1px solid rgba(0,89,192,.1); border-radius: 22px; box-shadow: 0 12px 28px rgba(11,47,74,.11); }
-  .heroCopy { padding: 30px 24px 28px; }
-  .heroCopy h1 { margin-bottom: 10px; font-size: 44px; line-height: 48px; letter-spacing: -1px; }
-  .heroCopy h2 { max-width: 100%; margin-bottom: 10px; font-size: 21px; line-height: 28px; white-space: normal; text-wrap: balance; }
-  .heroCopy i { width: 48px; height: 3px; margin: 2px 0 14px; }
-  .heroCopy p { margin-bottom: 22px; font-size: 17px; line-height: 24px; }
-  .heroCopy a { width: 180px; height: 48px; padding: 11px 18px; border-radius: 10px; font-size: 17px; }
-  .heroImage { height: 218px; }
+  .heroCopy { padding: 24px 20px 22px; }
+  .heroCopy h1 { margin-bottom: 8px; font-size: 38px; line-height: 42px; letter-spacing: -.7px; }
+  .heroCopy h2 { max-width: 100%; margin-bottom: 8px; font-size: 18px; line-height: 24px; white-space: normal; text-wrap: balance; }
+  .heroCopy i { width: 42px; height: 3px; margin: 2px 0 12px; }
+  .heroCopy p { margin-bottom: 18px; font-size: 15px; line-height: 21px; }
+  .heroCopy a { width: 164px; height: 46px; padding: 10px 16px; border-radius: 10px; font-size: 15px; }
+  .heroImage { height: 194px; }
   .heroImage img { object-position: 52% center; }
-  .core { padding: 44px 14px 40px; }
-  .core > h2, .customers > h2, .video > h2 { margin-bottom: 28px; font-size: 24px; line-height: 31px; }
-  .moduleGrid { grid-template-columns: 1fr; gap: 10px; }
-  .moduleCard { min-height: 86px; }
-  .moduleIcon { width: 70px; height: 70px; }
+  .core { padding: 34px 12px 30px; }
+  .core > h2, .customers > h2, .video > h2 { margin-bottom: 22px; font-size: 22px; line-height: 28px; }
+  .moduleGrid { grid-template-columns: 1fr; gap: 8px; }
+  .moduleCard { min-height: 76px; padding: 5px; }
+  .moduleIcon { width: 62px; height: 62px; }
   .moduleIcon img { transform: scale(1.22); }
   .moduleCard:hover .moduleIcon img { transform: scale(1.28); }
   .moduleCard:nth-child(2) .moduleIcon img,
   .moduleCard:nth-child(5) .moduleIcon img { transform: scale(1.1); }
   .moduleCard:nth-child(2):hover .moduleIcon img,
   .moduleCard:nth-child(5):hover .moduleIcon img { transform: scale(1.16); }
-  .moduleCard p > span, .page[lang="en"] .moduleCard p > span { font-size: 14px; line-height: 18px; }
-  .moduleCard p strong, .page[lang="en"] .moduleCard p strong { font-size: 22px; line-height: 24px; }
-  .workplace { height: 280px; }
-  .customers { padding: 48px 0 50px; }
+  .moduleCard p > span, .page[lang="en"] .moduleCard p > span { font-size: 12px; line-height: 16px; }
+  .moduleCard p strong, .page[lang="en"] .moduleCard p strong { font-size: 19px; line-height: 22px; }
+  .workplace { height: 230px; }
+  .customers { padding: 38px 0 40px; }
   .logoGrid { max-width: calc(100% - 28px); padding: 0; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px 14px; }
   .logoGrid > div { height: 82px; }
   .logoGrid img { width: 140px; height: 72px; }
   .videoCarousel { border-radius: 14px; }
-  .videoArrow { width: 40px; height: 40px; font-size: 21px; }
+  .videoArrow { width: 44px; height: 44px; font-size: 21px; touch-action: manipulation; }
   .videoArrowPrevious { left: 8px; }
   .videoArrowNext { right: 8px; }
   .formFields { grid-template-columns: 1fr; gap: 16px; }

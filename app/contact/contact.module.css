@@ -21,5 +21,6 @@
 .contactExperience>.contactSection{padding-bottom:48px}.contactExperience>*{position:relative;z-index:1}
 @media(max-width:820px){.contactExperience:before{width:180vw;background-size:180vw 100%;animation-duration:17s}.contactExperience:after{width:190vw;background-size:190vw 100%;animation-duration:23s}}
 @media(max-width:620px){.contactExperience>.contactSection{padding-bottom:36px}}
+@media(max-width:620px){.info a{min-height:44px;display:inline-flex;align-items:center}.emailLine{display:flex;flex-wrap:wrap;align-items:center;column-gap:8px}.phoneList{gap:2px}.phoneList a{padding:7px 0}}
 @media(prefers-reduced-motion:reduce){.form input,.form textarea,.form button{transition:none}.contactExperience:before,.contactExperience:after{animation:none}}
 .error{margin:0;padding:11px 14px;border-radius:8px;color:#9f1239;background:#fff1f2;font-size:14px;line-height:20px}

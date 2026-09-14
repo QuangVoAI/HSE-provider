@@ -165,6 +165,9 @@ img {
   .hse-module-page.hse-module-page .hse-module-hero .hse-module-hero-title h1 {
     font-size: 38px !important;
     line-height: 1.1 !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none;
   }
 }
 

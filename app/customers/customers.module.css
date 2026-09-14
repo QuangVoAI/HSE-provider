@@ -48,7 +48,7 @@
 .demoButton { padding:8px 20px; border-radius:8px; background:var(--navy); color:#fff!important; font-size:16px; font-weight:800; letter-spacing:.025em; text-transform:uppercase; transition:transform .2s,background .2s,box-shadow .2s; }
 .demoButton:hover { transform:translateY(-2px); background:#06436e; box-shadow:0 8px 18px rgba(0,29,53,.22); }
 .demoButton:active { transform:translateY(0) scale(.97); }
-.menuButton,.mobileMenu,.mobileMenuBackdrop { display:none; }
+.menuButton,.mobileMenu,.mobileMenuBackdrop,.mobileHeaderActions { display:none; }
 .navButton,.primaryButton,.secondaryButton { min-height:48px; padding:0 40px; display:inline-flex; align-items:center; justify-content:center; border-radius:8px; font-size:16px; font-weight:700; text-transform:uppercase; transition:transform .2s ease,box-shadow .2s ease; }
 .navButton { min-height:40px; padding:0 20px; color:#fff!important; background:var(--deep); }
 .primaryButton { color:#fff!important; background:var(--blue); box-shadow:0 8px 16px rgba(0,89,148,.18); }
@@ -160,6 +160,16 @@
   .utility,.desktopNav,.navbar > .demoButton { display:none; }
   .navbar { width:100%; max-width:none; height:76px; padding:0 20px; }
   .logo { width:205px; height:76px; }
+  .mobileHeaderActions { margin-left:auto; display:flex; align-items:center; gap:4px; }
+  .mobileHeaderLanguagePicker { position:relative; }
+  .mobileHeaderLanguageButton { min-width:56px; height:44px; padding:0 8px; display:flex; align-items:center; justify-content:center; gap:6px; border:0; border-radius:10px; background:transparent; color:#005994; font-size:14px; font-weight:800; cursor:pointer; touch-action:manipulation; }
+  .mobileHeaderLanguageButton:active,.mobileHeaderLanguageButton[aria-expanded="true"] { background:#edf5fc; }
+  .mobileHeaderLanguageButton img { width:17px; height:17px; }
+  .mobileHeaderLanguageButton b { width:7px; height:7px; margin-top:-4px; border-right:2px solid currentColor; border-bottom:2px solid currentColor; transform:rotate(45deg); }
+  .mobileHeaderLanguageButton[aria-expanded="true"] b { margin-top:4px; transform:rotate(225deg); }
+  .mobileHeaderLanguageMenu { position:absolute; z-index:102; top:48px; right:0; width:132px; padding:6px; border:1px solid #d9e4ee; border-radius:9px; background:#fff; box-shadow:0 12px 28px rgba(0,29,53,.18); }
+  .mobileHeaderLanguageMenu button { width:100%; min-height:44px; padding:9px 10px; border:0; border-radius:6px; background:transparent; color:#314b5f; font-size:13px; text-align:left; cursor:pointer; }
+  .mobileHeaderLanguageMenu button:hover,.mobileHeaderLanguageMenu .selectedLanguage { background:#edf5fc; color:#0065b3; font-weight:700; }
   .menuButton { width:42px; height:42px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; border:0; border-radius:8px; background:transparent; transition:transform .2s,background .2s; }
   .menuButton:active { transform:scale(.94); background:#edf5fc; }
   .menuButton i { display:block; width:24px; height:2px; background:var(--navy); }
@@ -197,7 +207,7 @@
 @media(max-width:620px){
   .main { padding-top:68px; }
   .navbar { height:68px; padding:0 max(18px,env(safe-area-inset-right)) 0 max(18px,env(safe-area-inset-left)); }
-  .logo { width:185px; height:68px; }
+  .logo { width:172px; height:68px; }
   .menuButton { width:44px; height:44px; }
   .mobileMenu { top:68px; max-height:calc(100vh - 68px); max-height:calc(100dvh - 68px); }
   .mobileMenuBackdrop { inset:68px 0 0; }

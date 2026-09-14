@@ -23,9 +23,9 @@
   .experienceViewer { margin-top:26px; padding:8px 8px 10px; border-radius:14px; }
   .experienceImageFrame { border-radius:8px; }
   .experienceImage { max-height:68vh; }
-  .experienceViewerNav { width:36px; height:48px; margin-top:-32px; border-radius:10px; font-size:32px; }
-  .experienceViewerPrev { left:14px; }
-  .experienceViewerNext { right:14px; }
+  .experienceViewerNav { width:44px; height:48px; margin-top:-32px; border-radius:12px; font-size:32px; touch-action:manipulation; }
+  .experienceViewerPrev { left:10px; }
+  .experienceViewerNext { right:10px; }
   .experienceViewerCaption { margin-top:9px; padding:0 8px; font-size:12px; }
 }
 
