@@ -7,7 +7,7 @@ export default function BrandSignature({ locale }: { locale: Locale }) {
   return <section className={styles.section} id="brand-signature" aria-label={label}>
     <div className={styles.backdrop}/>
     <div className={styles.content}>
-      <img src="/assets/shared/hse-provider-logo-color.png" alt="HSE Provider"/>
+    <img src="/assets/shared/hse-provider-logo-color.png" alt="HSE Provider" loading="lazy" decoding="async"/>
     </div>
   </section>;
 }

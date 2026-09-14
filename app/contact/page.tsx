@@ -23,7 +23,7 @@ export default async function ContactPage({searchParams}:{searchParams:Promise<R
   const companyLinks=locale==="vi"?["Về chúng tôi","Khách hàng","Blog & Tin tức","Liên hệ"]:["About Us","Customers","Blog & News","Contact"];
   return <div className={styles.page} lang={locale} id="top"><CustomerHeader locale={locale} active="contact" chrome="csms" />
     <main>
-      <section className={styles.hero}><img src="/assets/contact/contact-hero.png" alt="" /><div/><div className={styles.heroCopy}><h1>{t.hero}</h1></div></section>
+      <section className={styles.hero}><img src="/assets/contact/contact-hero.png" alt="" fetchPriority="high" decoding="async" /><div/><div className={styles.heroCopy}><h1>{t.hero}</h1></div></section>
       <div className={styles.contactExperience}>
       <section className={styles.contactSection}><header><h2>{t.title}</h2></header><div className={styles.contactGrid}>
         <aside><div className={styles.officeIntro}><h3>{t.office}</h3></div><div className={styles.info}><img src="/assets/contact/icon-location.svg" alt=""/><div><b>{t.address}</b><p>{t.addressText}</p></div></div><div className={styles.info}><img src="/assets/contact/icon-email.svg" alt=""/><div><b>Email</b><p className={styles.emailLine}><a href="mailto:duy@atld.vn">duy@atld.vn</a><span>-</span><a href="mailto:kimlinh@atld.vn">kimlinh@atld.vn</a></p></div></div><div className={styles.info}><img src="/assets/contact/icon-phone.svg" alt=""/><div><b>{t.hotline}</b><p className={styles.phoneList}><a href="tel:+84917267397"><span>0917-267-397</span><small>Mr. Linh</small></a><a href="tel:+84944220601"><span>0944-220-601</span><small>Mr. Duy</small></a><a href="tel:+84345062815"><span>0345-062-815</span><small>Ms. My</small></a></p></div></div></aside>

@@ -106,7 +106,7 @@ export default async function TrainingManagementPage({ searchParams }: { searchP
         <h2 className={`${healthStyles.featuresCenterTitle} ${riskStyles.valuesTitle} ${styles.trainingValuesTitle}`} id="training-values-title">{t.valueTitle}</h2>
         <div className={`${healthStyles.featureTimeline} ${riskStyles.valuesGrid}`}>
           {t.values.map((item,index)=>{const Icon=valueIcons[index];return <article className={`${healthStyles.featureCard} ${riskStyles.valueCard}`} key={item[0]} tabIndex={0}>
-            <img src={valueImages[index]} alt="" className={healthStyles.featureCardBg}/>
+            <img src={valueImages[index]} alt="" className={healthStyles.featureCardBg} loading="lazy" decoding="async"/>
             <div className={healthStyles.featureCardOverlay}/>
             <div className={`${healthStyles.featureCardIcon} ${riskStyles.valueIcon}`}><Icon aria-hidden="true" strokeWidth={1.5}/></div>
             <h3>{item[0]}</h3>

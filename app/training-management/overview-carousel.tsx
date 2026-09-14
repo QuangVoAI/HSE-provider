@@ -43,7 +43,7 @@ export default function OverviewCarousel({ images, label, autoPlayMs = 4500 }: {
     onTouchCancel={finishSwipe}
   >
     <div className={styles.overviewSlides} style={{ transform:`translateX(-${active * 100}%)` }}>
-      {images.map((image,index) => <img src={image} alt={`${label} ${index + 1}`} key={image}/>) }
+      {images.map((image,index) => <img src={image} alt={`${label} ${index + 1}`} loading={index === 0 ? "eager" : "lazy"} decoding="async" key={image}/>) }
     </div>
     {images.length > 1 ? <>
       <button type="button" className={`${styles.overviewArrow} ${styles.overviewArrowLeft}`} aria-label="Previous" onClick={() => setActive((active - 1 + images.length) % images.length)}>‹</button>

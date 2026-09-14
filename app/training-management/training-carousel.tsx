@@ -16,7 +16,7 @@ export default function TrainingCarousel({ slides, previous, next }: { slides: T
   return <div className={styles.carousel}>
     <div className={styles.carouselViewport}>
       <div className={styles.carouselTrack} style={{ transform: `translateX(-${active * 100}%)` }}>
-        {slides.map((slide) => <figure key={slide.title}><img src={slide.image} alt={slide.title}/><figcaption>{slide.title}</figcaption></figure>)}
+        {slides.map((slide, index) => <figure key={slide.title}><img src={slide.image} alt={slide.title} loading={index === 0 ? "eager" : "lazy"} decoding="async"/><figcaption>{slide.title}</figcaption></figure>)}
       </div>
     </div>
     <button className={`${styles.carouselArrow} ${styles.carouselPrevious}`} aria-label={previous} onClick={() => setActive((active - 1 + slides.length) % slides.length)}>‹</button>

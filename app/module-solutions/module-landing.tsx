@@ -185,7 +185,7 @@ export default function ModuleLanding({ config, locale }: { config: ModulePageCo
           <div className={`${healthStyles.featureTimeline} ${riskStyles.valuesGrid}`}>{copy.values.map((value,index) => {
           const Icon = valueIcons[index];
           return <article className={`${healthStyles.featureCard} ${riskStyles.valueCard}`} key={value.title} tabIndex={0}>
-            <img className={healthStyles.featureCardBg} src={valueImages[index]} alt=""/>
+            <img className={healthStyles.featureCardBg} src={valueImages[index]} alt="" loading="lazy" decoding="async"/>
             <div className={healthStyles.featureCardOverlay}/>
             <div className={`${healthStyles.featureCardIcon} ${riskStyles.valueIcon}`}><Icon aria-hidden="true" strokeWidth={1.5}/></div>
             <h3>{config.slug === "safety-observation" ? safetyValueLabels[index] : value.title}</h3>

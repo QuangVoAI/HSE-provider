@@ -156,16 +156,16 @@ export default function CsmsOverview() {
     <CustomerHeader locale={locale} active="overview" chrome="csms" localePath="/csms" />
 
     <main className={styles.main}>
-      <section className={styles.hero}><div className={styles.heroCopy}><h1>CSMS</h1><h2>{copy.heroTitle}</h2><i /><p>{copy.tagline}</p><a href="https://qlat.1hse.vn/login">{copy.login}</a></div><div className={styles.heroImage}><img src={figma("hero.png")} alt={copy.heroAlt} /></div></section>
+      <section className={styles.hero}><div className={styles.heroCopy}><h1>CSMS</h1><h2>{copy.heroTitle}</h2><i /><p>{copy.tagline}</p><a href="https://qlat.1hse.vn/login">{copy.login}</a></div><div className={styles.heroImage}><img src={figma("hero.png")} alt={copy.heroAlt} fetchPriority="high" decoding="async" /></div></section>
 
       <section className={styles.core} id="solutions"><h2>{copy.coreTitle}</h2><div className={styles.coreContent}><div className={styles.moduleGrid}>{modules.map((module, index) => {
         const [prefix, nameLines] = module[locale];
         const name = nameLines.join(" ");
         const destination = `${module.href}?lang=${locale}`;
-        return <a href={destination} id={`solution-${index + 1}`} className={styles.moduleCard} key={module.icon}><span className={styles.moduleIcon}><img src={asset(`module-icons/${module.icon}`)} alt={`${prefix} ${name}`} /></span><p><span>{prefix}</span><strong>{nameLines.map((line) => <span className={styles.moduleNameLine} key={line}>{line}</span>)}</strong></p></a>;
-      })}</div><div className={styles.workplace}>{featureImages.map((image, index) => <img className={index === currentFeatureImage ? styles.activeWorkplaceImage : ""} src={image.src} alt={image[locale]} style={{ objectPosition: image.position }} aria-hidden={index !== currentFeatureImage} key={image.src} />)}</div></div></section>
+        return <a href={destination} id={`solution-${index + 1}`} className={styles.moduleCard} key={module.icon}><span className={styles.moduleIcon}><img src={asset(`module-icons/${module.icon}`)} alt={`${prefix} ${name}`} loading="lazy" decoding="async" /></span><p><span>{prefix}</span><strong>{nameLines.map((line) => <span className={styles.moduleNameLine} key={line}>{line}</span>)}</strong></p></a>;
+      })}</div><div className={styles.workplace}>{featureImages.map((image, index) => <img className={index === currentFeatureImage ? styles.activeWorkplaceImage : ""} src={image.src} alt={image[locale]} style={{ objectPosition: image.position }} aria-hidden={index !== currentFeatureImage} loading="lazy" decoding="async" key={image.src} />)}</div></div></section>
 
-      <section className={styles.customers} id="customers"><h2>{copy.customersTitle}</h2><div className={styles.logoGrid}>{customers.map(([name, image]) => <div data-logo={name.toLowerCase().replace(/[^a-z0-9]+/g, "-")} key={name}><img src={asset(image)} alt={name} /></div>)}</div><div className={styles.logoMarquee} aria-label={copy.customersTitle}>{[customers.slice(0, 6), customers.slice(6)].map((row, rowIndex) => <div className={`${styles.logoMarqueeRow} ${rowIndex === 1 ? styles.logoMarqueeRowReverse : ""}`} key={rowIndex}>{[...row, ...row].map(([name, image], index) => <div className={styles.logoMarqueeTile} key={`${name}-${index}`}><img src={asset(image)} alt={index < row.length ? name : ""} aria-hidden={index >= row.length ? "true" : undefined} /></div>)}</div>)}</div></section>
+      <section className={styles.customers} id="customers"><h2>{copy.customersTitle}</h2><div className={styles.logoGrid}>{customers.map(([name, image]) => <div data-logo={name.toLowerCase().replace(/[^a-z0-9]+/g, "-")} key={name}><img src={asset(image)} alt={name} loading="lazy" decoding="async" /></div>)}</div><div className={styles.logoMarquee} aria-label={copy.customersTitle}>{[customers.slice(0, 6), customers.slice(6)].map((row, rowIndex) => <div className={`${styles.logoMarqueeRow} ${rowIndex === 1 ? styles.logoMarqueeRowReverse : ""}`} key={rowIndex}>{[...row, ...row].map(([name, image], index) => <div className={styles.logoMarqueeTile} key={`${name}-${index}`}><img src={asset(image)} alt={index < row.length ? name : ""} aria-hidden={index >= row.length ? "true" : undefined} loading="lazy" decoding="async" /></div>)}</div>)}</div></section>
 
       <section className={styles.video} id="demo">
         <h2>{copy.videoHeading}</h2>
@@ -174,19 +174,17 @@ export default function CsmsOverview() {
           if (event.key === "ArrowRight") showNextVideo();
         }}>
           <div className={styles.videoCard}>
-            {videos.map((item, index) => <iframe
-              className={index === currentVideo ? styles.activeVideo : ""}
+            {videos.map((item, index) => index === currentVideo ? <iframe
+              className={styles.activeVideo}
               ref={(frame) => { videoFrames.current[index] = frame; }}
               src={`https://www.youtube-nocookie.com/embed/${item.id}?rel=0&enablejsapi=1${"start" in item ? `&start=${item.start}` : ""}`}
               title={item[locale]}
-              loading="eager"
+              loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
-              aria-hidden={index !== currentVideo}
-              tabIndex={index === currentVideo ? 0 : -1}
               key={item.id}
-            />)}
+            /> : null)}
             <button className={`${styles.videoArrow} ${styles.videoArrowPrevious}`} type="button" onClick={showPreviousVideo} aria-label={copy.previousVideo}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 5-7 7 7 7" /></svg></button>
             <button className={`${styles.videoArrow} ${styles.videoArrowNext}`} type="button" onClick={showNextVideo} aria-label={copy.nextVideo}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 5 7 7-7 7" /></svg></button>
           </div>
