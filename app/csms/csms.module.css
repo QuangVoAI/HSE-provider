@@ -204,8 +204,25 @@
 .footerContact img { width: 22px; height: 22px; flex: none; object-fit: contain; filter: brightness(0) invert(1); opacity: .78; }
 .footerBottom { width: 1400px; max-width: 100%; margin: 48px auto 0; padding-top: 28px; display: flex; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.12); font-size: 14px; }
 
+/* Keep the two-row customer marquee visually balanced when source artwork has
+   different transparent canvases and aspect ratios. */
+@media (max-width: 600px) {
+  .logoMarqueeTile[data-logo="heineken"] img,
+  .logoMarqueeTile[data-logo="tekcom"] img,
+  .logoMarqueeTile[data-logo="first-solar"] img,
+  .logoMarqueeTile[data-logo="saint-gobain"] img,
+  .logoMarqueeTile[data-logo="savills"] img { transform: scale(1.22); }
+  .logoMarqueeTile[data-logo="ajinomoto"] img,
+  .logoMarqueeTile[data-logo="frieslandcampina"] img { transform: scale(1.08); }
+  .logoMarqueeTile[data-logo="heineken"] img,
+  .logoMarqueeTile[data-logo="tekcom"] img,
+  .logoMarqueeTile[data-logo="first-solar"] img,
+  .logoMarqueeTile[data-logo="saint-gobain"] img,
+  .logoMarqueeTile[data-logo="savills"] img { width: 170px; height: 70px; }
+}
+
 @media (max-width: 900px) {
-  .page { padding-bottom:84px; }
+  .page { padding-bottom:0; }
   .mobileQuickNav { position:fixed; z-index:90; left:10px; right:10px; bottom:max(10px,env(safe-area-inset-bottom)); min-height:64px; padding:7px 6px; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:2px; border:1px solid rgba(124,166,202,.38); border-radius:18px; background:rgba(255,255,255,.92); box-shadow:0 12px 30px rgba(8,44,76,.2),inset 0 1px 0 rgba(255,255,255,.9); -webkit-backdrop-filter:blur(16px) saturate(1.18); backdrop-filter:blur(16px) saturate(1.18); }
   .mobileQuickNav a { min-width:0; min-height:50px; padding:5px 2px 4px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; border-radius:12px; color:#547087; font-size:10px; line-height:13px; font-weight:750; text-align:center; transition:color .25s ease,background .25s ease,transform .25s ease; }
   .mobileQuickNav a svg { width:19px; height:19px; stroke-width:2; }
@@ -379,14 +396,14 @@
   .contact input { height: 46px; margin-top: 6px; padding: 0 13px; font-size: 15px; }
   .formMessage textarea { min-height: 96px; margin-top: 6px; padding: 11px 13px; font-size: 15px; line-height: 21px; }
   .contact button { width: 100%; height: 48px; margin-top: 20px; font-size: 14px; }
-  .footer { padding: 38px 20px 20px; }
-  .footerGrid { grid-template-columns: 1fr; gap: 28px; }
+  .footer { padding: 26px 20px 14px; }
+  .footerGrid { grid-template-columns: 1fr; gap: 16px; }
   .footerGrid > div:not(:first-child) { gap: 0; }
-  .footerLogo { width: 190px; }
-  .footerGrid p { font-size: 15px; line-height: 23px; }
-  .footerBrand > p { margin-top: 12px; }
+  .footerLogo { width: 176px; }
+  .footerGrid p { font-size: 14px; line-height: 21px; }
+  .footerBrand > p { margin-top: 8px; }
   .footer h3 { margin-bottom: 8px; font-size: 16px; line-height: 22px; }
-  .footer a { font-size: 15px; line-height: 20px; }
+  .footer a { min-height: 38px; font-size: 14px; line-height: 19px; }
   .footerSolutions h3 { display: none; }
   .footerSolutionsToggle { width: 100%; min-height: 44px; padding: 0; display: flex; align-items: center; justify-content: space-between; border: 0; border-bottom: 1px solid rgba(255,255,255,.16); color: #fff; background: transparent; font: inherit; font-size: 16px; line-height: 22px; font-weight: 750; letter-spacing: .08em; text-align: left; cursor: pointer; }
   .footerSolutionsToggle b { width: 8px; height: 8px; margin: -4px 4px 0 0; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); transition: transform .3s ease, margin .3s ease; }
@@ -397,7 +414,7 @@
   .footerContact { gap: 12px !important; }
   .footerContact p { width: 100%; gap: 10px; overflow-wrap: anywhere; }
   .footerContact img { width: 19px; height: 19px; }
-  .footerBottom { margin-top: 30px; padding-top: 20px; gap: 10px; font-size: 12px; line-height: 18px; }
+  .footerBottom { margin-top: 18px; padding-top: 14px; gap: 8px; font-size: 12px; line-height: 18px; }
 }
 
 @media (max-width: 360px) {

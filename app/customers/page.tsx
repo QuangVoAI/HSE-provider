@@ -119,7 +119,7 @@ export default async function CustomersPage({
 
       <section className={styles.logoWall} aria-labelledby="customer-logo-title"><div className={styles.logoWallInner}><h2 id="customer-logo-title">{copy.logoTitle}</h2><div className={styles.logoGrid}>
         {customers.map(([name, image]) => <div className={styles.logoTile} data-logo={name.toLowerCase().replace(/[^a-z0-9]+/g, "-")} key={name}><img src={csms(image)} alt={name} loading="lazy" decoding="async" /></div>)}
-      </div><div className={styles.logoMarquee} aria-label={copy.logoTitle}>{[customers.slice(0, 6), customers.slice(6)].map((row, rowIndex) => <div className={`${styles.logoMarqueeRow} ${rowIndex === 1 ? styles.logoMarqueeRowReverse : ""}`} key={rowIndex}>{[...row, ...row].map(([name, image], index) => <div className={styles.logoMarqueeTile} key={`${name}-${index}`}><img src={csms(image)} alt={index < row.length ? name : ""} aria-hidden={index >= row.length ? "true" : undefined} loading="lazy" decoding="async" /></div>)}</div>)}</div></div></section>
+      </div><div className={styles.logoMarquee} aria-label={copy.logoTitle}>{[customers.slice(0, 6), customers.slice(6)].map((row, rowIndex) => <div className={`${styles.logoMarqueeRow} ${rowIndex === 1 ? styles.logoMarqueeRowReverse : ""}`} key={rowIndex}>{[...row, ...row].map(([name, image], index) => <div className={styles.logoMarqueeTile} data-logo={name.toLowerCase().replace(/[^a-z0-9]+/g, "-")} key={`${name}-${index}`}><img src={csms(image)} alt={index < row.length ? name : ""} aria-hidden={index >= row.length ? "true" : undefined} loading="lazy" decoding="async" /></div>)}</div>)}</div></div></section>
 
       <BrandSignature locale={locale}/>
     </main>

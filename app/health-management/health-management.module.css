@@ -15,8 +15,8 @@
 .experienceImageFrame { width:100%; overflow:hidden; border-radius:12px; background:#eef4f8; }
 .experienceImageButton { display:block; width:100%; padding:0; border:0; border-radius:12px; overflow:hidden; background:#eef4f8; cursor:zoom-in; }
 .experienceImage { width:100%; max-height:min(70vh,760px); display:block; object-fit:contain; object-position:top center; background:#fff; }
-.experienceViewerNav { position:absolute; z-index:6; top:50%; width:46px; height:62px; margin-top:-38px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.4); border-radius:14px; background:rgba(6,26,52,.86); box-shadow:0 8px 22px rgba(6,26,52,.2); color:#fff; font-size:40px; line-height:1; cursor:pointer; transition:background .2s,transform .2s; }
-.experienceViewerNav:hover,.experienceViewerNav:focus-visible { background:#075bb9; transform:scale(1.04); }
+.experienceViewerNav { position:absolute; z-index:6; top:50%; width:46px; height:46px; margin-top:-23px; display:grid; place-items:center; padding:0 0 3px; border:1px solid rgba(255,255,255,.65); border-radius:999px; background:rgba(6,26,52,.58); box-shadow:0 6px 18px rgba(6,26,52,.16); color:#fff; font-size:31px; line-height:1; cursor:pointer; transition:background .2s,transform .2s,box-shadow .2s; }
+.experienceViewerNav:hover,.experienceViewerNav:focus-visible { background:rgba(7,91,185,.84); box-shadow:0 8px 22px rgba(6,26,52,.22); transform:scale(1.05); }
 .experienceViewerPrev { left:30px; }
 .experienceViewerNext { right:30px; }
 .experienceViewerCaption { margin:12px 0 0; color:#17324f; font-size:14px; line-height:1.45; font-weight:700; text-align:center; }
@@ -29,7 +29,7 @@
   .experienceImageFrame { border-radius:8px; }
   .experienceImageButton { border-radius:8px; }
   .experienceImage { max-height:68vh; }
-  .experienceViewerNav { width:44px; height:48px; margin-top:-32px; border-radius:12px; font-size:32px; touch-action:manipulation; }
+  .experienceViewerNav { width:40px; height:40px; margin-top:-20px; border-radius:999px; font-size:27px; touch-action:manipulation; }
   .experienceViewerPrev { left:10px; }
   .experienceViewerNext { right:10px; }
   .experienceViewerCaption { margin-top:9px; padding:0 8px; font-size:12px; }
