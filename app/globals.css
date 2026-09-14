@@ -244,7 +244,7 @@ img {
 }
 
 @media (max-width: 620px) {
-  .hse-module-page .hse-module-hero {
+  .hse-module-page.hse-module-page .hse-module-hero.hse-module-hero {
     width: calc(100% - 20px) !important;
     height: 280px !important;
     border-radius: 0 0 36px 36px !important;

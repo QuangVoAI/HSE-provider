@@ -2722,6 +2722,13 @@
   }
 }
 
+@media (max-width:620px) {
+  .valueCardDescription {
+    font-size:16px;
+    line-height:1.5;
+  }
+}
+
 @media (prefers-reduced-motion:reduce) {
   .heroBackdrop img {
     transform: none;
