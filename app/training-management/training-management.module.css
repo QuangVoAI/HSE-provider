@@ -245,9 +245,12 @@
   letter-spacing:inherit;
   text-transform:inherit;
 }
+.trainingExperienceTitleLine{display:block;max-width:100%;white-space:normal;text-wrap:balance}
+.trainingExperience .demoHeading>div{width:100%;max-width:100%;min-width:0}
+.trainingExperience .trainingExperienceTitle{width:100%;max-width:100%;min-width:0}
 
 @media(max-width:620px){
-  .trainingExperience h2{font-size:28px;line-height:1.25}
+  .trainingExperience h2{font-size:clamp(22px,6.4vw,28px);line-height:1.25}
 }
 
 .experienceBrandGroup{
@@ -506,6 +509,8 @@
 .experienceBrandGroup>section:last-child { margin-top:52px!important; }
 @media(max-width:620px){
   .trainingExperience, .page .trainingExperience { padding-bottom:56px!important; margin-bottom:56px!important; }
+  .page.page.page.page.page .trainingExperience .trainingExperienceTitle { font-size:clamp(21px,6.2vw,26px)!important; line-height:1.25!important; }
+  .trainingExperience .trainingExperienceTitleLine { font-size:clamp(21px,6.2vw,26px)!important; line-height:1.25!important; }
   .trainingExperience .experienceViewer { margin-top:24px!important; padding-top:12px!important; }
   .trainingExperience .experienceViewerCaption { margin-bottom:10px!important; padding:0 2px; font-size:14px!important; }
   .experienceBrandGroup>section:last-child { margin-top:34px!important; }

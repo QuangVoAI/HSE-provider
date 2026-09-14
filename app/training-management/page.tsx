@@ -114,7 +114,7 @@ export default async function TrainingManagementPage({ searchParams }: { searchP
         </div>
       </div></section>
       <div className={styles.experienceBrandGroup}>
-        <TrainingExperience title={locale === "vi" ? "NÂNG\u00a0CAO\u00a0NĂNG\u00a0LỰC XÂY\u00a0DỰNG\u00a0VĂN\u00a0HÓA\u00a0AN\u00a0TOÀN" : "ELEVATING\u00a0COMPETENCE BUILDING\u00a0A\u00a0CULTURE\u00a0OF\u00a0SAFETY"} slides={slides} locale={locale}/>
+        <TrainingExperience title={locale === "vi" ? "NÂNG\u00a0CAO\u00a0NĂNG\u00a0LỰC\nXÂY\u00a0DỰNG\u00a0VĂN\u00a0HÓA\nAN\u00a0TOÀN" : "ELEVATING\u00a0COMPETENCE\nBUILDING\u00a0A\u00a0CULTURE\nOF\u00a0SAFETY"} slides={slides} locale={locale}/>
         <BrandSignature locale={locale}/>
       </div>
     </main>

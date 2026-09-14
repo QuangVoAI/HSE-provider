@@ -29,7 +29,9 @@ export default function TrainingExperience({ title, slides, locale = title.start
     <section className={`${healthStyles.workflowDemo} ${styles.trainingExperience}`} aria-labelledby="training-experience-title">
       <div className={healthStyles.container}>
         <div className={healthStyles.demoHeading}>
-          <div><h2 className={styles.trainingExperienceTitle} id="training-experience-title">{title}</h2></div>
+          <div style={{ width: "100%", maxWidth: "100%", minWidth: 0 }}><h2 className={styles.trainingExperienceTitle} id="training-experience-title" style={{ width: "100%", maxWidth: "100%", minWidth: 0 }}>
+            {title.split("\n").map((line, index) => <span className={styles.trainingExperienceTitleLine} key={`${line}-${index}`}>{line}</span>)}
+          </h2></div>
         </div>
         <div className={healthStyles.experienceViewer} role="tabpanel" aria-label={activeImageName}>
           <p className={healthStyles.experienceViewerCaption}>{activeImageName}</p>
