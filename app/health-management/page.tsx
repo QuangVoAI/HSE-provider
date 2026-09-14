@@ -254,7 +254,7 @@ export default function HealthManagementPage() {
             <article key={group.title} className={styles.examCard}>
               <div className={styles.cardVisual}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={hm(group.photo)} alt={group.title} className={styles.cardPhoto} />
+                <img src={hm(group.photo)} alt={group.title} className={styles.cardPhoto} loading="lazy" decoding="async" />
               </div>
               <div className={styles.cardBody}>
                 <h3>{group.title}</h3>
@@ -319,7 +319,7 @@ export default function HealthManagementPage() {
           <div className={styles.featureTimelineLine} />
           {localizedFeatureGroups.map(([Icon, title, _desc, bgImage]) => (
             <article key={title} className={styles.featureCard}>
-              <img src={hm(bgImage)} alt="" className={styles.featureCardBg} />
+              <img src={hm(bgImage)} alt="" className={styles.featureCardBg} loading="lazy" decoding="async" />
               <div className={styles.featureCardOverlay} />
               <div className={styles.featureCardIcon}>
                 <Icon strokeWidth={1.2} />
@@ -366,6 +366,8 @@ export default function HealthManagementPage() {
                 src={hm(localizedDemoScreens[demoIndex].file)}
                 alt={activeDemoCaption}
                 className={styles.experienceImage}
+                loading="lazy"
+                decoding="async"
               />
             </div>
             {localizedDemoScreens.length > 1 && <>

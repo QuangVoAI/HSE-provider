@@ -3092,3 +3092,12 @@
     text-align: left;
   }
 }
+
+/* Safari can keep :hover active after a tap. On touch devices the card is
+   always expanded, so never hide its front content after that gesture. */
+@media (max-width:620px) and (hover:none) {
+  .page .valueList article:hover .valueCardFront,
+  .page .valueList article:focus .valueCardFront { opacity: 1; transform: none; }
+  .page .valueList article:hover .valueCardDescription,
+  .page .valueList article:focus .valueCardDescription { opacity: 1; transform: none; }
+}
