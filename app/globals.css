@@ -67,10 +67,96 @@ input {
     height: 44px;
     font-size: 22px;
   }
+
+  :where(button, a) {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  :where(button, a):focus-visible {
+    outline: 3px solid rgba(7, 91, 185, .24);
+    outline-offset: 3px;
+  }
+
+  :where(button, a):active {
+    filter: brightness(.94) saturate(.98);
+  }
+
+  main :where(
+    button[type="submit"],
+    a[href*="/contact"],
+    a[href*="qlat"],
+    [class*="Actions"] > a,
+    [class*="actions"] > a,
+    [class*="cta"] a,
+    [class*="Cta"] a
+  ) {
+    transform-origin: center;
+    transition-duration: 180ms;
+    transition-timing-function: cubic-bezier(.2, .75, .25, 1);
+  }
+
+  main :where(
+    button[type="submit"],
+    a[href*="/contact"],
+    a[href*="qlat"],
+    [class*="Actions"] > a,
+    [class*="actions"] > a,
+    [class*="cta"] a,
+    [class*="Cta"] a
+  ):active {
+    transform: translateY(1px) scale(.98) !important;
+    box-shadow: 0 4px 10px rgba(3, 42, 82, .16) !important;
+  }
+
+  button:disabled {
+    cursor: wait;
+    opacity: .68;
+    filter: saturate(.72);
+    box-shadow: none !important;
+  }
+
+  button[class*="menuButton"] i {
+    transform-origin: center;
+    transition: transform 200ms cubic-bezier(.2, .75, .25, 1), opacity 140ms ease;
+  }
+
+  button[class*="menuButton"][aria-expanded="true"] i:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  button[class*="menuButton"][aria-expanded="true"] i:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(.4);
+  }
+
+  button[class*="menuButton"][aria-expanded="true"] i:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  button[class*="mobileHeaderLanguageButton"] b {
+    transition: margin 180ms ease, transform 180ms cubic-bezier(.2, .75, .25, 1);
+  }
+
+  .scrollToTopButton:active {
+    transform: translateY(1px) scale(.94);
+    box-shadow: 0 4px 12px rgba(3, 42, 82, .18);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .scrollToTopButton { transition: none; }
+  .scrollToTopButton,
+  button[class*="menuButton"] i,
+  button[class*="mobileHeaderLanguageButton"] b,
+  main :where(
+    button[type="submit"],
+    a[href*="/contact"],
+    a[href*="qlat"],
+    [class*="Actions"] > a,
+    [class*="actions"] > a,
+    [class*="cta"] a,
+    [class*="Cta"] a
+  ) { transition: none !important; }
 }
 
 img {
