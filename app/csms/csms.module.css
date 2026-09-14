@@ -360,14 +360,14 @@
   .contact aside p { margin-bottom: 16px; gap: 11px; font-size: 14px; line-height: 21px; }
   .contact aside p:last-child { margin-bottom: 0; }
   .contact aside img { width: 21px; height: 21px; }
-  .contact form { padding: 28px 22px 30px; }
-  .formIntro h2 { font-size: 22px; line-height: 28px; }
-  .formIntro p { font-size: 14px; line-height: 21px; }
+  .contact form { padding: 22px 16px 24px; }
+  .formIntro h2 { font-size: 20px; line-height: 26px; }
+  .formIntro p { font-size: 13px; line-height: 19px; }
   .formFields { margin-top: 22px; grid-template-columns: 1fr; gap: 14px; }
-  .contact label { font-size: 14px; }
-  .contact input { height: 48px; margin-top: 6px; padding: 0 14px; font-size: 15px; }
-  .formMessage textarea { min-height: 96px; margin-top: 6px; padding: 12px 14px; font-size: 15px; line-height: 22px; }
-  .contact button { width: 100%; height: 48px; margin-top: 22px; font-size: 15px; }
+  .contact label { font-size: 13.5px; line-height: 20px; }
+  .contact input { height: 46px; margin-top: 6px; padding: 0 13px; font-size: 15px; }
+  .formMessage textarea { min-height: 96px; margin-top: 6px; padding: 11px 13px; font-size: 15px; line-height: 21px; }
+  .contact button { width: 100%; height: 48px; margin-top: 20px; font-size: 14px; }
   .footer { padding: 38px 20px 20px; }
   .footerGrid { grid-template-columns: 1fr; gap: 28px; }
   .footerGrid > div:not(:first-child) { gap: 0; }
