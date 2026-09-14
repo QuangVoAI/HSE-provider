@@ -71,7 +71,7 @@
 .demoButton { padding: 9px 20px; border-radius: 8px; background: var(--navy); color: #fff !important; font-size: 17px; font-weight: 800; letter-spacing: .025em; text-transform: uppercase; transition: transform .2s, background .2s, box-shadow .2s; }
 .demoButton:hover { transform: translateY(-2px); background: #06436e; box-shadow: 0 8px 18px rgba(0,29,53,.22); }
 .demoButton:active { transform: translateY(0) scale(.97); }
-.menuButton, .mobileMenu, .mobileMenuBackdrop, .mobileHeaderActions { display: none; }
+.menuButton, .mobileMenu, .mobileMenuBackdrop, .mobileHeaderActions, .mobileQuickNav { display: none; }
 
 .main { padding-top: 160px; }
 .hero { width: 1184px; max-width: calc(100% - 48px); height: 429px; margin: auto; display: grid; grid-template-columns: 568px 1fr; overflow: hidden; border: 1px solid rgba(192,199,211,.3); border-radius: 32px; background: #fff; box-shadow: 0 10px 40px rgba(0,0,0,.08); }
@@ -202,6 +202,14 @@
 .footerBottom { width: 1400px; max-width: 100%; margin: 48px auto 0; padding-top: 28px; display: flex; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.12); font-size: 14px; }
 
 @media (max-width: 900px) {
+  .page { padding-bottom:84px; }
+  .mobileQuickNav { position:fixed; z-index:90; left:10px; right:10px; bottom:max(10px,env(safe-area-inset-bottom)); min-height:64px; padding:7px 6px; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:2px; border:1px solid rgba(124,166,202,.38); border-radius:18px; background:rgba(255,255,255,.92); box-shadow:0 12px 30px rgba(8,44,76,.2),inset 0 1px 0 rgba(255,255,255,.9); -webkit-backdrop-filter:blur(16px) saturate(1.18); backdrop-filter:blur(16px) saturate(1.18); }
+  .mobileQuickNav a { min-width:0; min-height:50px; padding:5px 2px 4px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; border-radius:12px; color:#547087; font-size:10px; line-height:13px; font-weight:750; text-align:center; transition:color .25s ease,background .25s ease,transform .25s ease; }
+  .mobileQuickNav a svg { width:19px; height:19px; stroke-width:2; }
+  .mobileQuickNav a:active { transform:scale(.95); }
+  .mobileQuickNav a:hover,.mobileQuickNav a:focus-visible,.mobileQuickNav .quickNavActive { color:#0059c0; background:#eaf4ff; }
+  .mobileQuickNav .quickNavActive svg { stroke-width:2.35; }
+  .mobileMenuBackdrop ~ .mobileQuickNav { z-index:40; }
   .header { position: fixed; z-index: 100; box-shadow: 0 1px 0 rgba(0,29,53,.08); }
   .utility, .desktopNav, .navbar > .demoButton { display: none; }
   .navbar { width: 100%; max-width: none; height: 76px; padding: 0 20px; }
