@@ -94,7 +94,7 @@ export default function CustomerHeader({ locale, active = "customers", chrome = 
       <div className={styles.mobileHeaderActions}>
         <div className={styles.mobileHeaderLanguagePicker}>
           <button type="button" className={styles.mobileHeaderLanguageButton} aria-label={text.language} onClick={() => setLanguageOpen(!languageOpen)} aria-expanded={languageOpen}>
-            <img src={asset("icon-language.svg")} alt="" /><span>{locale.toUpperCase()}</span><b aria-hidden="true" />
+            <img src={asset("icon-language.svg")} alt="" /><span>{text.language}</span><b aria-hidden="true" />
           </button>
           {languageOpen && <div className={styles.mobileHeaderLanguageMenu}>
             <button className={`${locale === "vi" ? styles.selectedLanguage : ""} ${pendingLocale === "vi" ? styles.selectingLanguage : ""}`} onClick={() => chooseLocale("vi")}>Tiếng Việt</button>
