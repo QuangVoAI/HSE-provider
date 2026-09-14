@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Home, Layers3, Mail, UsersRound } from "lucide-react";
 import customerStyles from "./customers.module.css";
 import csmsStyles from "../csms/csms.module.css";
 
@@ -116,11 +115,5 @@ export default function CustomerHeader({ locale, active = "customers", chrome = 
       <a href="https://qlat.1hse.vn/login" onClick={() => setMenuOpen(false)}>{text.login}</a>
       <a className={styles.mobileDemo} href={`/contact${query}`} onClick={() => setMenuOpen(false)}>{text.demo}</a>
     </nav></>}
-    <nav className={styles.mobileQuickNav} aria-label={locale === "vi" ? "Điều hướng nhanh" : "Quick navigation"}>
-      <a className={active === "overview" ? styles.quickNavActive : ""} href={`/csms${query}`}><Home aria-hidden="true" /><span>{text.overview}</span></a>
-      <a className={active === "solutions" ? styles.quickNavActive : ""} href={`/csms${query}#solutions`}><Layers3 aria-hidden="true" /><span>{text.solutions}</span></a>
-      <a className={active === "customers" ? styles.quickNavActive : ""} href={`/customers${query}`}><UsersRound aria-hidden="true" /><span>{text.customers}</span></a>
-      <a className={active === "contact" ? styles.quickNavActive : ""} href={`/contact${query}`}><Mail aria-hidden="true" /><span>{text.contact}</span></a>
-    </nav>
   </header>;
 }
