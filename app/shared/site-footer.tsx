@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import styles from "../csms/csms.module.css";
 import { getSolutionLinks } from "./solution-links";
 
@@ -33,13 +36,14 @@ const asset = (name: string) => `/assets/csms/${name}`;
 export default function SiteFooter({ locale }: { locale: Locale }) {
   const text = copy[locale];
   const query = `?lang=${locale}`;
+  const [solutionsOpen, setSolutionsOpen] = useState(false);
   return <footer className={styles.footer} id="footer"><div className={styles.footerGrid}>
     <div className={styles.footerBrand}>
       <img src="/assets/shared/hse-provider-logo-color.png" className={styles.footerLogo} alt="HSE Provider" />
       <p>{text.description}</p>
       <div className={styles.socials}>{[1,2,3].map((number) => <a href="#top" key={number} aria-label={`Social ${number}`}><img src={asset(`icon-social-${number}.svg`)} alt="" /></a>)}</div>
     </div>
-    <div><h3>{text.solutions}</h3>{getSolutionLinks(locale).map((item) => <a href={item.href} key={item.href}>{item.label}</a>)}</div>
+    <div className={styles.footerSolutions}><h3>{text.solutions}</h3><button type="button" className={styles.footerSolutionsToggle} aria-expanded={solutionsOpen} onClick={() => setSolutionsOpen(!solutionsOpen)}><span>{text.solutions}</span><b aria-hidden="true" /></button><div className={`${styles.footerSolutionsLinks} ${solutionsOpen ? styles.footerSolutionsLinksOpen : ""}`}>{getSolutionLinks(locale).map((item) => <a href={item.href} key={item.href}>{item.label}</a>)}</div></div>
     <div><h3>{text.company}</h3>
       <a href={`/csms${query}`}>{text.companyLinks[0]}</a>
       <a href={`/customers${query}`}>{text.companyLinks[1]}</a>

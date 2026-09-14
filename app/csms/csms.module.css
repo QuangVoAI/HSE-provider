@@ -188,6 +188,8 @@
 .footerGrid p { margin: 0; font-size: 17px; line-height: 27px; }
 .footerBrand > p { max-width: 380px; margin-top: 16px; }
 .footerGrid > div:not(:first-child) { display: flex; flex-direction: column; gap: 18px; }
+.footerSolutionsToggle { display: none; }
+.footerSolutionsLinks { display: flex; flex-direction: column; gap: 18px; }
 .footer h3 { margin: 0 0 16px; color: #fff; font-size: 20px; letter-spacing: .08em; }
 .footer a { color: rgba(255,255,255,.78); font-size: 17px; }
 .footer a:hover { color: #fff; }
@@ -376,6 +378,12 @@
   .footerBrand > p { margin-top: 12px; }
   .footer h3 { margin-bottom: 8px; font-size: 16px; line-height: 22px; }
   .footer a { font-size: 15px; line-height: 20px; }
+  .footerSolutions h3 { display: none; }
+  .footerSolutionsToggle { width: 100%; min-height: 44px; padding: 0; display: flex; align-items: center; justify-content: space-between; border: 0; border-bottom: 1px solid rgba(255,255,255,.16); color: #fff; background: transparent; font: inherit; font-size: 16px; line-height: 22px; font-weight: 750; letter-spacing: .08em; text-align: left; cursor: pointer; }
+  .footerSolutionsToggle b { width: 8px; height: 8px; margin: -4px 4px 0 0; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); transition: transform .3s ease, margin .3s ease; }
+  .footerSolutionsToggle[aria-expanded="true"] b { margin-top: 4px; transform: rotate(225deg); }
+  .footerSolutionsLinks { max-height: 0; gap: 0; overflow: hidden; opacity: 0; transition: max-height .38s ease, opacity .28s ease, gap .38s ease; }
+  .footerSolutionsLinksOpen { max-height: 600px; gap: 0; opacity: 1; }
   .socials { margin-top: 16px; }
   .footerContact { gap: 12px !important; }
   .footerContact p { width: 100%; gap: 10px; overflow-wrap: anywhere; }
