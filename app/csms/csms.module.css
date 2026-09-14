@@ -208,13 +208,15 @@
   .logo { width: 205px; height: 76px; }
   .mobileHeaderActions { margin-left: auto; display: flex; align-items: center; gap: 2px; }
   .mobileHeaderLanguagePicker { position: relative; }
-  .mobileHeaderLanguageButton { min-width: 120px; height: 44px; padding: 0 5px; display: flex; align-items: center; justify-content: center; gap: 7px; border: 0; border-radius: 9px; background: transparent; color: #005994; font-size: 13px; font-weight: 700; white-space: nowrap; cursor: pointer; touch-action: manipulation; }
+  .mobileHeaderLanguageButton { min-width: 78px; height: 44px; padding: 0 6px; display: flex; align-items: center; justify-content: center; gap: 5px; border: 0; border-radius: 9px; background: transparent; color: #005994; font-size: 13px; font-weight: 800; white-space: nowrap; cursor: pointer; touch-action: manipulation; }
   .mobileHeaderLanguageButton:hover, .mobileHeaderLanguageButton:active, .mobileHeaderLanguageButton[aria-expanded="true"] { background: #edf5fc; }
-  .mobileHeaderLanguageButton img { width: 24px; height: 24px; padding: 5px; border-radius: 50%; background: #0065b3; box-shadow: none; }
+  .mobileHeaderFlag { font-size: 18px; line-height: 1; }
+  .mobileHeaderLocaleCode { letter-spacing: .04em; }
   .mobileHeaderLanguageButton b { width: 7px; height: 7px; margin-top: -4px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); }
   .mobileHeaderLanguageButton[aria-expanded="true"] b { margin-top: 4px; transform: rotate(225deg); }
   .mobileHeaderLanguageMenu { position: absolute; z-index: 102; top: 48px; right: 0; width: 132px; padding: 6px; border: 1px solid #d9e4ee; border-radius: 9px; background: #fff; box-shadow: 0 12px 28px rgba(0,29,53,.18); }
-  .mobileHeaderLanguageMenu button { width: 100%; min-height: 44px; padding: 9px 10px; border: 0; border-radius: 6px; background: transparent; color: #314b5f; font-size: 13px; text-align: left; cursor: pointer; }
+  .mobileHeaderLanguageMenu button { width: 100%; min-height: 44px; padding: 9px 10px; display: flex; align-items: center; gap: 9px; border: 0; border-radius: 6px; background: transparent; color: #314b5f; font-size: 13px; text-align: left; cursor: pointer; }
+  .mobileHeaderLanguageMenu button > span { font-size: 18px; line-height: 1; }
   .mobileHeaderLanguageMenu button:hover, .mobileHeaderLanguageMenu .selectedLanguage { background: #edf5fc; color: #0065b3; font-weight: 700; }
   .menuButton { width: 42px; height: 42px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; border: 0; border-radius: 8px; background: transparent; transition: transform .2s, background .2s; }
   .menuButton:active { transform: scale(.94); background: #edf5fc; }
@@ -332,17 +334,40 @@
   .videoArrow { width: 44px; height: 44px; font-size: 21px; touch-action: manipulation; }
   .videoArrowPrevious { left: 8px; }
   .videoArrowNext { right: 8px; }
-  .formFields { grid-template-columns: 1fr; gap: 16px; }
-  .contact button { width: 100%; }
-  .footerGrid { grid-template-columns: 1fr; gap: 34px; }
-  .footerLogo { width: 230px; }
-  .footerContact p { width: 100%; overflow-wrap: anywhere; }
+  .contact { padding: 36px 12px 44px; }
+  .contactCard { min-height: 0; border-radius: 20px; }
+  .contact aside { padding: 28px 22px 24px; }
+  .contact aside h2 { margin-bottom: 22px; font-size: 27px; line-height: 32px; }
+  .contact aside p { margin-bottom: 18px; gap: 12px; font-size: 15px; line-height: 23px; }
+  .contact aside p:last-child { margin-bottom: 0; }
+  .contact aside img { width: 21px; height: 21px; }
+  .contact form { padding: 28px 22px 30px; }
+  .formIntro h2 { font-size: 27px; line-height: 32px; }
+  .formIntro p { font-size: 15px; line-height: 23px; }
+  .formFields { margin-top: 22px; grid-template-columns: 1fr; gap: 14px; }
+  .contact label { font-size: 14px; }
+  .contact input { height: 48px; margin-top: 6px; padding: 0 14px; font-size: 15px; }
+  .formMessage textarea { min-height: 96px; margin-top: 6px; padding: 12px 14px; font-size: 15px; line-height: 22px; }
+  .contact button { width: 100%; height: 48px; margin-top: 22px; font-size: 15px; }
+  .footer { padding: 38px 20px 20px; }
+  .footerGrid { grid-template-columns: 1fr; gap: 28px; }
+  .footerGrid > div:not(:first-child) { gap: 0; }
+  .footerLogo { width: 190px; }
+  .footerGrid p { font-size: 15px; line-height: 23px; }
+  .footerBrand > p { margin-top: 12px; }
+  .footer h3 { margin-bottom: 8px; font-size: 16px; line-height: 22px; }
+  .footer a { font-size: 15px; line-height: 20px; }
+  .socials { margin-top: 16px; }
+  .footerContact { gap: 12px !important; }
+  .footerContact p { width: 100%; gap: 10px; overflow-wrap: anywhere; }
+  .footerContact img { width: 19px; height: 19px; }
+  .footerBottom { margin-top: 30px; padding-top: 20px; gap: 10px; font-size: 12px; line-height: 18px; }
 }
 
 @media (max-width: 360px) {
   .navbar { padding-inline: max(12px,env(safe-area-inset-left)); }
   .logo { width: 120px; }
-  .mobileHeaderLanguageButton { min-width: 116px; padding-inline: 3px; }
+  .mobileHeaderLanguageButton { min-width: 76px; padding-inline: 4px; }
 }
 
 @media (min-width: 1400px) {
