@@ -245,7 +245,7 @@
   letter-spacing:inherit;
   text-transform:inherit;
 }
-.trainingExperienceTitleLine{display:block;max-width:100%;white-space:normal;text-wrap:balance}
+.trainingExperience h2 .trainingExperienceTitleLine{display:block!important;max-width:100%;white-space:normal;text-wrap:balance}
 .trainingExperience .demoHeading>div{width:100%;max-width:100%;min-width:0}
 .trainingExperience .trainingExperienceTitle{width:100%;max-width:100%;min-width:0}
 
