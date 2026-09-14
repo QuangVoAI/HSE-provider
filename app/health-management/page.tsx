@@ -383,6 +383,10 @@ export default function HealthManagementPage() {
                 className={styles.experienceImage}
                 loading="lazy"
                 decoding="async"
+                role="button"
+                tabIndex={0}
+                onClick={() => setIsDemoLightboxOpen(true)}
+                onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); setIsDemoLightboxOpen(true); } }}
               />
             </button>
             {localizedDemoScreens.length > 1 && <>

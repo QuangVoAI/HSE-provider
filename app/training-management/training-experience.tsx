@@ -57,6 +57,10 @@ export default function TrainingExperience({ title, slides, locale = title.start
               className={healthStyles.experienceImage}
               loading="lazy"
               decoding="async"
+              role="button"
+              tabIndex={0}
+              onClick={() => setIsLightboxOpen(true)}
+              onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); setIsLightboxOpen(true); } }}
             />
           </button>
           {slides.length > 1 && <>
