@@ -330,7 +330,7 @@
   .heroCopy p { margin-bottom: 6px; font-size: 11px; line-height: 16px; }
   .heroCopy a { width: 142px; height: 34px; padding: 7px 12px; border-radius: 8px; font-size: 12px; }
   .heroImage { height:120px; }
-  .heroImage img { object-position: 52% center; }
+  .heroImage img { object-position: center 26%; }
   .core { padding: 34px 12px 30px; }
   .core > h2, .customers > h2, .video > h2 { margin-bottom: 20px; font-size: 21px; line-height: 27px; }
   .moduleGrid { height: auto; grid-template-columns: repeat(2,minmax(0,1fr)); grid-template-rows: none; gap: 10px; }
