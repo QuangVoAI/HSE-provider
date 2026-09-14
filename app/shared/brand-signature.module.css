@@ -4,5 +4,5 @@
 .content{width:min(850px,calc(100% - 48px));display:flex;align-items:center;justify-content:center;text-align:center}
 .content img{display:block;width:min(580px,100%);height:auto;object-fit:contain;filter:drop-shadow(0 10px 24px rgba(0,33,70,.32))}
 @media(max-width:900px){.section{width:calc(100% - 32px);height:clamp(350px,54vw,440px);border-radius:38px 38px 0 0}.content img{width:min(560px,96%)}}
-@media(max-width:620px){.section{width:calc(100% - 20px);height:clamp(230px,68vw,290px);border-radius:26px 26px 0 0}.content{width:calc(100% - 32px)}.content img{width:52%;max-width:360px;filter:drop-shadow(0 7px 18px rgba(0,33,70,.3))}}
+@media(max-width:620px){.section{width:calc(100% - 20px);height:clamp(190px,52vw,230px);border-radius:26px 26px 0 0}.content{width:calc(100% - 32px)}.content img{width:52%;max-width:360px;filter:drop-shadow(0 7px 18px rgba(0,33,70,.3))}}
 @media(min-width:1800px){.section{width:calc(100% - 48px)}}
