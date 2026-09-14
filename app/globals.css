@@ -71,6 +71,8 @@ input {
   :where(button, a) {
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
+    transition-duration: 280ms !important;
+    transition-timing-function: cubic-bezier(.22, .61, .36, 1) !important;
   }
 
   :where(button, a):focus-visible {
@@ -92,8 +94,8 @@ input {
     [class*="Cta"] a
   ) {
     transform-origin: center;
-    transition-duration: 180ms;
-    transition-timing-function: cubic-bezier(.2, .75, .25, 1);
+    transition-duration: 280ms;
+    transition-timing-function: cubic-bezier(.22, .61, .36, 1);
   }
 
   main :where(
@@ -118,7 +120,7 @@ input {
 
   button[class*="menuButton"] i {
     transform-origin: center;
-    transition: transform 200ms cubic-bezier(.2, .75, .25, 1), opacity 140ms ease;
+    transition: transform 300ms cubic-bezier(.22, .61, .36, 1), opacity 220ms ease;
   }
 
   button[class*="menuButton"][aria-expanded="true"] i:nth-child(1) {
@@ -135,7 +137,7 @@ input {
   }
 
   button[class*="mobileHeaderLanguageButton"] b {
-    transition: margin 180ms ease, transform 180ms cubic-bezier(.2, .75, .25, 1);
+    transition: margin 280ms ease, transform 280ms cubic-bezier(.22, .61, .36, 1);
   }
 
   .scrollToTopButton:active {
@@ -145,6 +147,8 @@ input {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  :where(button, a) { transition: none !important; }
+  [class*="mobileSolutionMenu"] { animation: none !important; }
   .scrollToTopButton,
   button[class*="menuButton"] i,
   button[class*="mobileHeaderLanguageButton"] b,

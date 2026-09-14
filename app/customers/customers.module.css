@@ -180,6 +180,15 @@
   .mobileMenu > a:not(.mobileDemo) { position:relative; padding:7px 0; color:#005994; font-size:20px; font-weight:600; }
   .mobileMenu > a:not(.mobileDemo)::after { content:""; position:absolute; left:50%; bottom:0; width:0; height:2px; background:var(--blue); transition:width .22s,left .22s; }
   .mobileMenu > a:not(.mobileDemo):hover::after { left:0; width:100%; }
+  .mobileSolutionGroup { width:100%; }
+  .mobileSolutionToggle { width:100%; min-height:44px; padding:7px 0; display:flex; align-items:center; justify-content:space-between; border:0; background:transparent; color:#005994; font-size:20px; font-weight:600; text-align:left; cursor:pointer; }
+  .mobileSolutionToggle b { width:8px; height:8px; margin:-4px 5px 0 0; border-right:2px solid currentColor; border-bottom:2px solid currentColor; transform:rotate(45deg); transition:margin .3s cubic-bezier(.22,.61,.36,1),transform .3s cubic-bezier(.22,.61,.36,1); }
+  .mobileSolutionToggle[aria-expanded="true"] b { margin-top:4px; transform:rotate(225deg); }
+  .mobileSolutionMenu { width:100%; margin:4px 0 8px; padding:6px 0 6px 14px; display:grid; border-left:2px solid #cfe3f5; transform-origin:top; animation:mobileSolutionsDrop .34s cubic-bezier(.22,.61,.36,1) both; }
+  .mobileSolutionMenu a { min-height:40px; padding:8px 10px; display:flex; align-items:center; border-radius:8px; color:#3b5870; font-size:14px; line-height:20px; font-weight:550; transition:color .28s ease,background .28s ease,transform .28s ease; }
+  .mobileSolutionMenu a:hover,.mobileSolutionMenu a:focus-visible { color:#005994; background:#edf5fc; }
+  .mobileSolutionMenu a:active { transform:translateX(3px); }
+  @keyframes mobileSolutionsDrop { from{opacity:0;transform:translateY(-8px) scaleY(.94)} to{opacity:1;transform:translateY(0) scaleY(1)} }
   .mobileLanguagePicker { position:relative; width:214px; }
   .mobileLanguageButton { padding:7px 0; display:flex; align-items:center; gap:11px; border:0; background:transparent; color:#005994; font-size:20px; font-weight:600; cursor:pointer; }
   .mobileLanguageMenu { width:100%; margin-top:7px; padding:6px; display:grid; gap:3px; border:1px solid #d9e4ee; border-radius:9px; background:#fff; box-shadow:0 12px 28px rgba(0,29,53,.14); animation:mobileLanguageReveal .2s ease-out both; }

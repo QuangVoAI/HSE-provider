@@ -29,6 +29,7 @@ const asset = (name: string) => `/assets/csms/${name}`;
 export default function CustomerHeader({ locale, active = "customers", chrome = "customers", localePath }: { locale: Locale; active?: "overview" | "customers" | "contact" | "solutions"; chrome?: "customers" | "csms"; localePath?: string }) {
   const styles = chrome === "csms" ? csmsStyles : customerStyles;
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
   const [languageOpen, setLanguageOpen] = useState(false);
   const [solutionOpen, setSolutionOpen] = useState(false);
   const [pendingLocale, setPendingLocale] = useState<Locale | null>(null);
@@ -40,7 +41,7 @@ export default function CustomerHeader({ locale, active = "customers", chrome = 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setMenuOpen(false);
+      if (event.key === "Escape") { setMobileSolutionsOpen(false); setMenuOpen(false); }
     };
     window.addEventListener("keydown", closeOnEscape);
     return () => {
@@ -101,11 +102,16 @@ export default function CustomerHeader({ locale, active = "customers", chrome = 
             <button className={`${locale === "en" ? styles.selectedLanguage : ""} ${pendingLocale === "en" ? styles.selectingLanguage : ""}`} onClick={() => chooseLocale("en")}><span aria-hidden="true">🇬🇧</span> EN</button>
           </div>}
         </div>
-        <button type="button" className={styles.menuButton} aria-label={text.menu} onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-controls="mobile-navigation"><i /><i /><i /></button>
+        <button type="button" className={styles.menuButton} aria-label={text.menu} onClick={() => { if (menuOpen) setMobileSolutionsOpen(false); setMenuOpen(!menuOpen); }} aria-expanded={menuOpen} aria-controls="mobile-navigation"><i /><i /><i /></button>
       </div>
     </div>
-    {menuOpen && <><button type="button" className={styles.mobileMenuBackdrop} aria-label={locale === "vi" ? "Đóng menu" : "Close menu"} onClick={(event) => { event.preventDefault(); event.stopPropagation(); setMenuOpen(false); }}/><nav id="mobile-navigation" className={styles.mobileMenu}>
-      <a href={`/csms${query}`} onClick={() => setMenuOpen(false)}>{text.overview}</a><a href={`/csms${query}#solutions`} onClick={() => setMenuOpen(false)}>{text.solutions}</a><a href={`/customers${query}`} onClick={() => setMenuOpen(false)}>{text.customers}</a><a href={`/contact${query}`} onClick={() => setMenuOpen(false)}>{text.contact}</a>
+    {menuOpen && <><button type="button" className={styles.mobileMenuBackdrop} aria-label={locale === "vi" ? "Đóng menu" : "Close menu"} onClick={(event) => { event.preventDefault(); event.stopPropagation(); setMobileSolutionsOpen(false); setMenuOpen(false); }}/><nav id="mobile-navigation" className={styles.mobileMenu}>
+      <a href={`/csms${query}`} onClick={() => setMenuOpen(false)}>{text.overview}</a>
+      <div className={styles.mobileSolutionGroup}>
+        <button type="button" className={styles.mobileSolutionToggle} onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)} aria-expanded={mobileSolutionsOpen} aria-controls="mobile-solution-list"><span>{text.solutions}</span><b aria-hidden="true" /></button>
+        {mobileSolutionsOpen && <div className={styles.mobileSolutionMenu} id="mobile-solution-list">{modules.map((module) => <a href={`${module.href}?lang=${locale}`} onClick={() => setMenuOpen(false)} key={module.vi}>{module[locale]}</a>)}</div>}
+      </div>
+      <a href={`/customers${query}`} onClick={() => setMenuOpen(false)}>{text.customers}</a><a href={`/contact${query}`} onClick={() => setMenuOpen(false)}>{text.contact}</a>
       <a href="https://qlat.1hse.vn/login" onClick={() => setMenuOpen(false)}>{text.login}</a>
       <a className={styles.mobileDemo} href={`/contact${query}`} onClick={() => setMenuOpen(false)}>{text.demo}</a>
     </nav></>}
