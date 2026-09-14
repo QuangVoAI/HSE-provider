@@ -183,6 +183,7 @@ const pageTranslations = {
 export default function HealthManagementPage() {
   const [workflowStep, setWorkflowStep] = useState(0);
   const [demoIndex, setDemoIndex] = useState(0);
+  const [isDemoLightboxOpen, setIsDemoLightboxOpen] = useState(false);
   const [heroSlide, setHeroSlide] = useState(0);
   const [locale, setLocale] = useState<Locale>("vi");
   const pageCopy = pageTranslations[locale];
@@ -214,6 +215,20 @@ export default function HealthManagementPage() {
     const timer = window.setInterval(() => setDemoIndex((current) => (current + 1) % localizedDemoScreens.length), 4000);
     return () => window.clearInterval(timer);
   }, [localizedDemoScreens.length]);
+
+  useEffect(() => {
+    if (!isDemoLightboxOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsDemoLightboxOpen(false);
+    };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isDemoLightboxOpen]);
 
   return <div className={`${styles.page} hse-module-page`} lang={locale}>
     <CustomerHeader locale={locale} active="solutions" chrome="csms" localePath="/health-management" />
@@ -360,7 +375,7 @@ export default function HealthManagementPage() {
 
           <div className={styles.experienceViewer} role="tabpanel" aria-label={activeDemoCaption}>
             <p className={styles.experienceViewerCaption}>{activeDemoCaption}</p>
-            <div className={styles.experienceImageFrame}>
+            <button type="button" className={styles.experienceImageButton} onClick={() => setIsDemoLightboxOpen(true)} aria-label={locale === "en" ? "Open image full screen" : "Mở ảnh toàn màn hình"}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={hm(localizedDemoScreens[demoIndex].file)}
@@ -369,12 +384,18 @@ export default function HealthManagementPage() {
                 loading="lazy"
                 decoding="async"
               />
-            </div>
+            </button>
             {localizedDemoScreens.length > 1 && <>
               <button type="button" className={`${styles.experienceViewerNav} ${styles.experienceViewerPrev}`} onClick={() => setDemoIndex((current) => (current - 1 + localizedDemoScreens.length) % localizedDemoScreens.length)} aria-label={locale === "en" ? "Previous image" : "Ảnh trước"}>‹</button>
               <button type="button" className={`${styles.experienceViewerNav} ${styles.experienceViewerNext}`} onClick={() => setDemoIndex((current) => (current + 1) % localizedDemoScreens.length)} aria-label={locale === "en" ? "Next image" : "Ảnh tiếp theo"}>›</button>
             </>}
           </div>
+          {isDemoLightboxOpen && <div className={styles.experienceLightbox} role="dialog" aria-modal="true" aria-label={activeDemoCaption} onClick={() => setIsDemoLightboxOpen(false)}>
+            <button type="button" className={styles.experienceLightboxClose} onClick={() => setIsDemoLightboxOpen(false)} aria-label={locale === "en" ? "Close full screen image" : "Đóng ảnh toàn màn hình"}>×</button>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={hm(localizedDemoScreens[demoIndex].file)} alt={activeDemoCaption} className={styles.experienceLightboxImage} onClick={(event) => event.stopPropagation()} />
+            <p className={styles.experienceLightboxCaption}>{activeDemoCaption}</p>
+          </div>}
         </div></section>
 
         <BrandSignature locale={locale}/>
