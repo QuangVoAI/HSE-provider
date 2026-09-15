@@ -63,22 +63,26 @@ const featureImages = [
 const videos = [
   {
     id: "Mn9PsElz7cs",
+    thumbnail: "https://i.ytimg.com/vi/Mn9PsElz7cs/sddefault.jpg",
     vi: "HSE Lawsoft – Người bạn đồng hành của người làm HSE",
     en: "HSE Lawsoft – Your companion for HSE management",
   },
   {
     id: "TQBrve8ekV4",
+    thumbnail: "https://i.ytimg.com/vi_webp/TQBrve8ekV4/maxresdefault.webp",
     vi: "SOR – Báo cáo quan sát an toàn tại nơi làm việc",
     en: "SOR – Workplace safety observation reporting",
   },
   {
     id: "lEV9_ikz0Ps",
+    thumbnail: "https://i.ytimg.com/vi_webp/lEV9_ikz0Ps/maxresdefault.webp",
     vi: "VHAT – Thiết lập chiến dịch đánh giá văn hóa an toàn",
     en: "VHAT – Set up a safety culture assessment campaign",
     start: 1,
   },
   {
     id: "E_afodd4d6U",
+    thumbnail: "https://i.ytimg.com/vi_webp/E_afodd4d6U/maxresdefault.webp",
     vi: "VHAT – Hướng dẫn đánh giá văn hóa an toàn",
     en: "VHAT – Safety culture assessment guide",
   },
@@ -124,16 +128,25 @@ export default function CsmsOverview() {
   const [currentFeatureImage, setCurrentFeatureImage] = useState(0);
   const [currentVideo, setCurrentVideo] = useState(0);
   const [playingVideo, setPlayingVideo] = useState<number | null>(null);
+  const [videoControlsVisible, setVideoControlsVisible] = useState(false);
   const [consultationSubmitted, setConsultationSubmitted] = useState(false);
   const [consultationDemo, setConsultationDemo] = useState(false);
   const [consultationSending, setConsultationSending] = useState(false);
   const [consultationError, setConsultationError] = useState("");
   const videoFrames = useRef<Array<HTMLIFrameElement | null>>([]);
+  const videoControlsTimer = useRef<number | null>(null);
   const copy = translations[locale];
   const footerSolutionLinks = getSolutionLinks(locale);
   const pauseCurrentVideo = () => videoFrames.current[currentVideo]?.contentWindow?.postMessage(JSON.stringify({ event: "command", func: "pauseVideo", args: [] }), "*");
   const showPreviousVideo = () => { pauseCurrentVideo(); setPlayingVideo(null); setCurrentVideo((current) => (current - 1 + videos.length) % videos.length); };
   const showNextVideo = () => { pauseCurrentVideo(); setPlayingVideo(null); setCurrentVideo((current) => (current + 1) % videos.length); };
+  const revealVideoControls = () => {
+    setVideoControlsVisible(true);
+    if (videoControlsTimer.current !== null) window.clearTimeout(videoControlsTimer.current);
+    if (playingVideo === null) {
+      videoControlsTimer.current = window.setTimeout(() => setVideoControlsVisible(false), 2800);
+    }
+  };
 
   useEffect(() => {
     const requestedLocale = new URLSearchParams(window.location.search).get("lang");
@@ -141,6 +154,43 @@ export default function CsmsOverview() {
       setLocale(requestedLocale);
     }
   }, []);
+
+  useEffect(() => {
+    const preloadVideoThumbnails = () => {
+      videos.forEach((video) => {
+        const thumbnail = new Image();
+        thumbnail.decoding = "async";
+        thumbnail.src = video.thumbnail;
+      });
+    };
+
+    const idleWindow = window as Window & {
+      requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+      cancelIdleCallback?: (handle: number) => void;
+    };
+
+    if (typeof idleWindow.requestIdleCallback === "function") {
+      const idleId = idleWindow.requestIdleCallback(preloadVideoThumbnails, { timeout: 1400 });
+      return () => idleWindow.cancelIdleCallback?.(idleId);
+    }
+
+    const timeoutId = window.setTimeout(preloadVideoThumbnails, 450);
+    return () => window.clearTimeout(timeoutId);
+  }, []);
+
+  useEffect(() => {
+    if (videoControlsTimer.current !== null) window.clearTimeout(videoControlsTimer.current);
+
+    if (playingVideo !== null) {
+      setVideoControlsVisible(true);
+    } else {
+      videoControlsTimer.current = window.setTimeout(() => setVideoControlsVisible(false), 2800);
+    }
+
+    return () => {
+      if (videoControlsTimer.current !== null) window.clearTimeout(videoControlsTimer.current);
+    };
+  }, [playingVideo]);
 
   useEffect(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -170,7 +220,7 @@ export default function CsmsOverview() {
 
       <section className={styles.video} id="demo">
         <h2>{copy.videoHeading}</h2>
-        <div className={styles.videoCarousel} tabIndex={0} onKeyDown={(event) => {
+        <div className={`${styles.videoCarousel} ${videoControlsVisible ? styles.videoControlsVisible : ""}`} tabIndex={0} onPointerDown={revealVideoControls} onKeyDown={(event) => {
           if (event.key === "ArrowLeft") showPreviousVideo();
           if (event.key === "ArrowRight") showNextVideo();
         }}>
@@ -185,7 +235,7 @@ export default function CsmsOverview() {
               allowFullScreen
               key={videos[currentVideo].id}
             /> : <button className={styles.videoPoster} type="button" onClick={() => setPlayingVideo(currentVideo)} aria-label={`${copy.playVideo}: ${videos[currentVideo][locale]}`}>
-              <img src={`https://i.ytimg.com/vi/${videos[currentVideo].id}/hqdefault.jpg`} alt="" loading="lazy" decoding="async" />
+              <img src={videos[currentVideo].thumbnail} alt="" loading="lazy" decoding="async" />
               <span className={styles.videoPosterShade} aria-hidden="true" />
               <span className={styles.videoPlay} aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 7 8 5-8 5Z" /></svg></span>
               <span className={styles.videoTitle}>{videos[currentVideo][locale]}</span>
