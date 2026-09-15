@@ -91,7 +91,7 @@ const translations = {
     customers: "Khách hàng", contact: "Liên hệ", demo: "Đăng ký demo", menu: "Mở menu",
     heroTitle: "Hệ thống phần mềm Quản lý An toàn", tagline: "Sức khỏe – An toàn – Môi trường (HSE)",
     heroAlt: "Đội ngũ an toàn tại nơi làm việc", coreTitle: "Tính năng Cốt lõi EHS", customersTitle: "Khách hàng của chúng tôi",
-    videoHeading: "Video giới thiệu & hướng dẫn", previousVideo: "Video trước", nextVideo: "Video tiếp theo", contactTitle: "Thông tin liên hệ",
+    videoHeading: "Video giới thiệu & hướng dẫn", previousVideo: "Video trước", nextVideo: "Video tiếp theo", playVideo: "Phát video", contactTitle: "Thông tin liên hệ",
     addressLines: ["Toà nhà Hà Nam, 26/5 Quốc lộ 13,", "Khu phố Tây, Phường Lái Thiêu, TP.HCM"],
     consultTitle: "Đăng ký tư vấn", consultText: "Vui lòng để lại thông tin. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.",
     fullName: "Họ tên", fullNamePlaceholder: "Nguyễn Văn A", phone: "Số điện thoại", company: "Tên công ty", submitted: "Đã ghi nhận thông tin. Đội ngũ HSE Provider sẽ liên hệ với bạn sớm nhất.",
@@ -107,7 +107,7 @@ const translations = {
     customers: "Customers", contact: "Contact", demo: "Book a demo", menu: "Open menu",
     heroTitle: "Safety Management Software System", tagline: "Health – Safety – Environment (HSE)",
     heroAlt: "Safety team at the workplace", coreTitle: "Core EHS Features", customersTitle: "Our Customers",
-    videoHeading: "Introduction & tutorial videos", previousVideo: "Previous video", nextVideo: "Next video", contactTitle: "Contact Information",
+    videoHeading: "Introduction & tutorial videos", previousVideo: "Previous video", nextVideo: "Next video", playVideo: "Play video", contactTitle: "Contact Information",
     addressLines: ["Ha Nam Building, 26/5 National Highway 13, Lai Thieu Ward, Ho Chi Minh City"],
     consultTitle: "Request a Consultation", consultText: "Leave your information and our team will contact you as soon as possible.",
     fullName: "Full name", fullNamePlaceholder: "Your full name", phone: "Phone number", company: "Company name", submitted: "Your request has been recorded. The HSE Provider team will contact you soon.",
@@ -123,6 +123,7 @@ export default function CsmsOverview() {
   const [locale, setLocale] = useState<Locale>("vi");
   const [currentFeatureImage, setCurrentFeatureImage] = useState(0);
   const [currentVideo, setCurrentVideo] = useState(0);
+  const [playingVideo, setPlayingVideo] = useState<number | null>(null);
   const [consultationSubmitted, setConsultationSubmitted] = useState(false);
   const [consultationDemo, setConsultationDemo] = useState(false);
   const [consultationSending, setConsultationSending] = useState(false);
@@ -131,8 +132,8 @@ export default function CsmsOverview() {
   const copy = translations[locale];
   const footerSolutionLinks = getSolutionLinks(locale);
   const pauseCurrentVideo = () => videoFrames.current[currentVideo]?.contentWindow?.postMessage(JSON.stringify({ event: "command", func: "pauseVideo", args: [] }), "*");
-  const showPreviousVideo = () => { pauseCurrentVideo(); setCurrentVideo((current) => (current - 1 + videos.length) % videos.length); };
-  const showNextVideo = () => { pauseCurrentVideo(); setCurrentVideo((current) => (current + 1) % videos.length); };
+  const showPreviousVideo = () => { pauseCurrentVideo(); setPlayingVideo(null); setCurrentVideo((current) => (current - 1 + videos.length) % videos.length); };
+  const showNextVideo = () => { pauseCurrentVideo(); setPlayingVideo(null); setCurrentVideo((current) => (current + 1) % videos.length); };
 
   useEffect(() => {
     const requestedLocale = new URLSearchParams(window.location.search).get("lang");
@@ -174,17 +175,21 @@ export default function CsmsOverview() {
           if (event.key === "ArrowRight") showNextVideo();
         }}>
           <div className={styles.videoCard}>
-            {videos.map((item, index) => index === currentVideo ? <iframe
+            {playingVideo === currentVideo ? <iframe
               className={styles.activeVideo}
-              ref={(frame) => { videoFrames.current[index] = frame; }}
-              src={`https://www.youtube-nocookie.com/embed/${item.id}?rel=0&enablejsapi=1${"start" in item ? `&start=${item.start}` : ""}`}
-              title={item[locale]}
-              loading="lazy"
+              ref={(frame) => { videoFrames.current[currentVideo] = frame; }}
+              src={`https://www.youtube-nocookie.com/embed/${videos[currentVideo].id}?rel=0&enablejsapi=1&autoplay=1${"start" in videos[currentVideo] ? `&start=${videos[currentVideo].start}` : ""}`}
+              title={videos[currentVideo][locale]}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
-              key={item.id}
-            /> : null)}
+              key={videos[currentVideo].id}
+            /> : <button className={styles.videoPoster} type="button" onClick={() => setPlayingVideo(currentVideo)} aria-label={`${copy.playVideo}: ${videos[currentVideo][locale]}`}>
+              <img src={`https://i.ytimg.com/vi/${videos[currentVideo].id}/hqdefault.jpg`} alt="" loading="lazy" decoding="async" />
+              <span className={styles.videoPosterShade} aria-hidden="true" />
+              <span className={styles.videoPlay} aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 7 8 5-8 5Z" /></svg></span>
+              <span className={styles.videoTitle}>{videos[currentVideo][locale]}</span>
+            </button>}
             <button className={`${styles.videoArrow} ${styles.videoArrowPrevious}`} type="button" onClick={showPreviousVideo} aria-label={copy.previousVideo}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 5-7 7 7 7" /></svg></button>
             <button className={`${styles.videoArrow} ${styles.videoArrowNext}`} type="button" onClick={showNextVideo} aria-label={copy.nextVideo}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 5 7 7-7 7" /></svg></button>
           </div>
