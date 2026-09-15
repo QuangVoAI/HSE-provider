@@ -4,6 +4,7 @@ import { ChartNoAxesCombined, ChartSpline, ClipboardPenLine, Gauge, ScanSearch, 
 import CustomerHeader from "../customers/customer-header";
 import BrandSignature from "../shared/brand-signature";
 import SiteFooter from "../shared/site-footer";
+import SolutionSwitcher from "../shared/solution-switcher";
 import { getSolutionLinks } from "../shared/solution-links";
 import chrome from "../csms/csms.module.css";
 import healthStyles from "../health-management/health-management.module.css";
@@ -154,6 +155,7 @@ export default async function RiskManagementPage({ searchParams }: { searchParam
         <TrainingExperience title={locale === "vi" ? "TRẢI NGHIỆM QUẢN\u00a0LÝ\u00a0RỦI\u00a0RO TRỰC\u00a0QUAN VÀ NHẤT\u00a0QUÁN" : "INTUITIVE\u00a0AND\u00a0CONSISTENT RISK\u00a0MANAGEMENT\u00a0EXPERIENCE"} slides={slides} locale={locale}/>
         <BrandSignature locale={locale}/>
       </div>
+      <SolutionSwitcher locale={locale} currentPath="/risk-management" />
     </main>
     <SiteFooter locale={locale}/>
   </div>;

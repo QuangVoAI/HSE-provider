@@ -4,6 +4,7 @@ import { BookOpenCheck, CalendarClock, ChartNoAxesCombined, Gauge, Scale, Shield
 import CustomerHeader from "../customers/customer-header";
 import BrandSignature from "../shared/brand-signature";
 import SiteFooter from "../shared/site-footer";
+import SolutionSwitcher from "../shared/solution-switcher";
 import { getSolutionLinks } from "../shared/solution-links";
 import chrome from "../csms/csms.module.css";
 import OverviewCarousel from "./overview-carousel";
@@ -117,6 +118,7 @@ export default async function TrainingManagementPage({ searchParams }: { searchP
         <TrainingExperience title={locale === "vi" ? "NÂNG\u00a0CAO\u00a0NĂNG\u00a0LỰC\nXÂY\u00a0DỰNG\u00a0VĂN\u00a0HÓA\nAN\u00a0TOÀN" : "ELEVATING\u00a0COMPETENCE\nBUILDING\u00a0A\u00a0CULTURE\nOF\u00a0SAFETY"} slides={slides} locale={locale}/>
         <BrandSignature locale={locale}/>
       </div>
+      <SolutionSwitcher locale={locale} currentPath="/training-management" />
     </main>
     <SiteFooter locale={locale}/>
   </div>;

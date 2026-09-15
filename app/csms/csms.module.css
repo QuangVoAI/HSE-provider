@@ -80,7 +80,9 @@
 .heroCopy h2 { margin: 0 0 12px; font-size: 26px; line-height: 34px; white-space: nowrap; }
 .heroCopy i { width: 64px; height: 4px; margin: 4px 0 16px; background: #fff; }
 .heroCopy p { margin: 0 0 32px; font-size: 25px; line-height: 30px; white-space: nowrap; }
+.heroActions { display:flex; align-items:center; gap:10px; }
 .heroCopy a { width: 200px; height: 54px; padding: 12px 0; border: 1px solid transparent; border-radius: 12px; background: #fff; color: var(--navy); font-size: 19px; font-weight: 700; text-align: center; box-shadow: 0 10px 15px -3px rgba(0,0,0,.1); transition: transform .2s, box-shadow .2s, color .2s, border-color .2s; }
+.heroDemo { display:none; }
 .heroCopy a:hover { transform: translateY(-3px); border-color: rgba(0,29,53,.12); color: var(--blue); box-shadow: 0 14px 24px rgba(0,29,53,.18); }
 .heroCopy a:active { transform: translateY(0) scale(.97); }
 .heroImage { width: 100%; min-width: 0; height: 100%; overflow: hidden; background: #f1f5f9; }
@@ -348,7 +350,10 @@
   .heroCopy h2 { max-width: 100%; margin-bottom: 3px; font-size: 14px; line-height: 18px; white-space: normal; text-wrap: balance; }
   .heroCopy i { width: 34px; height: 2px; margin: 1px 0 5px; }
   .heroCopy p { margin-bottom: 6px; font-size: 11px; line-height: 16px; }
-  .heroCopy a { width: 142px; height: 34px; padding: 7px 12px; border-radius: 8px; font-size: 12px; }
+  .heroActions { gap:8px; }
+  .heroCopy a { height:34px; padding:7px 10px; border-radius:8px; font-size:12px; }
+  .heroCopy .heroDemo { width:142px; display:inline-flex; align-items:center; justify-content:center; background:#fff; color:var(--navy); }
+  .heroCopy .heroLogin { width:94px; display:inline-flex; align-items:center; justify-content:center; border-color:rgba(255,255,255,.72); background:transparent; color:#fff; box-shadow:none; white-space:nowrap; }
   .heroImage { height:120px; }
   .heroImage img { object-position: center 26%; }
   .core { padding: 34px 12px 30px; }

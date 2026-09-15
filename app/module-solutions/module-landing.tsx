@@ -21,6 +21,7 @@ import CustomerHeader from "../customers/customer-header";
 import ScrollToTop from "../customers/scroll-to-top";
 import BrandSignature from "../shared/brand-signature";
 import SiteFooter from "../shared/site-footer";
+import SolutionSwitcher from "../shared/solution-switcher";
 import { getSolutionLinks } from "../shared/solution-links";
 import TrainingExperience from "../training-management/training-experience";
 import OverviewCarousel from "../training-management/overview-carousel";
@@ -198,6 +199,7 @@ export default function ModuleLanding({ config, locale }: { config: ModulePageCo
         <TrainingExperience title={copy.experienceTitle} slides={slides} locale={locale}/>
         <BrandSignature locale={locale}/>
       </div>
+      <SolutionSwitcher locale={locale} currentPath={`/${config.slug}`} />
     </main>
 
     <SiteFooter locale={locale}/>

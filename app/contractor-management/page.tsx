@@ -4,6 +4,7 @@ import { BadgeCheck, BriefcaseBusiness, Building2, ChartNoAxesCombined, Clipboar
 import CustomerHeader from "../customers/customer-header";
 import BrandSignature from "../shared/brand-signature";
 import SiteFooter from "../shared/site-footer";
+import SolutionSwitcher from "../shared/solution-switcher";
 import { getSolutionLinks } from "../shared/solution-links";
 import ScrollToTop from "../customers/scroll-to-top";
 import OverviewCarousel from "../training-management/overview-carousel";
@@ -202,6 +203,7 @@ export default async function ContractorManagementPage({ searchParams }: { searc
 
         <BrandSignature locale={locale}/>
       </div>
+      <SolutionSwitcher locale={locale} currentPath="/contractor-management" />
 
     </main>
 

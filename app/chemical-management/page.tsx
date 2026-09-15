@@ -4,6 +4,7 @@ import CustomerHeader from "../customers/customer-header";
 import ScrollToTop from "../customers/scroll-to-top";
 import BrandSignature from "../shared/brand-signature";
 import SiteFooter from "../shared/site-footer";
+import SolutionSwitcher from "../shared/solution-switcher";
 import { getSolutionLinks } from "../shared/solution-links";
 import chrome from "../csms/csms.module.css";
 import trainingStyles from "../training-management/training-management.module.css";
@@ -71,6 +72,7 @@ export default async function ChemicalManagementPage({ searchParams }: { searchP
 
         <div className={styles.brandGroup}><BrandSignature locale={locale}/></div>
       </div>
+      <SolutionSwitcher locale={locale} currentPath="/chemical-management" />
     </main>
 
     <SiteFooter locale={locale}/>

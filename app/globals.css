@@ -144,6 +144,19 @@ input {
     transform: translateY(1px) scale(.94);
     box-shadow: 0 4px 12px rgba(3, 42, 82, .18);
   }
+
+  main button[aria-label*="trước" i],
+  main button[aria-label*="tiếp" i],
+  main button[aria-label*="previous" i],
+  main button[aria-label*="next" i] {
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+
+  body:has(main details[open]) .scrollToTopButton {
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

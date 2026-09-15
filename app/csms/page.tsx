@@ -156,7 +156,7 @@ export default function CsmsOverview() {
     <CustomerHeader locale={locale} active="overview" chrome="csms" localePath="/csms" />
 
     <main className={styles.main}>
-      <section className={styles.hero}><div className={styles.heroCopy}><h1>CSMS</h1><h2>{copy.heroTitle}</h2><i /><p>{copy.tagline}</p><a href="https://qlat.1hse.vn/login">{copy.login}</a></div><div className={styles.heroImage}><img src={figma("hero.png")} alt={copy.heroAlt} fetchPriority="high" decoding="async" /></div></section>
+      <section className={styles.hero}><div className={styles.heroCopy}><h1>CSMS</h1><h2>{copy.heroTitle}</h2><i /><p>{copy.tagline}</p><div className={styles.heroActions}><a className={styles.heroDemo} href={`/contact?lang=${locale}`}>{copy.demo}</a><a className={styles.heroLogin} href="https://qlat.1hse.vn/login">{copy.login}</a></div></div><div className={styles.heroImage}><img src={figma("hero.png")} alt={copy.heroAlt} fetchPriority="high" decoding="async" /></div></section>
 
       <section className={styles.core} id="solutions"><h2>{copy.coreTitle}</h2><div className={styles.coreContent}><div className={styles.moduleGrid}>{modules.map((module, index) => {
         const [prefix, nameLines] = module[locale];

@@ -260,6 +260,7 @@
   .testimonialCopy blockquote { max-width:none; font-size:16px; line-height:1.58; font-weight:600; }
   .author { margin-top:22px; }
   .author strong,.author p span { font-size:14px; line-height:22px; }
+  .author p { display:grid; gap:2px; }
   .author strong,.author p span { display:block; }
   .author strong::after { content:""; }
   .logoWall { padding:48px 0 50px; }

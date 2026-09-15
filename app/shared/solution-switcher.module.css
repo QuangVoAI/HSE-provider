@@ -1,0 +1,13 @@
+.switcher { display:none; }
+
+@media (max-width:620px) {
+  .switcher { padding:18px 16px 28px; display:block; background:#f4f8fc; }
+  .switcher details { width:100%; border:1px solid #cbdced; border-radius:18px; background:#fff; box-shadow:0 12px 28px rgba(6,49,91,.08); overflow:hidden; }
+  .switcher summary { min-height:54px; padding:0 18px; display:flex; align-items:center; justify-content:space-between; gap:12px; color:#06335e; font-size:15px; font-weight:850; cursor:pointer; list-style:none; }
+  .switcher summary::-webkit-details-marker { display:none; }
+  .switcher summary span { font-size:22px; transition:transform .32s cubic-bezier(.22,.61,.36,1); }
+  .switcher details[open] summary span { transform:rotate(180deg); }
+  .switcher details>div { padding:4px 12px 14px; display:grid; }
+  .switcher a { min-height:46px; padding:0 8px; display:flex; align-items:center; justify-content:space-between; gap:12px; border-top:1px solid #e4edf6; color:#31516d; font-size:14px; font-weight:750; text-decoration:none; }
+  .switcher a span { color:#0870d1; font-size:18px; }
+}

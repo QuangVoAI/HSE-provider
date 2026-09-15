@@ -29,6 +29,7 @@ import riskStyles from "../risk-management/risk-management.module.css";
 import BrandSignature from "../shared/brand-signature";
 import CustomerHeader from "../customers/customer-header";
 import SiteFooter from "../shared/site-footer";
+import SolutionSwitcher from "../shared/solution-switcher";
 import { getImageCaption } from "../shared/image-caption";
 import { getSolutionLinks } from "../shared/solution-links";
 
@@ -400,6 +401,7 @@ export default function HealthManagementPage() {
 
         <BrandSignature locale={locale}/>
       </div>
+      <SolutionSwitcher locale={locale} currentPath="/health-management" />
 
     </main>
 

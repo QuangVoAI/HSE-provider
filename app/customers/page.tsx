@@ -25,25 +25,34 @@ const testimonials = [
   {
     company: "Saint-Gobain",
     image: "/assets/customers/customer-saint-gobain-transparent.png",
-    quote: "Your effort and commitment toward the day was exceptional and this was really affected in the quality of the whole event. Clearly excellent teamwork, result focus and good creativity were competencies that you demonstrated very positively in reaching this achievement.",
+    quote: {
+      vi: "Nỗ lực và cam kết của bạn trong ngày hôm đó thật sự xuất sắc, được thể hiện rõ qua chất lượng của toàn bộ sự kiện. Tinh thần làm việc nhóm, định hướng kết quả và sự sáng tạo là những năng lực bạn đã thể hiện rất tích cực để đạt được thành quả này.",
+      en: "Your effort and commitment toward the day was exceptional and this was really affected in the quality of the whole event. Clearly excellent teamwork, result focus and good creativity were competencies that you demonstrated very positively in reaching this achievement.",
+    },
     author: "Craig Chamber",
-    role: "Managing Director of Saint-Gobain VN",
+    role: { vi: "Tổng Giám đốc Saint-Gobain Việt Nam", en: "Managing Director of Saint-Gobain VN" },
     theme: "saint",
   },
   {
     company: "SABECO",
     image: "/assets/customers/customer-sabeco-hd.png",
-    quote: "Thank you, Mr. Nhan, for sharing your very practical knowledge about labor safety. The method of teaching is direct and easy to understand, making us, the employees, feel very comfortable and eager to participate in the training.",
+    quote: {
+      vi: "Cảm ơn anh Nhân đã chia sẻ những kiến thức rất thực tế về an toàn lao động. Phương pháp truyền đạt trực tiếp, dễ hiểu giúp người lao động cảm thấy thoải mái và hào hứng tham gia khóa huấn luyện.",
+      en: "Thank you, Mr. Nhan, for sharing your very practical knowledge about labor safety. The method of teaching is direct and easy to understand, making us, the employees, feel very comfortable and eager to participate in the training.",
+    },
     author: "Mr. Ha",
-    role: "SABECO",
+    role: { vi: "SABECO", en: "SABECO" },
     theme: "sabeco",
   },
   {
     company: "BlueScope Lysaght",
     image: "/assets/customers/customer-bluescope-transparent.png",
-    quote: "I highly appreciate your company's development strategy and wish the company continued growth.",
+    quote: {
+      vi: "Tôi đánh giá cao chiến lược phát triển của công ty và chúc công ty tiếp tục phát triển.",
+      en: "I highly appreciate your company's development strategy and wish the company continued growth.",
+    },
     author: "Mr. Anh Hai",
-    role: "VP",
+    role: { vi: "VP", en: "VP" },
     theme: "bluescope",
   },
 ] as const;
@@ -103,10 +112,10 @@ export default async function CustomersPage({
             <article className={styles.testimonialSection} data-theme={testimonial.theme} key={testimonial.company}>
               <div className={styles.testimonialCopy}>
                 <span className={styles.quoteMark} aria-hidden="true">“</span>
-                <blockquote>{testimonial.quote}</blockquote>
+                <blockquote>{testimonial.quote[locale]}</blockquote>
                 <div className={styles.author}>
                   <span className={styles.authorLine} />
-                  <p><strong>{testimonial.author}</strong><span>{testimonial.role}</span></p>
+                  <p><strong>{testimonial.author}</strong><span>{testimonial.role[locale]}</span></p>
                 </div>
               </div>
               <div className={`${styles.testimonialBrand} ${styles[testimonial.theme]}`}>
