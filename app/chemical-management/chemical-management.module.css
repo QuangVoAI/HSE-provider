@@ -167,6 +167,7 @@
 }
 
 @media (max-width: 620px) {
+  .brandGroup { display: none; }
   .underConstruction {
     min-height: 640px;
     padding: 40px 10px;
