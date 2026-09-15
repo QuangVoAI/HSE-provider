@@ -137,9 +137,9 @@
 .videoPoster img { width:100%; height:100%; object-fit:cover; transform:scale(1.01); transition:transform .7s cubic-bezier(.22,.61,.36,1); }
 .videoPosterShade { position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,18,35,.08) 25%,rgba(0,18,35,.76) 100%); }
 .videoPoster:hover img { transform:scale(1.035); }
-.videoPlay { position:absolute; top:50%; left:50%; width:68px; height:68px; display:grid; place-items:center; transform:translate(-50%,-50%); border:1px solid rgba(255,255,255,.7); border-radius:50%; background:rgba(0,89,192,.92); box-shadow:0 12px 30px rgba(0,29,53,.34); transition:transform .35s cubic-bezier(.22,.61,.36,1),background .35s ease,box-shadow .35s ease; }
-.videoPlay svg { width:30px; height:30px; fill:currentColor; transform:translateX(2px); }
-.videoPoster:hover .videoPlay { transform:translate(-50%,-50%) scale(1.06); background:#0879d7; box-shadow:0 16px 36px rgba(0,89,192,.42); }
+.videoPlay { position:absolute; top:50%; left:50%; width:68px; height:48px; display:grid; place-items:center; transform:translate(-50%,-50%); border:0; border-radius:14px; color:#fff; background:#f00; box-shadow:0 10px 26px rgba(0,0,0,.3); transition:transform .35s cubic-bezier(.22,.61,.36,1),background .35s ease,box-shadow .35s ease; }
+.videoPlay svg { width:25px; height:25px; fill:currentColor; transform:translateX(1px); }
+.videoPoster:hover .videoPlay { transform:translate(-50%,-50%) scale(1.06); background:#f03; box-shadow:0 14px 32px rgba(0,0,0,.36); }
 .videoPoster:active .videoPlay { transform:translate(-50%,-50%) scale(.96); }
 .videoPoster:focus-visible { outline:4px solid #67b7ff; outline-offset:-4px; }
 .videoTitle { position:absolute; right:88px; bottom:24px; left:88px; font-size:18px; line-height:1.4; font-weight:750; text-align:center; text-wrap:balance; }
@@ -402,8 +402,8 @@
   .videoArrow { width: 44px; height: 44px; font-size: 21px; touch-action: manipulation; }
   .videoArrowPrevious { left: 8px; }
   .videoArrowNext { right: 8px; }
-  .videoPlay { width:56px; height:56px; }
-  .videoPlay svg { width:25px; height:25px; }
+  .videoPlay { width:60px; height:42px; border-radius:12px; }
+  .videoPlay svg { width:22px; height:22px; }
   .videoTitle { right:62px; bottom:11px; left:62px; display:-webkit-box; overflow:hidden; font-size:12.5px; line-height:16px; text-align:center; -webkit-box-orient:vertical; -webkit-line-clamp:2; }
   .contact { padding: 36px 12px 44px; }
   .contactCard { min-height: 0; border-radius: 20px; }
