@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./training-management.module.css";
 
-export default function OverviewCarousel({ images, label, autoPlayMs = 4500 }: { images: string[]; label: string; autoPlayMs?: number }) {
+export default function OverviewCarousel({ images, label, autoPlayMs = 4500, placement = "overview" }: { images: string[]; label: string; autoPlayMs?: number; placement?: "overview" | "hero" }) {
   const [active, setActive] = useState(0);
   const [interacting, setInteracting] = useState(false);
   const pointerStart = useRef<number | null>(null);
@@ -28,7 +28,7 @@ export default function OverviewCarousel({ images, label, autoPlayMs = 4500 }: {
   };
 
   return <div
-    className={styles.overviewCarousel}
+    className={`${styles.overviewCarousel} ${placement === "hero" ? styles.mobileHeroCarousel : styles.overviewMediaCarousel}`}
     aria-label={label}
     onTouchStart={(event) => {
       if (images.length < 2) return;

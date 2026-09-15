@@ -237,7 +237,7 @@ export default function CsmsOverview() {
             /> : <button className={styles.videoPoster} type="button" onClick={() => setPlayingVideo(currentVideo)} aria-label={`${copy.playVideo}: ${videos[currentVideo][locale]}`}>
               <img src={videos[currentVideo].thumbnail} alt="" loading="lazy" decoding="async" />
               <span className={styles.videoPosterShade} aria-hidden="true" />
-              <span className={styles.videoPlay} aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 7 8 5-8 5Z" /></svg></span>
+              <span className={styles.videoPlay} aria-hidden="true"><svg viewBox="0 0 68 48"><path className={styles.videoPlayShape} d="M66.52 7.74c-.78-2.93-3.09-5.24-6.02-6.02C55.22.3 34 .3 34 .3S12.78.3 7.5 1.72C4.57 2.5 2.26 4.81 1.48 7.74.06 13.02.06 24 .06 24s0 10.98 1.42 16.26c.78 2.93 3.09 5.24 6.02 6.02C12.78 47.7 34 47.7 34 47.7s21.22 0 26.5-1.42c2.93-.78 5.24-3.09 6.02-6.02C67.94 34.98 67.94 24 67.94 24s0-10.98-1.42-16.26Z"/><path d="m45 24-18-10v20Z" fill="#fff"/></svg></span>
               <span className={styles.videoTitle}>{videos[currentVideo][locale]}</span>
             </button>}
             <button className={`${styles.videoArrow} ${styles.videoArrowPrevious}`} type="button" onClick={showPreviousVideo} aria-label={copy.previousVideo}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 5-7 7 7 7" /></svg></button>

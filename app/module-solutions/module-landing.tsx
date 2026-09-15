@@ -136,6 +136,7 @@ export default function ModuleLanding({ config, locale }: { config: ModulePageCo
     <CustomerHeader locale={locale} active="solutions" chrome="csms" localePath={`/${config.slug}`} />
     <main>
       <section className={`${trainingStyles.hero} ${riskStyles.hero} ${styles.moduleHero} hse-module-hero`} style={{ backgroundImage: `url(${config.heroImage})` }} aria-labelledby={`${config.slug}-title`}>
+        <OverviewCarousel placement="hero" images={[config.heroImage, ...config.overviewImages.filter(image => image !== config.heroImage)]} label={copy.title} autoPlayMs={4500}/>
         <div className={`${trainingStyles.heroOverlay} ${riskStyles.heroOverlay}`}/>
         <div className={`${trainingStyles.heroCopy} hse-module-hero-title`} style={{ position:"absolute", inset:0, width:"100%", display:"flex", alignItems:"center", justifyContent:"center", padding:"0 24px", textAlign:"center" }}>
           <h1 id={`${config.slug}-title`} className={`${keepTitleOnOneLine ? styles.singleLineHeroTitle : ""} ${config.slug === "legal-compliance" ? styles.legalHeroTitle : ""}`} style={{ width:"100%", maxWidth:1050, margin:0, textAlign:"center" }}>{balancedTitle}</h1>

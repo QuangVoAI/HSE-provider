@@ -32,6 +32,7 @@ import SiteFooter from "../shared/site-footer";
 import SolutionSwitcher from "../shared/solution-switcher";
 import { getImageCaption } from "../shared/image-caption";
 import { getSolutionLinks } from "../shared/solution-links";
+import OverviewCarousel from "../training-management/overview-carousel";
 
 type Locale = "vi" | "en";
 
@@ -185,7 +186,6 @@ export default function HealthManagementPage() {
   const [workflowStep, setWorkflowStep] = useState(0);
   const [demoIndex, setDemoIndex] = useState(0);
   const [isDemoLightboxOpen, setIsDemoLightboxOpen] = useState(false);
-  const [heroSlide, setHeroSlide] = useState(0);
   const [locale, setLocale] = useState<Locale>("vi");
   const pageCopy = pageTranslations[locale];
   const footerSolutionLinks = getSolutionLinks(locale);
@@ -204,10 +204,8 @@ export default function HealthManagementPage() {
   }, []);
 
   useEffect(() => {
-    const timer = window.setInterval(() => setHeroSlide((current) => (current + 1) % heroSlides.length), 6500);
     const workflowTimer = window.setInterval(() => setWorkflowStep((current) => (current + 1) % workflow.length), 2500);
     return () => {
-      window.clearInterval(timer);
       window.clearInterval(workflowTimer);
     };
   }, []);
@@ -237,9 +235,10 @@ export default function HealthManagementPage() {
     <main id="top" className={styles.moduleMain}>
       <section
         className={`${trainingStyles.hero} ${riskStyles.hero} hse-module-hero`}
-        style={{ backgroundImage: `url(${hm(localizedHeroSlides[heroSlide][0])})` }}
-        aria-label={localizedHeroSlides[heroSlide][1]}
+        style={{ backgroundImage: `url(${hm(localizedHeroSlides[0][0])})` }}
+        aria-label={localizedHeroSlides[0][1]}
       >
+        <OverviewCarousel placement="hero" images={localizedHeroSlides.map(([image]) => hm(image))} label={pageCopy.heroTitle} autoPlayMs={6500}/>
         <div className={`${trainingStyles.heroOverlay} ${riskStyles.heroOverlay}`} />
         <div
           className={`${trainingStyles.heroCopy} hse-module-hero-title`}

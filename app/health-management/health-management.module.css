@@ -2932,13 +2932,13 @@
 @media (max-width:620px) {
   .page .hero {
     width: calc(100% - 20px) !important;
-    height: 320px !important;
-    border-radius: 0 0 44px 44px !important;
+    height: 240px !important;
+    border-radius: 0 0 32px 32px !important;
   }
 
   .page .heroCopy h1 {
-    font-size: 38px !important;
-    line-height: 1.1 !important;
+    font-size: 32px !important;
+    line-height: 1.08 !important;
   }
 
   .page .overview {
