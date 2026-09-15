@@ -147,7 +147,7 @@
 }
 @media(max-width:620px){
   .hero{width:calc(100% - 20px);height:240px;border-radius:0 0 32px 32px}
-  .heroTitle{font-size:32px!important}
+  .heroTitle{padding:0 16px;font-size:32px!important}
   .workflow{padding:54px 18px 60px}
   .workflowInner{max-width:100%}
   .workflow h2{font-size:31px}
@@ -239,7 +239,7 @@
   .valuesSection{padding-top:40px!important;padding-bottom:54px!important}
 }
 @media(max-width:620px){
-  .overviewSection{padding-top:42px!important;padding-bottom:44px!important}
+  .overviewSection{padding-top:24px!important;padding-bottom:40px!important}
   .workflow,.featureStrip{padding-top:44px;padding-bottom:48px}
   .valuesSection{padding-top:36px!important;padding-bottom:48px!important}
 }

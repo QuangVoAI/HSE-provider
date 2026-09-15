@@ -2995,7 +2995,8 @@
   .page .workflowDemo{padding-top:44px!important;padding-bottom:24px!important}
 }
 @media (max-width:620px) {
-  .page .overview,.page .workflow,.page .features,.page .value{padding-top:44px!important;padding-bottom:48px!important}
+  .page .overview{padding-top:24px!important;padding-bottom:40px!important}
+  .page .workflow,.page .features,.page .value{padding-top:44px!important;padding-bottom:48px!important}
   .page .healthDetail{padding-bottom:30px!important}
   .page .workflowDemo{padding-top:40px!important;padding-bottom:20px!important}
 }
