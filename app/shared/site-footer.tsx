@@ -8,23 +8,23 @@ type Locale = "vi" | "en";
 
 const copy = {
   vi: {
-    description: "Giải pháp phần mềm quản lý Sức khỏe, An toàn và Môi trường hàng đầu Việt Nam, giúp doanh nghiệp đạt chuẩn quốc tế.",
+    description: "Giải pháp phần mềm quản lý Sức khỏe, An toàn và Môi trường tại Việt Nam, giúp doanh nghiệp đạt chuẩn quốc tế.",
     solutions: "GIẢI PHÁP",
     company: "CÔNG TY",
     contact: "LIÊN HỆ",
     companyLinks: ["Về chúng tôi", "Khách hàng", "Blog & Tin tức", "Liên hệ"],
-    address: "Toà nhà Hà Nam, 26/5 Quốc lộ 13, Khu phố Tây, Phường Lái Thiêu, TP.HCM",
+    address: "Số 20 Đường ĐX 94, Khu phố 6, phường An Phú, TP Hồ Chí Minh",
     verified: "Đã xác thực ISO 27001",
     terms: "Điều khoản sử dụng",
     privacy: "Chính sách bảo mật",
   },
   en: {
-    description: "A leading Health, Safety and Environment management software solution for Vietnamese businesses pursuing international standards.",
+    description: "Health, Safety and Environment management software for Vietnamese businesses pursuing international standards.",
     solutions: "SOLUTIONS",
     company: "COMPANY",
     contact: "CONTACT",
     companyLinks: ["About Us", "Customers", "Blog & News", "Contact"],
-    address: "Ha Nam Building, 26/5 National Highway 13, Lai Thieu Ward, Ho Chi Minh City",
+    address: "No. 20 DX 94 Street, Quarter 6, An Phu Ward, Ho Chi Minh City",
     verified: "ISO 27001 Verified",
     terms: "Terms of Use",
     privacy: "Privacy Policy",
@@ -52,8 +52,8 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
     </div>
     <div className={styles.footerContact}><h3>{text.contact}</h3>
       <p><img src={asset("icon-location.svg")} alt="" />{text.address}</p>
-      <p><img src={asset("icon-email-footer.svg")} alt="" />duy@atld.vn - kimlinh@atld.vn</p>
-      <p><img src={asset("icon-phone.svg")} alt="" /><span>0917-267-397 (Mr. Linh)<br />0944-220-601 (Mr. Duy)<br />0345-062-815 (Ms. My)</span></p>
+      <p><img src={asset("icon-email-footer.svg")} alt="" />cskh@atld.vn</p>
+      <p><img src={asset("icon-phone.svg")} alt="" /><span>0917-267-397 (Mr. Linh)</span></p>
       <p><img src={asset("icon-certification.svg")} alt="" />{text.verified}</p>
     </div>
   </div><div className={styles.footerBottom}><span>© 2025 HSE Provider. All rights reserved.</span><span>{text.terms} &nbsp;&nbsp;&nbsp; {text.privacy}</span></div></footer>;

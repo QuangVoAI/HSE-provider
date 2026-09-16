@@ -1,7 +1,6 @@
 import styles from "./contact-map.module.css";
 
-const officeMapUrl =
-  "https://www.google.com/maps?q=HSE%20Provider%20B%C3%ACnh%20D%C6%B0%C6%A1ng&ll=10.8773419,106.7000569&z=18&output=embed";
+const officeMapUrl = `https://www.google.com/maps?q=${encodeURIComponent("Số 20 Đường ĐX 94, Khu phố 6, phường An Phú, TP Hồ Chí Minh")}&z=17&output=embed`;
 
 export default function ContactMap({ locale }: { locale: "vi" | "en" }) {
   const isVi = locale === "vi";

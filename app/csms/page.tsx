@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { VIETNAM_MOBILE_PATTERN } from "@/lib/lead-validation";
 import CustomerHeader from "../customers/customer-header";
-import BrandSignature from "../shared/brand-signature";
 import SiteFooter from "../shared/site-footer";
 import { getSolutionLinks } from "../shared/solution-links";
 import styles from "./csms.module.css";
@@ -90,33 +89,33 @@ const videos = [
 
 const translations = {
   vi: {
-    utilityAddress: "Toà nhà Hà Nam, 26/5 Quốc lộ 13, TP.HCM",
+    utilityAddress: "Số 20 Đường ĐX 94, Khu phố 6, phường An Phú, TP Hồ Chí Minh",
     language: "Ngôn ngữ", login: "Đăng nhập", overview: "Tổng quan", solutions: "Giải pháp",
     customers: "Khách hàng", contact: "Liên hệ", demo: "Đăng ký demo", menu: "Mở menu",
     heroTitle: "Hệ thống phần mềm Quản lý An toàn", tagline: "Sức khỏe – An toàn – Môi trường (HSE)",
     heroAlt: "Đội ngũ an toàn tại nơi làm việc", coreTitle: "Tính năng Cốt lõi EHS", customersTitle: "Khách hàng của chúng tôi",
     videoHeading: "Video giới thiệu & hướng dẫn", previousVideo: "Video trước", nextVideo: "Video tiếp theo", playVideo: "Phát video", contactTitle: "Thông tin liên hệ",
-    addressLines: ["Toà nhà Hà Nam, 26/5 Quốc lộ 13,", "Khu phố Tây, Phường Lái Thiêu, TP.HCM"],
+    addressLines: ["Số 20 Đường ĐX 94, Khu phố 6,", "phường An Phú, TP Hồ Chí Minh"],
     consultTitle: "Đăng ký tư vấn", consultText: "Vui lòng để lại thông tin. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.",
     fullName: "Họ tên", fullNamePlaceholder: "Nguyễn Văn A", phone: "Số điện thoại", company: "Tên công ty", submitted: "Đã ghi nhận thông tin. Đội ngũ HSE Provider sẽ liên hệ với bạn sớm nhất.",
     companyPlaceholder: "Tên doanh nghiệp", submit: "Gửi yêu cầu",
-    footerText: "Giải pháp phần mềm quản lý Sức khỏe, An toàn và Môi trường hàng đầu Việt Nam, giúp doanh nghiệp đạt chuẩn quốc tế.",
+    footerText: "Giải pháp phần mềm quản lý Sức khỏe, An toàn và Môi trường tại Việt Nam, giúp doanh nghiệp đạt chuẩn quốc tế.",
     solutionHeading: "GIẢI PHÁP", companyHeading: "CÔNG TY", contactHeading: "LIÊN HỆ",
     companyLinks: ["Về chúng tôi", "Khách hàng", "Blog & Tin tức", "Liên hệ"],
     verified: "Đã xác thực ISO 27001", terms: "Điều khoản sử dụng", privacy: "Chính sách bảo mật",
   },
   en: {
-    utilityAddress: "Ha Nam Building, 26/5 National Highway 13, HCMC",
+    utilityAddress: "No. 20 DX 94 Street, Quarter 6, An Phu Ward, Ho Chi Minh City",
     language: "Language", login: "Log in", overview: "Overview", solutions: "Solutions",
     customers: "Customers", contact: "Contact", demo: "Book a demo", menu: "Open menu",
     heroTitle: "Safety Management Software System", tagline: "Health – Safety – Environment (HSE)",
     heroAlt: "Safety team at the workplace", coreTitle: "Core EHS Features", customersTitle: "Our Customers",
     videoHeading: "Introduction & tutorial videos", previousVideo: "Previous video", nextVideo: "Next video", playVideo: "Play video", contactTitle: "Contact Information",
-    addressLines: ["Ha Nam Building, 26/5 National Highway 13, Lai Thieu Ward, Ho Chi Minh City"],
+    addressLines: ["No. 20 DX 94 Street, Quarter 6,", "An Phu Ward, Ho Chi Minh City"],
     consultTitle: "Request a Consultation", consultText: "Leave your information and our team will contact you as soon as possible.",
     fullName: "Full name", fullNamePlaceholder: "Your full name", phone: "Phone number", company: "Company name", submitted: "Your request has been recorded. The HSE Provider team will contact you soon.",
     companyPlaceholder: "Your company", submit: "Submit request",
-    footerText: "A leading Health, Safety and Environment management software solution for Vietnamese businesses pursuing international standards.",
+    footerText: "Health, Safety and Environment management software for Vietnamese businesses pursuing international standards.",
     solutionHeading: "SOLUTIONS", companyHeading: "COMPANY", contactHeading: "CONTACT",
     companyLinks: ["About Us", "Customers", "Blog & News", "Contact"],
     verified: "ISO 27001 Verified", terms: "Terms of Use", privacy: "Privacy Policy",
@@ -207,7 +206,7 @@ export default function CsmsOverview() {
     <CustomerHeader locale={locale} active="overview" chrome="csms" localePath="/csms" />
 
     <main className={styles.main}>
-      <section className={styles.hero}><div className={styles.heroCopy}><h1>CSMS</h1><h2>{copy.heroTitle}</h2><i /><p>{copy.tagline}</p><div className={styles.heroActions}><a className={styles.heroDemo} href={`/contact?lang=${locale}`}>{copy.demo}</a><a className={styles.heroLogin} href="https://qlat.1hse.vn/login">{copy.login}</a></div></div><div className={styles.heroImage}><img src={figma("hero.png")} alt={copy.heroAlt} fetchPriority="high" decoding="async" /></div></section>
+      <section className={styles.hero}><div className={styles.heroCopy}><h1>CSMS</h1><h2>{copy.heroTitle}</h2><i /><p>{copy.tagline}</p><div className={styles.heroActions}><a className={styles.heroDemo} href={`/contact?lang=${locale}`}>{copy.demo}</a><a className={styles.heroLogin} href="https://portal.1hse.vn/">{copy.login}</a></div></div><div className={styles.heroImage}><img src={figma("hero.png")} alt={copy.heroAlt} fetchPriority="high" decoding="async" /></div></section>
 
       <section className={styles.core} id="solutions"><h2>{copy.coreTitle}</h2><div className={styles.coreContent}><div className={styles.moduleGrid}>{modules.map((module, index) => {
         const [prefix, nameLines] = module[locale];
@@ -247,10 +246,9 @@ export default function CsmsOverview() {
       </section>
 
       <section className={styles.contact} id="contact"><div className={styles.contactCard}>
-        <aside><h2>{copy.contactTitle}</h2><p><img src={asset("icon-location.svg")} alt="" /><span>{copy.addressLines[0]}<br />{copy.addressLines[1]}</span></p><p><img src={asset("icon-email.svg")} alt="" /><span>duy@atld.vn<br />kimlinh@atld.vn</span></p><p><img src={asset("icon-phone.svg")} alt="" /><span className={styles.contactPhoneList}><span>0917-267-397 (Mr. Linh)</span><span>0944-220-601 (Mr. Duy)</span><span>0345-062-815 (Ms. My)</span></span></p></aside>
+        <aside><h2>{copy.contactTitle}</h2><p><img src={asset("icon-location.svg")} alt="" /><span>{copy.addressLines[0]}<br />{copy.addressLines[1]}</span></p><p><img src={asset("icon-email.svg")} alt="" /><span>cskh@atld.vn</span></p><p><img src={asset("icon-phone.svg")} alt="" /><span className={styles.contactPhoneList}><span>0917-267-397 (Mr. Linh)</span></span></p></aside>
         <form onSubmit={async (event) => { event.preventDefault(); setConsultationSending(true); setConsultationError(""); const form = event.currentTarget; const values = Object.fromEntries(new FormData(form).entries()); try { const response = await fetch("/api/leads", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...values, locale, requestType: "consultation", source: "csms-page" }) }); if (!response.ok) throw new Error("lead_failed"); const result = await response.json() as { demo?: boolean }; setConsultationDemo(Boolean(result.demo)); setConsultationSubmitted(true); form.reset(); } catch { setConsultationError(locale === "vi" ? "Không thể gửi yêu cầu lúc này. Vui lòng thử lại sau." : "We could not send your request. Please try again."); } finally { setConsultationSending(false); } }}><div className={styles.formIntro}><h2>{copy.consultTitle}</h2><p>{copy.consultText}</p>{consultationSubmitted && <p role="status" className={styles.formSuccess}>{consultationDemo ? (locale === "vi" ? "Đã gửi thử thành công. Đây là bản demo nên thông tin không được lưu." : "Demo submission successful. Your information was not stored.") : copy.submitted}</p>}{consultationError && <p role="alert" className={styles.formError}>{consultationError}</p>}</div><div className={styles.formFields}><label>{copy.fullName}<input required minLength={2} maxLength={100} name="name" autoComplete="name" placeholder={copy.fullNamePlaceholder} /></label><label>Email<input required maxLength={254} name="email" type="email" autoComplete="email" placeholder="email@company.com" /></label><label>{copy.phone}<span className={styles.requiredMark} aria-hidden="true">*</span><input required name="phone" type="tel" inputMode="tel" autoComplete="tel" pattern={VIETNAM_MOBILE_PATTERN} title={locale === "vi" ? "Nhập số di động Việt Nam, ví dụ 0917 267 397 hoặc +84 917 267 397" : "Enter a Vietnamese mobile number, for example 0917 267 397 or +84 917 267 397"} placeholder="0900 000 000" /></label><label>{copy.company}<input maxLength={150} name="company" autoComplete="organization" placeholder={copy.companyPlaceholder} /></label><label className={styles.formMessage}>{locale === "vi" ? "Nội dung yêu cầu" : "Message"}<textarea required minLength={5} maxLength={2000} name="message" placeholder={locale === "vi" ? "Bạn cần hỗ trợ điều gì?" : "How can we help?"} /></label></div><button type="submit" disabled={consultationSending}>{consultationSending ? (locale === "vi" ? "ĐANG GỬI..." : "SENDING...") : copy.submit}</button></form>
       </div></section>
-      <BrandSignature locale={locale}/>
     </main>
 
     <SiteFooter locale={locale}/>

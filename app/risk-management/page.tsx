@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ChartNoAxesCombined, ChartSpline, ClipboardPenLine, Gauge, ScanSearch, ShieldCheck, Sigma } from "lucide-react";
 import CustomerHeader from "../customers/customer-header";
-import BrandSignature from "../shared/brand-signature";
 import SiteFooter from "../shared/site-footer";
 import SolutionSwitcher from "../shared/solution-switcher";
 import { getSolutionLinks } from "../shared/solution-links";
@@ -69,7 +68,7 @@ const copy = {
       ["Ra quyết định dựa trên dữ liệu", "Sử dụng dữ liệu tập trung để đưa ra quyết định chính xác, kịp thời."],
     ],
     ctaTag: "BẮT ĐẦU NGAY HÔM NAY", ctaTitle: "Kiểm soát tốt rủi ro – Vững bước tương lai", ctaText: "Khám phá giải pháp giúp doanh nghiệp chuẩn hóa đánh giá, kiểm soát hành động và xây dựng môi trường làm việc an toàn bền vững.", consult: "Đăng ký tư vấn", document: "Tài liệu giải pháp",
-    solutions: "GIẢI PHÁP", company: "CÔNG TY", contact: "LIÊN HỆ", footer: "Giải pháp phần mềm quản lý Sức khỏe, An toàn và Môi trường hàng đầu Việt Nam, giúp doanh nghiệp đạt chuẩn quốc tế.", address: "Tòa nhà Hà Nam, 26/5 Quốc lộ 13, Khu phố Tây, Phường Lái Thiêu, TP.HCM", terms: "Điều khoản sử dụng", privacy: "Chính sách bảo mật",
+    solutions: "GIẢI PHÁP", company: "CÔNG TY", contact: "LIÊN HỆ", footer: "Giải pháp phần mềm quản lý Sức khỏe, An toàn và Môi trường tại Việt Nam, giúp doanh nghiệp đạt chuẩn quốc tế.", address: "Số 20 Đường ĐX 94, Khu phố 6, phường An Phú, TP Hồ Chí Minh", terms: "Điều khoản sử dụng", privacy: "Chính sách bảo mật",
   },
   en: {
     heroTitle: "Risk Management",
@@ -99,7 +98,7 @@ const copy = {
     valueTag: "BUSINESS VALUE", valueTitle: "Values",
     values: [["Risk Identification and Evaluation", "Identify, analyze and prioritize hazards requiring control."], ["Implementation of Control Measures", "Turn assessment results into specific control actions."], ["Monitoring and Effectiveness Evaluation", "Monitor implementation and verify control effectiveness."], ["Data-driven Decision Making", "Use centralized data to make accurate, timely decisions."]],
     ctaTag: "GET STARTED TODAY", ctaTitle: "A well-managed risk is a future-proofed business", ctaText: "Explore a solution that standardizes assessments, tracks actions and supports a sustainable safety culture.", consult: "Request consultation", document: "Solution brief",
-    solutions: "SOLUTIONS", company: "COMPANY", contact: "CONTACT", footer: "A leading Health, Safety and Environment management software solution helping businesses pursue international standards.", address: "Ha Nam Building, 26/5 National Highway 13, Tay Quarter, Lai Thieu Ward, Ho Chi Minh City", terms: "Terms of Use", privacy: "Privacy Policy",
+    solutions: "SOLUTIONS", company: "COMPANY", contact: "CONTACT", footer: "Health, Safety and Environment management software for Vietnamese businesses pursuing international standards.", address: "No. 20 DX 94 Street, Quarter 6, An Phu Ward, Ho Chi Minh City", terms: "Terms of Use", privacy: "Privacy Policy",
   },
 } as const;
 
@@ -153,7 +152,6 @@ export default async function RiskManagementPage({ searchParams }: { searchParam
       </div></section>
       <div className={riskStyles.experienceBrandGroup}>
         <TrainingExperience title={locale === "vi" ? "TRẢI NGHIỆM QUẢN\u00a0LÝ\u00a0RỦI\u00a0RO TRỰC\u00a0QUAN VÀ NHẤT\u00a0QUÁN" : "INTUITIVE\u00a0AND\u00a0CONSISTENT RISK\u00a0MANAGEMENT\u00a0EXPERIENCE"} slides={slides} locale={locale}/>
-        <BrandSignature locale={locale}/>
       </div>
       <SolutionSwitcher locale={locale} currentPath="/risk-management" />
     </main>

@@ -84,7 +84,6 @@
 @media(max-width:620px){.valuesSection{padding:34px 18px 58px!important}.valuesContainer{max-width:100%!important}.valuesTitle{margin-bottom:30px!important;font-size:31px!important}.valuesGrid{grid-template-columns:1fr!important;gap:16px!important}.valuesSection article.valueCard{min-height:220px;padding:34px 24px;border-radius:24px}.valuesSection article.valueCard h3{min-height:0;font-size:19px}.valueIcon{width:68px!important;height:68px!important}}
 .experienceBrandGroup{background:#f2fafb}
 .experienceBrandGroup>section:first-child{border-top:0;background:#f2fafb!important}
-.experienceBrandGroup>section:last-child{margin-top:-36px}
 
 /* Match the Contractor Management typography and section rhythm. */
 @media(min-width:901px){

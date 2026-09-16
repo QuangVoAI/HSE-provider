@@ -20,8 +20,8 @@ const modules = [
 ] as const;
 
 const copy = {
-  vi: { address: "Toà nhà Hà Nam, 26/5 Quốc lộ 13, TP.HCM", language: "Ngôn ngữ", login: "Đăng nhập", overview: "Tổng quan", solutions: "Giải pháp", customers: "Khách hàng", contact: "Liên hệ", demo: "Đăng ký demo", menu: "Mở menu" },
-  en: { address: "Ha Nam Building, 26/5 National Highway 13, HCMC", language: "Language", login: "Log in", overview: "Overview", solutions: "Solutions", customers: "Customers", contact: "Contact", demo: "Book a demo", menu: "Open menu" },
+  vi: { address: "Số 20 Đường ĐX 94, Khu phố 6, phường An Phú, TP Hồ Chí Minh", language: "Ngôn ngữ", login: "Đăng nhập", overview: "Tổng quan", solutions: "Giải pháp", customers: "Khách hàng", contact: "Liên hệ", demo: "Đăng ký demo", menu: "Mở menu" },
+  en: { address: "No. 20 DX 94 Street, Quarter 6, An Phu Ward, Ho Chi Minh City", language: "Language", login: "Log in", overview: "Overview", solutions: "Solutions", customers: "Customers", contact: "Contact", demo: "Book a demo", menu: "Open menu" },
 } as const;
 
 const asset = (name: string) => `/assets/csms/${name}`;
@@ -65,7 +65,7 @@ export default function CustomerHeader({ locale, active = "customers", chrome = 
   return <header className={styles.header}>
     <div className={styles.utility}><div className={styles.utilityInner}>
       <span><img src={asset("icon-location-utility.svg")} alt="" />{text.address}</span>
-      <span><img src={asset("icon-email-utility.svg")} alt="" />duy@atld.vn - kimlinh@atld.vn</span>
+      <span><img src={asset("icon-email-utility.svg")} alt="" />cskh@atld.vn</span>
       <div className={styles.utilityRight}>
         <div className={styles.languagePicker}>
           <button className={styles.languageButton} onClick={() => setLanguageOpen(!languageOpen)} aria-expanded={languageOpen}><img src={asset("icon-language.svg")} alt="" />{text.language}<b aria-hidden="true" /></button>
@@ -74,7 +74,7 @@ export default function CustomerHeader({ locale, active = "customers", chrome = 
             <button className={`${locale === "en" ? styles.selectedLanguage : ""} ${pendingLocale === "en" ? styles.selectingLanguage : ""}`} onClick={() => chooseLocale("en")}>English</button>
           </div>}
         </div>
-        <a href="https://qlat.1hse.vn/login" className={styles.utilityLogin}><img src={asset("icon-login.svg")} alt="" />{text.login}</a>
+        <a href="https://portal.1hse.vn/" className={styles.utilityLogin}><img src={asset("icon-login.svg")} alt="" />{text.login}</a>
       </div>
     </div></div>
     <div className={styles.navbar}>
@@ -112,7 +112,7 @@ export default function CustomerHeader({ locale, active = "customers", chrome = 
         {mobileSolutionsOpen && <div className={styles.mobileSolutionMenu} id="mobile-solution-list">{modules.map((module) => <a href={`${module.href}?lang=${locale}`} onClick={() => setMenuOpen(false)} key={module.vi}>{module[locale]}</a>)}</div>}
       </div>
       <a href={`/customers${query}`} onClick={() => setMenuOpen(false)}>{text.customers}</a><a href={`/contact${query}`} onClick={() => setMenuOpen(false)}>{text.contact}</a>
-      <a href="https://qlat.1hse.vn/login" onClick={() => setMenuOpen(false)}>{text.login}</a>
+      <a href="https://portal.1hse.vn/" onClick={() => setMenuOpen(false)}>{text.login}</a>
       <a className={styles.mobileDemo} href={`/contact${query}`} onClick={() => setMenuOpen(false)}>{text.demo}</a>
     </nav></>}
   </header>;

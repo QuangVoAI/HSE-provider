@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BadgeCheck, BriefcaseBusiness, Building2, ChartNoAxesCombined, ClipboardCheck, Database, FileChartColumn, FileText, FileUp, GraduationCap, Lightbulb, Network, Rocket, ScanLine, ShieldCheck, UsersRound } from "lucide-react";
 import CustomerHeader from "../customers/customer-header";
-import BrandSignature from "../shared/brand-signature";
 import SiteFooter from "../shared/site-footer";
 import SolutionSwitcher from "../shared/solution-switcher";
 import { getSolutionLinks } from "../shared/solution-links";
@@ -47,7 +46,7 @@ const content = {
     footerText: "Giải pháp phần mềm quản lý Sức khỏe, An toàn và Môi trường, giúp doanh nghiệp vận hành an toàn, minh bạch và bền vững hơn.",
     companyLinks: ["Về chúng tôi", "Khách hàng", "Blog & Tin tức", "Liên hệ"],
     certification: "Đã xác thực ISO 27001", terms: "Điều khoản sử dụng", privacy: "Chính sách bảo mật",
-    address: "Toà nhà Hà Nam, 26/5 Quốc lộ 13, TP.HCM",
+    address: "Số 20 Đường ĐX 94, Khu phố 6, phường An Phú, TP Hồ Chí Minh",
   },
   en: {
     heroTitle: "Contractor Management",
@@ -74,7 +73,7 @@ const content = {
     footerText: "Health, Safety and Environment management software that helps businesses operate more safely, transparently and sustainably.",
     companyLinks: ["About Us", "Customers", "Blog & News", "Contact"],
     certification: "ISO 27001 Verified", terms: "Terms of Use", privacy: "Privacy Policy",
-    address: "Ha Nam Building, 26/5 National Highway 13, HCMC",
+    address: "No. 20 DX 94 Street, Quarter 6, An Phu Ward, Ho Chi Minh City",
   },
 } as const;
 
@@ -201,8 +200,6 @@ export default async function ContractorManagementPage({ searchParams }: { searc
 
       <div className={styles.experienceBrandGroup}>
         <TrainingExperience title={copy.experienceTitle.replace(locale === "vi" ? "QUẢN LÝ NHÀ THẦU" : "CONTRACTOR MANAGEMENT", locale === "vi" ? "QUẢN\u00a0LÝ\u00a0NHÀ\u00a0THẦU" : "CONTRACTOR\u00a0MANAGEMENT").replace(locale === "vi" ? "TRỰC QUAN" : "FROM DESK TO SITE", locale === "vi" ? "TRỰC\u00a0QUAN" : "FROM\u00a0DESK\u00a0TO\u00a0SITE").replace(locale === "vi" ? "NHẤT QUÁN" : "INTUITIVE", locale === "vi" ? "NHẤT\u00a0QUÁN" : "INTUITIVE")} slides={experienceSlides} locale={locale}/>
-
-        <BrandSignature locale={locale}/>
       </div>
       <SolutionSwitcher locale={locale} currentPath="/contractor-management" />
 

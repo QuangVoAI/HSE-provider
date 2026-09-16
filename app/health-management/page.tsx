@@ -26,7 +26,6 @@ import {
 import styles from "./health-management.module.css";
 import trainingStyles from "../training-management/training-management.module.css";
 import riskStyles from "../risk-management/risk-management.module.css";
-import BrandSignature from "../shared/brand-signature";
 import CustomerHeader from "../customers/customer-header";
 import SiteFooter from "../shared/site-footer";
 import SolutionSwitcher from "../shared/solution-switcher";
@@ -171,14 +170,14 @@ const pageTranslations = {
     overviewTitle: "Quản lý sức khỏe toàn chu kỳ", overviewAccent: "người lao động", overviewDesc: "Từ tuyển dụng đến phát hiện bệnh nghề nghiệp — bốn giai đoạn khám được liên kết trên một nền tảng, bảo vệ toàn diện sức khỏe và đảm bảo tuân thủ pháp luật lao động.",
     workflowTitle: "Quy trình vận hành", experienceTitle: "Trải nghiệm người dùng", featuresTitle: "Nhóm chức năng", valueTitle: "Dữ liệu tốt hơn", valueAccent: "Quyết định chủ động hơn",
     detailTitle: "Quản lý sức khỏe nghề nghiệp", detailIntro: "Một chu trình quản lý xuyên suốt giúp doanh nghiệp chủ động bảo vệ người lao động, phòng ngừa bệnh nghề nghiệp và duy trì nguồn nhân lực khỏe mạnh.", scheduleDemo: "Đăng ký demo", contactUs: "Liên hệ tư vấn",
-    footerText: "Giải pháp phần mềm quản lý Sức khỏe, An toàn và Môi trường hàng đầu Việt Nam, giúp doanh nghiệp đạt chuẩn quốc tế.", solutionHeading: "GIẢI PHÁP", companyHeading: "CÔNG TY", contactHeading: "LIÊN HỆ", companyLinks: ["Về chúng tôi", "Khách hàng", "Blog & Tin tức", "Liên hệ"], verified: "Đã xác thực ISO 27001", terms: "Điều khoản sử dụng", privacy: "Chính sách bảo mật",
+    footerText: "Giải pháp phần mềm quản lý Sức khỏe, An toàn và Môi trường tại Việt Nam, giúp doanh nghiệp đạt chuẩn quốc tế.", solutionHeading: "GIẢI PHÁP", companyHeading: "CÔNG TY", contactHeading: "LIÊN HỆ", companyLinks: ["Về chúng tôi", "Khách hàng", "Blog & Tin tức", "Liên hệ"], verified: "Đã xác thực ISO 27001", terms: "Điều khoản sử dụng", privacy: "Chính sách bảo mật",
   },
   en: {
     heroTitle: "Health Management", heroAccent: "", heroDesc: "Manage examinations and employee health records on one unified platform.", viewWorkflow: "View workflow",
     overviewTitle: "End-to-end workforce", overviewAccent: "health management", overviewDesc: "Connect four examination stages—from recruitment to occupational disease screening—to protect employee health and support legal compliance.",
     workflowTitle: "Operational workflow", experienceTitle: "User experience", featuresTitle: "Feature groups", valueTitle: "Better data", valueAccent: "More proactive decisions",
     detailTitle: "Health Management", detailIntro: "An end-to-end management cycle helps organizations protect employees, prevent occupational illness and maintain a healthier workforce.", scheduleDemo: "Schedule a demo", contactUs: "Contact us",
-    footerText: "A leading Health, Safety and Environment management software solution for Vietnamese businesses pursuing international standards.", solutionHeading: "SOLUTIONS", companyHeading: "COMPANY", contactHeading: "CONTACT", companyLinks: ["About Us", "Customers", "Blog & News", "Contact"], verified: "ISO 27001 Verified", terms: "Terms of Use", privacy: "Privacy Policy",
+    footerText: "Health, Safety and Environment management software for Vietnamese businesses pursuing international standards.", solutionHeading: "SOLUTIONS", companyHeading: "COMPANY", contactHeading: "CONTACT", companyLinks: ["About Us", "Customers", "Blog & News", "Contact"], verified: "ISO 27001 Verified", terms: "Terms of Use", privacy: "Privacy Policy",
   },
 } as const;
 
@@ -397,8 +396,6 @@ export default function HealthManagementPage() {
             <p className={styles.experienceLightboxCaption}>{activeDemoCaption}</p>
           </div>}
         </div></section>
-
-        <BrandSignature locale={locale}/>
       </div>
       <SolutionSwitcher locale={locale} currentPath="/health-management" />
 

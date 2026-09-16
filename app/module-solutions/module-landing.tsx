@@ -19,7 +19,6 @@ import {
 } from "lucide-react";
 import CustomerHeader from "../customers/customer-header";
 import ScrollToTop from "../customers/scroll-to-top";
-import BrandSignature from "../shared/brand-signature";
 import SiteFooter from "../shared/site-footer";
 import SolutionSwitcher from "../shared/solution-switcher";
 import { getSolutionLinks } from "../shared/solution-links";
@@ -48,7 +47,7 @@ const footerCopy = {
     contact: "LIÊN HỆ",
     footer: "Giải pháp phần mềm quản lý Sức khỏe, An toàn và Môi trường, giúp doanh nghiệp vận hành an toàn, minh bạch và bền vững hơn.",
     companyLinks: ["Về chúng tôi", "Khách hàng", "Blog & Tin tức", "Liên hệ"],
-    address: "Tòa nhà Hà Nam, 26/5 Quốc lộ 13, Khu phố Tây, Phường Lái Thiêu, TP.HCM",
+    address: "Số 20 Đường ĐX 94, Khu phố 6, phường An Phú, TP Hồ Chí Minh",
     terms: "Điều khoản sử dụng",
     privacy: "Chính sách bảo mật",
   },
@@ -58,7 +57,7 @@ const footerCopy = {
     contact: "CONTACT",
     footer: "Health, Safety and Environment management software that helps businesses operate more safely, transparently and sustainably.",
     companyLinks: ["About Us", "Customers", "Blog & News", "Contact"],
-    address: "Ha Nam Building, 26/5 National Highway 13, Tay Quarter, Lai Thieu Ward, Ho Chi Minh City",
+    address: "No. 20 DX 94 Street, Quarter 6, An Phu Ward, Ho Chi Minh City",
     terms: "Terms of Use",
     privacy: "Privacy Policy",
   },
@@ -198,7 +197,6 @@ export default function ModuleLanding({ config, locale }: { config: ModulePageCo
 
       <div className={styles.experienceGroup}>
         <TrainingExperience title={copy.experienceTitle} slides={slides} locale={locale}/>
-        <BrandSignature locale={locale}/>
       </div>
       <SolutionSwitcher locale={locale} currentPath={`/${config.slug}`} />
     </main>

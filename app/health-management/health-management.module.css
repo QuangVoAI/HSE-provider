@@ -665,9 +665,6 @@
   background: #f2fafb;
 }
 
-.experienceBrandGroup>section:last-child {
-  margin-top: 0;
-}
 .experienceBrandGroup>section:first-child { padding-bottom:42px; }
 
 /* Contractor page scale shared across the Health page. */
@@ -2665,9 +2662,6 @@
     margin: 28px auto 0;
   }
 
-  .page .experienceBrandGroup>section:last-child {
-    margin-top: -20px;
-  }
 }
 
 @media (max-width:600px) {
@@ -3049,7 +3043,6 @@
 
 /* Keep the image hint visible between the demo and brand sections. */
 .experienceBrandGroup>section:first-child { padding-bottom:0!important; }
-.experienceBrandGroup>section:last-child { margin-top:0!important; }
 @media(max-width:620px) {
   .experienceBrandGroup>section:first-child { padding-bottom:0!important; }
 }

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollToTop from "./scroll-to-top";
 import CustomerHeader from "./customer-header";
-import BrandSignature from "../shared/brand-signature";
 import SiteFooter from "../shared/site-footer";
 import { getSolutionLinks } from "../shared/solution-links";
 import styles from "./customers.module.css";
@@ -59,7 +58,7 @@ const testimonials = [
 
 const translations = {
   vi: {
-    address: "Toà nhà Hà Nam, 26/5 Quốc lộ 13, TP.HCM", language: "Ngôn ngữ", login: "Đăng nhập",
+    address: "Số 20 Đường ĐX 94, Khu phố 6, phường An Phú, TP Hồ Chí Minh", language: "Ngôn ngữ", login: "Đăng nhập",
     overview: "Tổng quan", solutions: "Giải pháp", customers: "Khách hàng", contact: "Liên hệ", demo: "Đăng ký demo",
     eyebrow: "Khách hàng HSE Provider", hero: "Đồng hành cùng doanh nghiệp kiến tạo môi trường làm việc", accent: "an toàn",
     heroText: "HSE Provider đồng hành cùng doanh nghiệp trong việc xây dựng môi trường làm việc an toàn và phát triển bền vững.",
@@ -70,7 +69,7 @@ const translations = {
     certification: "Đã xác thực ISO 27001", terms: "Điều khoản sử dụng", privacy: "Chính sách bảo mật",
   },
   en: {
-    address: "Ha Nam Building, 26/5 National Highway 13, HCMC", language: "Language", login: "Log in",
+    address: "No. 20 DX 94 Street, Quarter 6, An Phu Ward, Ho Chi Minh City", language: "Language", login: "Log in",
     overview: "Overview", solutions: "Solutions", customers: "Customers", contact: "Contact", demo: "Book a demo",
     eyebrow: "HSE Provider customers", hero: "Partnering with businesses to create", accent: "safer workplaces",
     heroText: "HSE Provider works alongside businesses to build safer workplaces and support sustainable growth.",
@@ -130,7 +129,6 @@ export default async function CustomersPage({
         {customers.map(([name, image]) => <div className={styles.logoTile} data-logo={name.toLowerCase().replace(/[^a-z0-9]+/g, "-")} key={name}><img src={csms(image)} alt={name} loading="lazy" decoding="async" /></div>)}
       </div><div className={styles.logoMarquee} aria-label={copy.logoTitle}>{[customers.slice(0, 6), customers.slice(6)].map((row, rowIndex) => <div className={`${styles.logoMarqueeRow} ${rowIndex === 1 ? styles.logoMarqueeRowReverse : ""}`} key={rowIndex}>{[...row, ...row].map(([name, image], index) => <div className={styles.logoMarqueeTile} data-logo={name.toLowerCase().replace(/[^a-z0-9]+/g, "-")} key={`${name}-${index}`}><img src={csms(image)} alt={index < row.length ? name : ""} aria-hidden={index >= row.length ? "true" : undefined} loading="lazy" decoding="async" /></div>)}</div>)}</div></div></section>
 
-      <BrandSignature locale={locale}/>
     </main>
 
     <SiteFooter locale={locale}/>

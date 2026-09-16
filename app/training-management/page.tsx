@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BookOpenCheck, CalendarClock, ChartNoAxesCombined, Gauge, Scale, ShieldCheck, UsersRound } from "lucide-react";
 import CustomerHeader from "../customers/customer-header";
-import BrandSignature from "../shared/brand-signature";
 import SiteFooter from "../shared/site-footer";
 import SolutionSwitcher from "../shared/solution-switcher";
 import { getSolutionLinks } from "../shared/solution-links";
@@ -40,7 +39,7 @@ const copy = {
       ["Phát triển lực lượng lao động","Nâng cao nhận thức và kỹ năng cho mọi nhân viên"],["Tuân thủ pháp luật & tiêu chuẩn","Đáp ứng yêu cầu về hồ sơ đào tạo ATVSLĐ"],["Tăng cường an toàn nơi làm việc","Giảm thiểu nguy cơ tai nạn lao động và bệnh nghề nghiệp"],["Tối ưu hóa hiệu quả & năng suất","Rút ngắn thời gian quản lý hồ sơ và tổng hợp báo cáo"]
     ],
     ctaTag:"BẮT ĐẦU NGAY HÔM NAY", ctaTitle:"Nâng cao năng lực nhân sự\nXây dựng văn hóa an toàn bền vững", consult:"Đăng ký tư vấn", document:"Tài liệu giải pháp",
-    solutions:"GIẢI PHÁP", company:"CÔNG TY", contact:"LIÊN HỆ", footer:"Giải pháp phần mềm quản lý Sức khỏe, An toàn và Môi trường hàng đầu Việt Nam, giúp doanh nghiệp đạt chuẩn quốc tế.", address:"Tòa nhà Hà Nam, 26/5 Quốc lộ 13, Khu phố Tây, Phường Lái Thiêu, TP.HCM", terms:"Điều khoản sử dụng", privacy:"Chính sách bảo mật"
+    solutions:"GIẢI PHÁP", company:"CÔNG TY", contact:"LIÊN HỆ", footer:"Giải pháp phần mềm quản lý Sức khỏe, An toàn và Môi trường tại Việt Nam, giúp doanh nghiệp đạt chuẩn quốc tế.", address:"Số 20 Đường ĐX 94, Khu phố 6, phường An Phú, TP Hồ Chí Minh", terms:"Điều khoản sử dụng", privacy:"Chính sách bảo mật"
   },
   en: {
     heroTop:"Training Management", heroAccent:"Occupational", heroBottom:"Health & Safety", heroText:"Systemize your entire safety training process and ensure employees receive consistent, standards-based protection knowledge.", trial:"Start free trial", demo:"Watch demo",
@@ -55,7 +54,7 @@ const copy = {
     ], detailDemo:"Schedule a demo", detailContact:"Contact us",
     valueTag:"BUSINESS VALUE", valueTitle:"The value of a training management platform", values:[["Workforce Development","Improve awareness and skills across your workforce"],["Legal and Standard Compliance","Meet OHS training record requirements"],["Enhanced Workplace Safety","Reduce preventable workplace incidents and occupational disease"],["Optimized Efficiency & Productivity","Spend less time managing records and compiling reports"]],
     ctaTag:"GET STARTED TODAY", ctaTitle:"Elevating competence\nBuilding a sustainable culture of safety", consult:"Request consultation", document:"Solution brief",
-    solutions:"SOLUTIONS", company:"COMPANY", contact:"CONTACT", footer:"A leading Health, Safety and Environment management software solution helping businesses pursue international standards.", address:"Ha Nam Building, 26/5 National Highway 13, Tay Quarter, Lai Thieu Ward, Ho Chi Minh City", terms:"Terms of Use", privacy:"Privacy Policy"
+    solutions:"SOLUTIONS", company:"COMPANY", contact:"CONTACT", footer:"Health, Safety and Environment management software for Vietnamese businesses pursuing international standards.", address:"No. 20 DX 94 Street, Quarter 6, An Phu Ward, Ho Chi Minh City", terms:"Terms of Use", privacy:"Privacy Policy"
   }
 } as const;
 
@@ -116,7 +115,6 @@ export default async function TrainingManagementPage({ searchParams }: { searchP
       </div></section>
       <div className={styles.experienceBrandGroup}>
         <TrainingExperience title={locale === "vi" ? "NÂNG\u00a0CAO\u00a0NĂNG\u00a0LỰC\nXÂY\u00a0DỰNG\u00a0VĂN\u00a0HÓA\nAN\u00a0TOÀN" : "ELEVATING\u00a0COMPETENCE\nBUILDING\u00a0A\u00a0CULTURE\nOF\u00a0SAFETY"} slides={slides} locale={locale}/>
-        <BrandSignature locale={locale}/>
       </div>
       <SolutionSwitcher locale={locale} currentPath="/training-management" />
     </main>

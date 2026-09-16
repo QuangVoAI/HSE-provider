@@ -91,7 +91,6 @@
 .valuesSection .valueCard h3{max-width:285px;min-height:86px;display:flex;align-items:center;justify-content:center;font-size:25px;line-height:1.38;font-weight:780;text-wrap:balance}
 .experienceBrandGroup{background:#f2fafb}
 .experienceBrandGroup>section:first-child{border-top:0;border-bottom:0;background:#f2fafb!important}
-.experienceBrandGroup>section:last-child{margin-top:-36px}
 .brandSignature{position:relative;z-index:2;width:min(1680px,calc(100% - 48px));height:clamp(500px,42vw,620px);margin:-36px auto 0;display:grid;place-items:center;overflow:hidden;border-radius:54px 54px 0 0;background:linear-gradient(125deg,#034985,#007da2 62%,#00a5bd);isolation:isolate}
 .brandSignatureBackdrop{position:absolute;z-index:-2;inset:0;background:linear-gradient(90deg,rgba(1,36,71,.82),rgba(2,75,118,.7)),url('/assets/contractor-management/brand-construction-blue-hour.png') center 58%/cover no-repeat;transform:scale(1.025)}
 .brandSignature::after{content:"";position:absolute;z-index:-1;inset:0;background:radial-gradient(circle at 50% 45%,rgba(255,255,255,.16),transparent 38%)}
