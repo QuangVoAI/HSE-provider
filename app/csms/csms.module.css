@@ -205,7 +205,8 @@
 .footer { padding: 68px 40px 28px; background: #063a64; color: rgba(255,255,255,.78); }
 .footerGrid { width: 1400px; max-width: 100%; margin: auto; display: grid; grid-template-columns: 1.2fr .72fr .72fr 1.2fr; gap: 64px; }
 .footerBrand { padding-top: 2px; }
-.footerLogo { width: 340px; max-width: 100%; height: auto; object-fit: contain; object-position: left center; filter: drop-shadow(0 0 1px rgba(255,255,255,.96)); }
+.footerLogoPlate { box-sizing: border-box; width: fit-content; max-width: 100%; padding: 14px 16px; border: 1px solid #dce9f3; border-radius: 12px; background: #f8fbff; box-shadow: 0 4px 14px rgba(0,20,40,.12); }
+.footerLogo { display: block; width: 240px; max-width: 100%; height: auto; object-fit: contain; object-position: left center; }
 .footerGrid p { margin: 0; font-size: 17px; line-height: 27px; }
 .footerBrand > p { max-width: 380px; margin-top: 16px; }
 .footerGrid > div:not(:first-child) { display: flex; flex-direction: column; gap: 18px; }
@@ -424,6 +425,7 @@
   .footer { padding: 26px 20px 14px; }
   .footerGrid { grid-template-columns: 1fr; gap: 16px; }
   .footerGrid > div:not(:first-child) { gap: 0; }
+  .footerLogoPlate { padding: 12px; border-radius: 10px; }
   .footerLogo { width: 176px; }
   .footerGrid p { font-size: 14px; line-height: 21px; }
   .footerBrand > p { margin-top: 8px; }

@@ -1,0 +1,79 @@
+.contacts {
+  position: fixed;
+  right: max(22px, env(safe-area-inset-right));
+  bottom: calc(22px + env(safe-area-inset-bottom));
+  z-index: 120;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.action {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 50%;
+  background: #fff;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(3, 42, 82, .16);
+  text-decoration: none;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.whatsapp { background: #fff; --ring-color: rgba(37,211,102,.55); }
+.mail { background: #fff; --ring-color: rgba(234,67,53,.5); }
+.action::before, .action::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border: 1px solid var(--ring-color, rgba(12,116,218,.55));
+  border-radius: inherit;
+  pointer-events: none;
+  animation: contactRipple 2.6s ease-out infinite;
+}
+.action::after { animation-delay: 1.3s; }
+.action > img { width: 31px; height: 31px; object-fit: contain; animation: mapBounce 2.6s ease-in-out infinite; }
+.whatsapp > img { width: 34px; height: 34px; animation: phoneRing 2.6s ease-in-out infinite; }
+.mail > img { width: 34px; height: 27px; animation: mailFloat 2.6s ease-in-out infinite; }
+@keyframes contactRipple {
+  0% { transform: scale(1); opacity: .8; }
+  75%, 100% { transform: scale(1.48); opacity: 0; }
+}
+@keyframes mapBounce {
+  0%, 45%, 100% { transform: translateY(0); }
+  15% { transform: translateY(-4px); }
+  30% { transform: translateY(1px); }
+}
+@keyframes phoneRing {
+  0%, 45%, 100% { transform: rotate(0); }
+  8%, 24% { transform: rotate(-16deg); }
+  16%, 32% { transform: rotate(16deg); }
+  40% { transform: rotate(-6deg); }
+}
+@keyframes mailFloat {
+  0%, 45%, 100% { transform: scale(1); }
+  18% { transform: scale(1.12); }
+  32% { transform: scale(.96); }
+}
+.action:focus-visible { outline: 3px solid #64b5f6; outline-offset: 3px; }
+.action:active { transform: scale(.96); }
+@media (hover: hover) {
+  .action:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(3,42,82,.22); }
+}
+@media (max-width: 620px) {
+  .contacts { right: max(14px, env(safe-area-inset-right)); bottom: calc(14px + env(safe-area-inset-bottom)); gap: 8px; }
+  .action { width: 44px; height: 44px; }
+  .action > img { width: 23px; height: 23px; }
+  .whatsapp > img { width: 26px; height: 26px; }
+  .mail > img { width: 26px; height: 21px; }
+}
+:global(body:has(button[aria-expanded="true"][class*="menuButton"])) .contacts,
+:global(body:has([role="dialog"][aria-modal="true"])) .contacts { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .action { transition: none !important; }
+  .action > img, .action::before, .action::after { animation: none; }
+  .action::before, .action::after { display: none; }
+}

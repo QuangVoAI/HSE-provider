@@ -5,6 +5,7 @@ import "./globals.css";
 import DocumentLanguage from "./shared/document-language";
 import Analytics from "./shared/analytics";
 import ScrollToTopButton from "./shared/scroll-to-top-button";
+import FloatingContact from "./shared/floating-contact";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Analytics />
         {children}
         <ScrollToTopButton />
+        <Suspense fallback={null}><FloatingContact /></Suspense>
       </body>
     </html>
   );
