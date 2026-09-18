@@ -127,7 +127,7 @@
 .logoGrid > div:hover img { transform: translateY(-6px) scale(var(--logo-hover-scale)); filter: drop-shadow(0 10px 14px rgba(0,47,91,.18)); }
 .logoMarquee { display: none; }
 
-.video { width: 1120px; max-width: calc(100% - 48px); margin: 42px auto; }
+.video { width: 1040px; max-width: calc(100% - 48px); margin: 42px auto; }
 .videoCarousel { overflow: hidden; border: 1px solid #d8e2ec; border-radius: 20px; outline: 0; background: #fff; box-shadow: 0 16px 36px rgba(11,47,74,.14); }
 .videoCarousel:focus-visible { box-shadow: 0 0 0 4px rgba(0,89,192,.16),0 16px 36px rgba(11,47,74,.14); }
 .videoCard { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #001d35; }

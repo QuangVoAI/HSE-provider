@@ -29,7 +29,7 @@ export default function FloatingContact() {
     <a className={`${styles.action} ${styles.whatsapp}`} href="tel:+84917267397" aria-label={isEnglish ? "Call hotline 0917 267 397" : "Gọi hotline 0917 267 397"}>
       <img src="/brand-icons/whatsapp.svg" alt="" aria-hidden="true" />
     </a>
-    <a className={`${styles.action} ${styles.mail}`} href="mailto:cskh@atld.vn" aria-label={isEnglish ? "Email customer support" : "Gửi email chăm sóc khách hàng"}>
+    <a className={`${styles.action} ${styles.mail}`} href="https://mail.google.com/mail/?view=cm&fs=1&to=cskh%40atld.vn" target="_blank" rel="noopener noreferrer" aria-label={isEnglish ? "Email customer support" : "Gửi email chăm sóc khách hàng"}>
       <img src="/brand-icons/gmail.svg" alt="" aria-hidden="true" />
     </a>
   </nav>;

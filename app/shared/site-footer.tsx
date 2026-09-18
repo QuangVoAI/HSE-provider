@@ -54,7 +54,7 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
     <div className={styles.footerContact}><h3>{text.contact}</h3>
       <p><img src={asset("icon-location.svg")} alt="" />{text.address}</p>
       <p><img src={asset("icon-email-footer.svg")} alt="" />cskh@atld.vn</p>
-      <p><img src={asset("icon-phone.svg")} alt="" /><span>0917-267-397 (Mr. Linh)</span></p>
+      <p><img src={asset("icon-phone.svg")} alt="" /><span>Hotline: 0917-267-397</span></p>
       <p><img src={asset("icon-certification.svg")} alt="" />{text.verified}</p>
     </div>
   </div><div className={styles.footerBottom}><span>© 2025 HSE Provider. All rights reserved.</span><span>{text.terms} &nbsp;&nbsp;&nbsp; {text.privacy}</span></div></footer>;
