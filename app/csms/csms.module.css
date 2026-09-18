@@ -336,7 +336,7 @@
   .logoGrid { padding: 0 28px; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 26px 22px; }
   .logoGrid > div { height: 100px; }
   .logoGrid img { width: 158px; height: 88px; }
-  .video { width: calc(100% - 32px); max-width: none; margin: 48px auto; }
+  .video { width: calc(100% - 64px); max-width: none; margin: 42px auto; }
   .videoArrow { width: 46px; height: 46px; font-size: 23px; }
   .videoArrowPrevious { left: 12px; }
   .videoArrowNext { right: 12px; }
@@ -459,7 +459,7 @@
   .coreContent { height: 640px; grid-template-columns: minmax(720px,1fr) minmax(520px,.92fr); gap: clamp(56px,4vw,78px); }
   .moduleGrid,
   .workplace { height: 620px; }
-  .video { width: calc(100% - 48px); max-width: none; }
+  .video { width: calc(100% - 64px); max-width: none; margin-top: 36px; margin-bottom: 36px; }
   .contactCard { width: 100%; grid-template-columns: minmax(420px,28%) 1fr; }
 }
 
