@@ -19,7 +19,7 @@ export default function ScrollToTopButton() {
 
   useEffect(() => {
     setObstructingContentVisible(false);
-    const targets = Array.from(document.querySelectorAll("form, footer, [class*='carousel' i]"));
+    const targets = Array.from(document.querySelectorAll("form, [class*='carousel' i]"));
     if (!targets.length) return;
 
     const visibleTargets = new Set<Element>();
