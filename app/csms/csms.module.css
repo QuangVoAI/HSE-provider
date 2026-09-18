@@ -459,7 +459,7 @@
   .coreContent { height: 640px; grid-template-columns: minmax(720px,1fr) minmax(520px,.92fr); gap: clamp(56px,4vw,78px); }
   .moduleGrid,
   .workplace { height: 620px; }
-  .video { width: calc(100% - 64px); max-width: none; margin-top: 36px; margin-bottom: 36px; }
+  .video { width: 1040px; max-width: calc(100% - 64px); margin-top: 36px; margin-bottom: 36px; }
   .contactCard { width: 100%; grid-template-columns: minmax(420px,28%) 1fr; }
 }
 
