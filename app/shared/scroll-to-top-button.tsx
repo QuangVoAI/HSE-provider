@@ -7,29 +7,20 @@ export default function ScrollToTopButton() {
   const scrollToTop = () => window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
-  const [obstructingContentVisible, setObstructingContentVisible] = useState(false);
   const [editingForm, setEditingForm] = useState(false);
 
   useEffect(() => {
-    const updateVisibility = () => setVisible(window.scrollY > 160);
+    const updateVisibility = () => {
+      const scrollableDistance = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+      setVisible(scrollableDistance > 0 && window.scrollY >= scrollableDistance / 3);
+    };
     updateVisibility();
     window.addEventListener("scroll", updateVisibility, { passive: true });
-    return () => window.removeEventListener("scroll", updateVisibility);
-  }, [pathname]);
-
-  useEffect(() => {
-    setObstructingContentVisible(false);
-    const targets = Array.from(document.querySelectorAll("form, [class*='carousel' i]"));
-    if (!targets.length) return;
-
-    const visibleTargets = new Set<Element>();
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => entry.isIntersecting ? visibleTargets.add(entry.target) : visibleTargets.delete(entry.target));
-      setObstructingContentVisible(visibleTargets.size > 0);
-    }, { threshold: 0.08 });
-
-    targets.forEach((target) => observer.observe(target));
-    return () => observer.disconnect();
+    window.addEventListener("resize", updateVisibility);
+    return () => {
+      window.removeEventListener("scroll", updateVisibility);
+      window.removeEventListener("resize", updateVisibility);
+    };
   }, [pathname]);
 
   useEffect(() => {
@@ -45,7 +36,7 @@ export default function ScrollToTopButton() {
     };
   }, []);
 
-  const canShow = visible && !obstructingContentVisible && !editingForm;
+  const canShow = visible && !editingForm;
 
   return (
     <button
