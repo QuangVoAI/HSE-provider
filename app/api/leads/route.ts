@@ -81,9 +81,22 @@ export async function POST(request: Request) {
     }
 
     const phoneNormalized = normalizeVietnamPhone(phone);
-    const duplicate = await findDuplicate(email, phoneNormalized);
-    const lead = createLead(body as LeadInput, email, phone, phoneNormalized, duplicate ? String(duplicate._id) : undefined);
-    const result = await insertLead(lead);
+    let duplicateOf: string | undefined;
+    try {
+      const duplicate = await findDuplicate(email, phoneNormalized);
+      if (duplicate) duplicateOf = String(duplicate._id);
+    } catch (err) {
+      console.warn("Mongo duplicate check failed, continuing:", err);
+    }
+
+    const lead = createLead(body as LeadInput, email, phone, phoneNormalized, duplicateOf);
+    let mongoInsertedId: import("mongodb").ObjectId | null = null;
+    try {
+      const result = await insertLead(lead);
+      mongoInsertedId = result.insertedId;
+    } catch (err) {
+      console.error("MongoDB insert failed, falling back to Email & Google Sheets:", err);
+    }
 
     let emailStatus: IntegrationStatus = "skipped";
     let sheetsStatus: IntegrationStatus = "skipped";
@@ -99,24 +112,33 @@ export async function POST(request: Request) {
       console.error("Google Sheets integration failed", error);
       sheetsStatus = "failed";
     }
-    await updateLeadIntegrations(result.insertedId, emailStatus, sheetsStatus);
 
-    return NextResponse.json(
-      {
-        ok: true,
-        leadId: String(result.insertedId),
-        duplicateOf: lead.duplicateOf,
-        integration: { email: emailStatus, sheets: sheetsStatus },
-      },
-      { status: 201 },
-    );
-  } catch (error) {
-    if (error instanceof Error && error.message === "MONGODB_NOT_CONFIGURED") {
+    if (mongoInsertedId) {
+      try {
+        await updateLeadIntegrations(mongoInsertedId, emailStatus, sheetsStatus);
+      } catch (err) {
+        console.warn("Updating lead integrations in Mongo failed:", err);
+      }
+    }
+
+    const isSuccess = mongoInsertedId !== null || emailStatus === "sent" || sheetsStatus === "synced";
+    if (isSuccess) {
       return NextResponse.json(
-        { error: "BACKEND_NOT_CONFIGURED", message: "Lead backend chưa được cấu hình MongoDB." },
-        { status: 503 },
+        {
+          ok: true,
+          leadId: mongoInsertedId ? String(mongoInsertedId) : `fallback-${crypto.randomUUID()}`,
+          duplicateOf: lead.duplicateOf,
+          integration: { email: emailStatus, sheets: sheetsStatus },
+        },
+        { status: 201 },
       );
     }
+
+    return NextResponse.json(
+      { error: "LEAD_API_ERROR", message: "Không thể tiếp nhận yêu cầu lúc này." },
+      { status: 500 },
+    );
+  } catch (error) {
     console.error("Lead API failed", error);
     return NextResponse.json(
       { error: "LEAD_API_ERROR", message: "Không thể tiếp nhận yêu cầu lúc này." },
