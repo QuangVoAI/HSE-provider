@@ -122,7 +122,7 @@ export async function POST(request: Request) {
       }
     }
 
-    const isSuccess = mongoInsertedId !== null || emailStatus === "sent" || sheetsStatus === "sent";
+    const isSuccess = mongoInsertedId !== null || emailStatus !== "failed" || sheetsStatus !== "failed";
     if (isSuccess) {
       return NextResponse.json(
         {
