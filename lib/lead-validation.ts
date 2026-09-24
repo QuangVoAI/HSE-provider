@@ -18,15 +18,20 @@ export function isValidEmail(value: string) {
 
 export function isValidPreferredDate(value: string) {
   if (!value) return true;
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  let isoDate = value;
+  if (/^\d{2}\/\d{2}\/\d{4}$/.test(value)) {
+    const [d, m, y] = value.split("/");
+    isoDate = `${y}-${m}-${d}`;
+  }
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(isoDate)) return false;
 
-  const selected = new Date(`${value}T00:00:00Z`);
-  if (Number.isNaN(selected.getTime()) || selected.toISOString().slice(0, 10) !== value) return false;
+  const selected = new Date(`${isoDate}T00:00:00Z`);
+  if (Number.isNaN(selected.getTime()) || selected.toISOString().slice(0, 10) !== isoDate) return false;
   const parts = new Intl.DateTimeFormat("en", {
     timeZone: "Asia/Ho_Chi_Minh", year: "numeric", month: "2-digit", day: "2-digit",
   }).formatToParts(new Date());
   const part = (type: string) => parts.find((p) => p.type === type)!.value;
-  return value >= `${part("year")}-${part("month")}-${part("day")}`;
+  return isoDate >= `${part("year")}-${part("month")}-${part("day")}`;
 }
 
 export function isValidPreferredTime(value: string) {
