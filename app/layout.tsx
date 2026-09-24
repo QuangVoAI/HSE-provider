@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Suspense } from "react";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import "./globals.css";
 import DocumentLanguage from "./shared/document-language";
 import Analytics from "./shared/analytics";
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <Suspense fallback={null}><DocumentLanguage /></Suspense>
         <Analytics />
+        <VercelAnalytics />
         {children}
         <ScrollToTopButton />
         <Suspense fallback={null}><FloatingContact /></Suspense>
