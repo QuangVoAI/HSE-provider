@@ -57,7 +57,7 @@ export async function POST(request: Request) {
     if (
       name.length < 2 || name.length > 100 ||
       !isValidEmail(email) ||
-      message.length < 5 || message.length > 2000 ||
+      (message.length > 0 && message.length < 2) || message.length > 2000 ||
       company.length > 150 ||
       !phone || !isValidVietnamPhone(phone) ||
       !isValidPreferredDate(preferredDate) ||

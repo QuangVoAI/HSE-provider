@@ -41,8 +41,8 @@ export function isValidPreferredTime(value: string) {
 export function hasValidLeadTypes(value: unknown): value is Record<string, string> {
   if (!value || typeof value !== "object" || Array.isArray(value)) return false;
   const body = value as Record<string, unknown>;
-  const required = ["name", "email", "phone", "message"];
-  const optional = ["company", "preferredDate", "preferredTime", "locale", "source", "requestType"];
+  const required = ["name", "email", "phone"];
+  const optional = ["message", "company", "preferredDate", "preferredTime", "locale", "source", "requestType"];
   return required.every((key) => typeof body[key] === "string") &&
     optional.every((key) => body[key] === undefined || typeof body[key] === "string");
 }
