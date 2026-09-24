@@ -1,3 +1,4 @@
+import type { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
 
 import { sendLeadEmail } from "@/lib/email";
@@ -90,7 +91,7 @@ export async function POST(request: Request) {
     }
 
     const lead = createLead(body as LeadInput, email, phone, phoneNormalized, duplicateOf);
-    let mongoInsertedId: import("mongodb").ObjectId | null = null;
+    let mongoInsertedId: ObjectId | null = null;
     try {
       const result = await insertLead(lead);
       mongoInsertedId = result.insertedId;
