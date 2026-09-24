@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   description: "Connected safety management for modern HSE operations.",
   formatDetection: { telephone: false },
   metadataBase: new URL(siteUrl),
-  verification: process.env.GOOGLE_SEARCH_CONSOLE_VERIFICATION
-    ? { google: process.env.GOOGLE_SEARCH_CONSOLE_VERIFICATION }
-    : undefined,
+  verification: {
+    google: "-7b6qYgG7qZbKEAr4qnT81GNxmrKlqFl-Lx1M7nD040",
+  },
   icons: { icon: "/assets/csms/hse-provider-logo.png" },
 };
 
