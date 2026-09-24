@@ -54,14 +54,15 @@ export async function POST(request: Request) {
     const phone = normalized(body.phone);
     const company = normalized(body.company);
     const preferredDate = normalized(body.preferredDate);
+    const preferredTime = normalized(body.preferredTime);
     if (
       name.length < 2 || name.length > 100 ||
       !isValidEmail(email) ||
       (message.length > 0 && message.length < 2) || message.length > 2000 ||
-      company.length > 150 ||
+      !company || company.length > 150 ||
       !phone || !isValidVietnamPhone(phone) ||
-      !isValidPreferredDate(preferredDate) ||
-      !isValidPreferredTime(normalized(body.preferredTime))
+      !preferredDate || !isValidPreferredDate(preferredDate) ||
+      !preferredTime || !isValidPreferredTime(preferredTime)
     ) {
       return NextResponse.json(
         { error: "INVALID_LEAD", message: "Vui lòng kiểm tra họ tên, email, số điện thoại, ngày tư vấn và nội dung yêu cầu." },
