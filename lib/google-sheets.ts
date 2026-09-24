@@ -9,7 +9,7 @@ function env(name: string) {
 export async function appendToGoogleSheets(lead: Lead) {
   const sheetId = env("GOOGLE_SHEET_ID");
   const credentials = env("GOOGLE_SERVICE_ACCOUNT_JSON");
-  const range = env("GOOGLE_SHEET_RANGE") || "Leads!A:Z";
+  const range = env("GOOGLE_SHEET_RANGE") || "A:Z";
   if (!sheetId || !credentials) return "skipped" as const;
 
   const auth = new google.auth.GoogleAuth({
