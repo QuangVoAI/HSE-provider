@@ -485,3 +485,5 @@
   .contact aside img,
   .contact button { animation: none; }
 }
+.loadingLabel{display:inline-flex;align-items:center;gap:9px}.submitSpinner{width:15px;height:15px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:submitSpin .75s linear infinite}@keyframes submitSpin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.submitSpinner{animation:none;border-top-color:#fff}}

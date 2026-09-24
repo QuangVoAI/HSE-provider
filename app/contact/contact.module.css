@@ -28,3 +28,5 @@
 @media(max-width:620px){.info p{font-size:16px;line-height:24px}}
 @media(prefers-reduced-motion:reduce){.form input,.form textarea,.form button{transition:none}.contactExperience:before,.contactExperience:after{animation:none}}
 .error{margin:0;padding:11px 14px;border-radius:8px;color:#9f1239;background:#fff1f2;font-size:14px;line-height:20px}
+.formAction button:disabled{cursor:wait;opacity:.82;transform:none;box-shadow:0 5px 12px rgba(0,89,148,.16)}.loadingLabel{display:inline-flex;align-items:center;gap:9px}.submitSpinner{width:15px;height:15px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:submitSpin .75s linear infinite}@keyframes submitSpin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.submitSpinner{animation:none;border-top-color:#fff}}

@@ -54,7 +54,7 @@ export default function ContactForm({ locale }: { locale: "vi" | "en" }) {
     </div>
     <label><span className={styles.labelText}>{vi ? "Nội dung trao đổi" : "How can we help?"}<em>*</em></span><textarea required minLength={5} maxLength={2000} name="message" placeholder={vi ? "Vui lòng mô tả nhu cầu của bạn..." : "Tell us about your needs..."} /></label>
     <div className={styles.formAction}>
-      <button type="submit" disabled={sending}><span>{sending ? (vi ? "ĐANG GỬI..." : "SENDING...") : (vi ? "GỬI YÊU CẦU" : "SEND REQUEST")}</span><b aria-hidden="true">→</b></button>
+      <button type="submit" disabled={sending} aria-busy={sending}><span className={sending ? styles.loadingLabel : undefined}>{sending && <i className={styles.submitSpinner} aria-hidden="true" />}{sending ? (vi ? "ĐANG GỬI..." : "SENDING...") : (vi ? "GỬI YÊU CẦU" : "SEND REQUEST")}</span><b aria-hidden="true">{sending ? "" : "→"}</b></button>
     </div>
     {sent && <p className={styles.success} role="status">{demoSubmission
       ? (vi ? "Đã gửi thử thành công. Đây là bản demo nên thông tin không được lưu." : "Demo submission successful. Your information was not stored.")
