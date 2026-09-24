@@ -2,6 +2,8 @@
 
 Website marketing HSE Provider song ngữ Việt–Anh, giới thiệu hệ thống CSMS và các phân hệ Health, Safety và Environment. Website hỗ trợ responsive desktop, tablet và mobile, ảnh demo mở toàn màn hình, form tiếp nhận lead và các endpoint tích hợp MongoDB, email và Google Sheets theo cấu hình môi trường.
 
+Production: [https://landing.1hse.vn/](https://landing.1hse.vn/)
+
 ## Development
 
 ```bash
@@ -9,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000) for local development. The deployed site is [https://landing.1hse.vn/](https://landing.1hse.vn/).
 
 ## Routes
 
