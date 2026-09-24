@@ -123,7 +123,9 @@ export async function POST(request: Request) {
       }
     }
 
-    const isSuccess = mongoInsertedId !== null || emailStatus !== "failed" || sheetsStatus !== "failed";
+    // Only report success when persistence or at least one delivery integration
+    // actually completed. "skipped" means no lead was stored or delivered.
+    const isSuccess = mongoInsertedId !== null || emailStatus === "sent" || sheetsStatus === "sent";
     if (isSuccess) {
       return NextResponse.json(
         {

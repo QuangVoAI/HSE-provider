@@ -18,11 +18,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "CSMS | HSE Provider",
+  title: "HSE Provider | Quản lý An toàn, Sức khỏe và Môi trường",
   description: "Connected safety management for modern HSE operations.",
   formatDetection: { telephone: false },
   metadataBase: new URL(siteUrl),
-  alternates: { canonical: "/" },
   verification: process.env.GOOGLE_SEARCH_CONSOLE_VERIFICATION
     ? { google: process.env.GOOGLE_SEARCH_CONSOLE_VERIFICATION }
     : undefined,

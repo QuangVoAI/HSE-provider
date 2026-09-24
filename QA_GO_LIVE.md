@@ -1,4 +1,10 @@
-# Pre-launch QA — 2026-09-07
+# Production QA and handover status — 2026-09-24
+
+## Current release status
+
+The current `main` release is deployed on Vercel at `https://landing.1hse.vn`. Production environment variables include MongoDB, SMTP, Google Sheets and the three internal notification recipients (`cskh@atld.vn`, `duy@atld.vn`, `my@atld.vn`). The lead email flow sends a branded HTML notification to the internal recipients and a confirmation to the customer.
+
+The items below are retained as audit history and follow-up checks. They must not be read as evidence that the current production deployment is unconfigured.
 
 ## Follow-up fixes
 
