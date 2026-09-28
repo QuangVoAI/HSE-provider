@@ -17,7 +17,7 @@ type Locale = "vi" | "en";
 
 export const metadata: Metadata = {
   title: "Quản lý nhà thầu",
-  description: "Nền tảng quản lý hồ sơ, năng lực, tuân thủ và hoạt động của nhà thầu.",
+  description: "Phần mềm quản lý hồ sơ, năng lực, nhân sự, thiết bị, giấy phép làm việc và tuân thủ an toàn của nhà thầu trong suốt dự án.",
   alternates: { canonical: "/contractor-management" },
 };
 
@@ -107,7 +107,7 @@ export default async function ContractorManagementPage({ searchParams }: { searc
     <CustomerHeader locale={locale} active="solutions" chrome="csms" localePath="/contractor-management" />
     <main className={base.main}>
       <section className={`${base.hero} ${styles.hero} hse-module-hero`} aria-labelledby="contractor-hero-title">
-        <img className={styles.heroImage} src="/assets/contractor-management/value-industry-adaptability.png" alt="" />
+        <img className={styles.heroImage} src="/assets/contractor-management/value-industry-adaptability.png" alt={locale === "vi" ? "Quản lý an toàn nhà thầu tại doanh nghiệp" : "Contractor safety management for enterprises"} />
         <OverviewCarousel placement="hero" label={copy.heroTitle} images={["/assets/contractor-management/value-industry-adaptability.png","/assets/csms/core-workplace.jpg","/assets/training-management/raw-8.jpg"]}/>
         <div className={base.heroOverlay}/>
         <div className="hse-module-hero-title"><h1 className={styles.heroTitle} id="contractor-hero-title">{copy.heroTitle}</h1></div>

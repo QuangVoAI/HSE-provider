@@ -17,7 +17,7 @@ type Locale = "vi" | "en";
 
 export const metadata: Metadata = {
   title: "Quản lý rủi ro an toàn lao động",
-  description: "Hệ thống nhận diện, đánh giá và kiểm soát rủi ro an toàn lao động toàn diện.",
+  description: "Phần mềm hỗ trợ doanh nghiệp nhận diện mối nguy, đánh giá mức độ rủi ro, lập biện pháp kiểm soát và theo dõi cải tiến an toàn lao động.",
   alternates: { canonical: "/risk-management" },
 };
 

@@ -2,6 +2,7 @@
 
 import { type FormEvent, useState } from "react";
 import { VIETNAM_MOBILE_PATTERN } from "@/lib/lead-validation";
+import { trackAnalyticsEvent } from "../shared/analytics";
 import styles from "./contact.module.css";
 
 export default function ContactForm({ locale }: { locale: "vi" | "en" }) {
@@ -26,6 +27,7 @@ export default function ContactForm({ locale }: { locale: "vi" | "en" }) {
       });
       if (!response.ok) throw new Error("lead_failed");
       const result = await response.json() as { demo?: boolean };
+      trackAnalyticsEvent("generate_lead", { source: "contact-page", request_type: "consultation" });
       setDemoSubmission(Boolean(result.demo));
       setSent(true);
       form.reset();

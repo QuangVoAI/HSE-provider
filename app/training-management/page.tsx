@@ -14,7 +14,7 @@ import riskStyles from "../risk-management/risk-management.module.css";
 import styles from "./training-management.module.css";
 
 type Locale = "vi" | "en";
-export const metadata: Metadata = { title: "Quản lý huấn luyện an toàn", description: "Hệ thống quản lý đào tạo an toàn, vệ sinh lao động toàn diện.", alternates: { canonical: "/training-management" } };
+export const metadata: Metadata = { title: "Quản lý huấn luyện an toàn", description: "Phần mềm quản lý kế hoạch, khóa học, học viên, kết quả và hồ sơ huấn luyện an toàn vệ sinh lao động tập trung cho doanh nghiệp.", alternates: { canonical: "/training-management" } };
 const csmsAsset = (name: string) => `/assets/csms/${name}`;
 const trainingAsset = (name: string) => `/assets/training-management/${name}`;
 

@@ -15,7 +15,7 @@ type Locale = "vi" | "en";
 
 export const metadata: Metadata = {
   title: "Quản lý hóa chất và phóng xạ",
-  description: "Phân hệ Quản lý hóa chất & phóng xạ của HSE Provider đang được hoàn thiện.",
+  description: "Phân hệ quản lý danh mục, hồ sơ an toàn, tồn kho, sử dụng hóa chất và nguồn phóng xạ của HSE Provider đang được hoàn thiện.",
   alternates: { canonical: "/chemical-management" },
 };
 

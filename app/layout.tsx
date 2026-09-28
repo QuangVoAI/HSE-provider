@@ -22,10 +22,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "HSE Provider | Giải pháp Quản lý An toàn, Sức khỏe và Môi trường Việt Nam",
+    default: "Phần mềm quản lý HSE, EHS cho doanh nghiệp | HSE Provider",
     template: "%s | HSE Provider",
   },
-  description: "Phần mềm và giải pháp chuyển đổi số toàn diện cho quản lý An toàn lao động (HSE), Sức khỏe (OH), Môi trường và Đào tạo an toàn doanh nghiệp tại TP. Hồ Chí Minh & Việt Nam.",
+  description: "HSE Provider cung cấp phần mềm quản lý HSE, EHS giúp doanh nghiệp số hóa an toàn lao động, sức khỏe nghề nghiệp, môi trường và tuân thủ.",
   keywords: [
     "HSE",
     "Quản lý an toàn lao động",
@@ -47,16 +47,19 @@ export const metadata: Metadata = {
     "ICBM": "10.7964, 106.7451",
   },
   openGraph: {
-    title: "HSE Provider | Giải pháp Quản lý An toàn, Sức khỏe và Môi trường",
-    description: "Chuyển đổi số công tác HSE doanh nghiệp với các giải pháp quản lý CSMS, Hóa chất, Đào tạo & Quan trắc môi trường tại Việt Nam.",
+    title: "Phần mềm quản lý HSE, EHS cho doanh nghiệp | HSE Provider",
+    description: "Số hóa công tác HSE với các giải pháp quản lý an toàn, sức khỏe nghề nghiệp, đào tạo, nhà thầu và quan trắc môi trường.",
     siteName: "HSE Provider",
     locale: "vi_VN",
     type: "website",
+    url: siteUrl,
+    images: [{ url: "/assets/csms/figma-vn/hero.png", alt: "HSE Provider - Phần mềm quản lý HSE và EHS" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "HSE Provider | Giải pháp Quản lý HSE Việt Nam",
-    description: "Giải pháp chuyển đổi số toàn diện cho quản lý An toàn lao động, Sức khỏe và Môi trường.",
+    title: "Phần mềm quản lý HSE, EHS | HSE Provider",
+    description: "Số hóa quản lý an toàn lao động, sức khỏe nghề nghiệp, môi trường và tuân thủ cho doanh nghiệp Việt Nam.",
+    images: ["/assets/csms/figma-vn/hero.png"],
   },
   verification: {
     google: googleSiteVerification,
@@ -66,34 +69,48 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "HSE Provider",
-  "image": `${siteUrl}/assets/csms/hse-provider-logo.png`,
-  "@id": siteUrl,
-  "url": siteUrl,
-  "telephone": "0917-267-397",
-  "email": "cskh@atld.vn",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Số 20 Đường ĐX 94, Khu phố 6, phường An Phú",
-    "addressLocality": "TP. Hồ Chí Minh",
-    "addressRegion": "SG",
-    "postalCode": "700000",
-    "addressCountry": "VN"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 10.7964,
-    "longitude": 106.7451
-  },
-  "areaServed": {
-    "@type": "Country",
-    "name": "Vietnam"
-  },
-  "sameAs": [
-    "https://landing.1hse.vn"
-  ],
-  "priceRange": "$$$"
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${siteUrl}/#organization`,
+      "name": "HSE Provider",
+      "url": siteUrl,
+      "logo": `${siteUrl}/assets/csms/hse-provider-logo.png`,
+      "image": `${siteUrl}/assets/csms/hse-provider-logo.png`,
+      "telephone": "+84 917 267 397",
+      "email": "cskh@atld.vn",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Số 20 Đường ĐX 94, Khu phố 6, phường An Phú",
+        "addressLocality": "Thành phố Hồ Chí Minh",
+        "addressRegion": "Hồ Chí Minh",
+        "postalCode": "700000",
+        "addressCountry": "VN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 10.7964,
+        "longitude": 106.7451
+      },
+      "areaServed": { "@type": "Country", "name": "Việt Nam" },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+84 917 267 397",
+        "contactType": "customer service",
+        "email": "cskh@atld.vn",
+        "availableLanguage": ["Vietnamese", "English"]
+      },
+      "priceRange": "$$$"
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      "url": siteUrl,
+      "name": "HSE Provider",
+      "inLanguage": ["vi-VN", "en"],
+      "publisher": { "@id": `${siteUrl}/#organization` }
+    }
+  ]
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

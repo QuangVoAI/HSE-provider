@@ -10,7 +10,7 @@ type Locale = "vi" | "en";
 
 export const metadata: Metadata = {
   title: "Khách hàng",
-  description: "Các doanh nghiệp đồng hành cùng HSE Provider trong xây dựng môi trường làm việc an toàn và bền vững.",
+  description: "Khám phá các doanh nghiệp đã đồng hành cùng HSE Provider trong số hóa quản lý HSE và xây dựng môi trường làm việc an toàn, bền vững.",
   alternates: { canonical: "/customers" },
 };
 
@@ -100,7 +100,7 @@ export default async function CustomersPage({
 
     <main className={styles.main}>
       <section className={styles.hero} aria-labelledby="customers-hero-title">
-        <img src="/assets/customers/customer-handshake-hero.png" alt="" fetchPriority="high" decoding="async" />
+        <img src="/assets/customers/customer-handshake-hero.png" alt={locale === "vi" ? "Doanh nghiệp đồng hành cùng HSE Provider" : "Businesses partnering with HSE Provider"} fetchPriority="high" decoding="async" />
         <div className={styles.heroOverlay} />
         <h1 id="customers-hero-title">{copy.logoTitle}</h1>
       </section>
