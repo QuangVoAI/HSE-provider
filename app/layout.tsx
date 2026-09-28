@@ -74,6 +74,10 @@ const jsonLd = {
       "@type": "LocalBusiness",
       "@id": `${siteUrl}/#organization`,
       "name": "HSE Provider",
+      "legalName": "Công ty TNHH Dịch vụ An toàn Lao động Việt Nam",
+      "alternateName": ["HSE Provider", "WSS"],
+      "foundingDate": "2015-10-13",
+      "taxID": "3702404496",
       "url": siteUrl,
       "logo": `${siteUrl}/assets/csms/hse-provider-logo.png`,
       "image": `${siteUrl}/assets/csms/hse-provider-logo.png`,
@@ -92,7 +96,19 @@ const jsonLd = {
         "latitude": 10.7964,
         "longitude": 106.7451
       },
-      "sameAs": ["https://www.atld.vn"],
+      "sameAs": [
+        "https://www.atld.vn/",
+        "https://www.atld.vn/teacher/2"
+      ],
+      "knowsAbout": [
+        "Quản lý HSE và EHS",
+        "An toàn vệ sinh lao động",
+        "Sức khỏe nghề nghiệp",
+        "Quản lý rủi ro an toàn",
+        "Tuân thủ pháp luật HSE",
+        "Quan trắc môi trường lao động",
+        "Huấn luyện an toàn lao động"
+      ],
       "areaServed": { "@type": "Country", "name": "Việt Nam" },
       "contactPoint": {
         "@type": "ContactPoint",
@@ -101,7 +117,30 @@ const jsonLd = {
         "email": "cskh@atld.vn",
         "availableLanguage": ["Vietnamese", "English"]
       },
-      "priceRange": "$$$"
+      "priceRange": "$$$",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Giải pháp phần mềm quản lý HSE",
+        "itemListElement": [
+          ["Quản lý sức khỏe nghề nghiệp", "/health-management"],
+          ["Quản lý huấn luyện an toàn", "/training-management"],
+          ["Quản lý rủi ro an toàn lao động", "/risk-management"],
+          ["Báo cáo quan sát an toàn", "/safety-observation"],
+          ["Đánh giá tuân thủ pháp luật", "/legal-compliance"],
+          ["Quản lý nhà thầu", "/contractor-management"],
+          ["Quan trắc môi trường lao động", "/environmental-management"],
+          ["Quản lý thiết bị rủi ro cao", "/equipment-management"]
+        ].map(([name, path]) => ({
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "SoftwareApplication",
+            "name": name,
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web",
+            "url": `${siteUrl}${path}`
+          }
+        }))
+      }
     },
     {
       "@type": "WebSite",

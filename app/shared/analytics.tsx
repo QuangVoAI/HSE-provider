@@ -45,6 +45,11 @@ export default function Analytics() {
           trackAnalyticsEvent("contact_click", { method, page_path: window.location.pathname });
         } else if (href.startsWith("https://portal.1hse.vn")) {
           trackAnalyticsEvent("portal_click", { page_path: window.location.pathname });
+        } else if (/^https:\/\/(?:www\.)?atld\.vn(?:\/|$)/i.test(href)) {
+          trackAnalyticsEvent("knowledge_hub_click", {
+            destination: href,
+            page_path: window.location.pathname,
+          });
         }
       }
 

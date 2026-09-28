@@ -48,7 +48,7 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
     <div><h3>{text.company}</h3>
       <a href={`/csms${query}`}>{text.companyLinks[0]}</a>
       <a href={`/customers${query}`}>{text.companyLinks[1]}</a>
-      <a href={`/csms${query}`}>{text.companyLinks[2]}</a>
+      <a href="https://www.atld.vn/sharing" target="_blank" rel="noopener noreferrer">{text.companyLinks[2]}</a>
       <a href={`/contact${query}`}>{text.companyLinks[3]}</a>
     </div>
     <div className={styles.footerContact}><h3>{text.contact}</h3>
