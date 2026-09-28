@@ -4,20 +4,20 @@ import { useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
 const pageTitles: Record<string, { vi: string; en: string }> = {
-  "/": { vi: "CSMS | HSE Provider", en: "CSMS | HSE Provider" },
-  "/csms": { vi: "CSMS | HSE Provider", en: "CSMS | HSE Provider" },
-  "/customers": { vi: "Khách hàng | HSE Provider", en: "Our Customers | HSE Provider" },
-  "/contact": { vi: "Liên hệ | HSE Provider", en: "Contact | HSE Provider" },
-  "/training-management": { vi: "Quản lý huấn luyện | HSE Provider", en: "Training Management | HSE Provider" },
-  "/risk-management": { vi: "Quản lý rủi ro | HSE Provider", en: "Risk Management | HSE Provider" },
-  "/safety-observation": { vi: "Báo cáo quan sát an toàn | HSE Provider", en: "Behavior-Based Safety | HSE Provider" },
-  "/health-management": { vi: "Quản lý sức khỏe nghề nghiệp | HSE Provider", en: "Health Management | HSE Provider" },
-  "/equipment-management": { vi: "Quản lý thiết bị rủi ro cao | HSE Provider", en: "High Risk Equipment Management | HSE Provider" },
-  "/environmental-management": { vi: "Quan trắc môi trường lao động | HSE Provider", en: "Occupational Hygiene Monitoring | HSE Provider" },
-  "/contractor-management": { vi: "Quản lý nhà thầu | HSE Provider", en: "Contractor Management | HSE Provider" },
-  "/safety-culture": { vi: "Đánh giá văn hóa an toàn | HSE Provider", en: "Safety Culture | HSE Provider" },
-  "/legal-compliance": { vi: "Đánh giá tuân thủ pháp luật | HSE Provider", en: "Legal Compliance | HSE Provider" },
-  "/chemical-management": { vi: "Quản lý hóa chất & phóng xạ | HSE Provider", en: "Chemical & Radiation Management | HSE Provider" },
+  "/": { vi: "CSMS", en: "CSMS" },
+  "/csms": { vi: "CSMS", en: "CSMS" },
+  "/customers": { vi: "Khách hàng", en: "Our Customers" },
+  "/contact": { vi: "Liên hệ", en: "Contact" },
+  "/training-management": { vi: "Quản lý huấn luyện", en: "Training Management" },
+  "/risk-management": { vi: "Quản lý rủi ro", en: "Risk Management" },
+  "/safety-observation": { vi: "Báo cáo quan sát an toàn", en: "Behavior-Based Safety" },
+  "/health-management": { vi: "Quản lý sức khỏe nghề nghiệp", en: "Health Management" },
+  "/equipment-management": { vi: "Quản lý thiết bị rủi ro cao", en: "High Risk Equipment Management" },
+  "/environmental-management": { vi: "Quan trắc môi trường lao động", en: "Occupational Hygiene Monitoring" },
+  "/contractor-management": { vi: "Quản lý nhà thầu", en: "Contractor Management" },
+  "/safety-culture": { vi: "Đánh giá văn hóa an toàn", en: "Safety Culture" },
+  "/legal-compliance": { vi: "Đánh giá tuân thủ pháp luật", en: "Legal Compliance" },
+  "/chemical-management": { vi: "Quản lý hóa chất & phóng xạ", en: "Chemical & Radiation Management" },
 };
 
 export default function DocumentLanguage() {

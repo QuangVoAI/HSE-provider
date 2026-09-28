@@ -16,7 +16,7 @@ import styles from "./contractor-management.module.css";
 type Locale = "vi" | "en";
 
 export const metadata: Metadata = {
-  title: "Contractor Management | HSE Provider",
+  title: "Contractor Management",
   description: "Nền tảng quản lý hồ sơ, năng lực, tuân thủ và hoạt động của nhà thầu.",
 };
 

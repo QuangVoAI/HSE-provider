@@ -9,8 +9,8 @@ import styles from "./customers.module.css";
 type Locale = "vi" | "en";
 
 export const metadata: Metadata = {
-  title: "Our Customers | HSE Provider",
-  description: "The organisations partnering with HSE Provider to build safer, more sustainable workplaces.",
+  title: "Khách hàng",
+  description: "Các doanh nghiệp đồng hành cùng HSE Provider trong xây dựng môi trường làm việc an toàn và bền vững.",
 };
 
 const customers = [

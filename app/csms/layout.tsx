@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "CSMS | HSE Provider",
+  title: "CSMS",
   description:
-    "A connected safety management system for training, risk, occupational health, contractors and compliance.",
+    "Nền tảng quản lý đào tạo, rủi ro, sức khỏe nghề nghiệp, nhà thầu và tuân thủ HSE.",
 };
 
 export default function CsmsLayout({ children }: Readonly<{ children: React.ReactNode }>) {

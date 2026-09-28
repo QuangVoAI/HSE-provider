@@ -14,7 +14,7 @@ import riskStyles from "../risk-management/risk-management.module.css";
 import styles from "./training-management.module.css";
 
 type Locale = "vi" | "en";
-export const metadata: Metadata = { title: "Training Management | HSE Provider", description: "Hệ thống quản lý đào tạo an toàn, vệ sinh lao động toàn diện." };
+export const metadata: Metadata = { title: "Training Management", description: "Hệ thống quản lý đào tạo an toàn, vệ sinh lao động toàn diện." };
 const csmsAsset = (name: string) => `/assets/csms/${name}`;
 const trainingAsset = (name: string) => `/assets/training-management/${name}`;
 

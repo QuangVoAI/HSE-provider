@@ -16,7 +16,7 @@ import RiskWorkflow from "./risk-workflow";
 type Locale = "vi" | "en";
 
 export const metadata: Metadata = {
-  title: "Risk Management | HSE Provider",
+  title: "Risk Management",
   description: "Hệ thống nhận diện, đánh giá và kiểm soát rủi ro an toàn lao động toàn diện.",
 };
 
