@@ -37,9 +37,6 @@ export const metadata: Metadata = {
   ],
   formatDetection: { telephone: false },
   metadataBase: new URL(siteUrl),
-  alternates: {
-    canonical: siteUrl,
-  },
   other: {
     "geo.region": "VN-SG",
     "geo.placename": "Ho Chi Minh City",
