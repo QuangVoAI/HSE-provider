@@ -92,6 +92,7 @@ const jsonLd = {
         "latitude": 10.7964,
         "longitude": 106.7451
       },
+      "sameAs": ["https://www.atld.vn"],
       "areaServed": { "@type": "Country", "name": "Việt Nam" },
       "contactPoint": {
         "@type": "ContactPoint",
