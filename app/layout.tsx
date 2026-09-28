@@ -37,9 +37,6 @@ export const metadata: Metadata = {
   ],
   formatDetection: { telephone: false },
   metadataBase: new URL(siteUrl),
-  alternates: {
-    canonical: siteUrl,
-  },
   other: {
     "geo.region": "VN-SG",
     "geo.placename": "Ho Chi Minh City",
@@ -49,7 +46,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: "HSE Provider | Giải pháp Quản lý An toàn, Sức khỏe và Môi trường",
     description: "Chuyển đổi số công tác HSE doanh nghiệp với các giải pháp quản lý CSMS, Hóa chất, Đào tạo & Quan trắc môi trường tại Việt Nam.",
-    url: siteUrl,
     siteName: "HSE Provider",
     locale: "vi_VN",
     type: "website",

@@ -14,8 +14,9 @@ import ConstructionReveal from "./construction-reveal";
 type Locale = "vi" | "en";
 
 export const metadata: Metadata = {
-  title: "Chemical & Radiation Management",
+  title: "Quản lý hóa chất và phóng xạ",
   description: "Phân hệ Quản lý hóa chất & phóng xạ của HSE Provider đang được hoàn thiện.",
+  alternates: { canonical: "/chemical-management" },
 };
 
 const asset = (name: string) => `/assets/csms/${name}`;

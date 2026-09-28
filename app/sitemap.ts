@@ -21,12 +21,10 @@ const routes = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  return routes.flatMap(([path, priority]) =>
-    (["vi", "en"] as const).map((locale) => ({
-      url: `${siteUrl}${path}?lang=${locale}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority,
-    })),
-  );
+  return routes.map(([path, priority]) => ({
+    url: `${siteUrl}${path}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority,
+  }));
 }

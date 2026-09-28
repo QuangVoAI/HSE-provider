@@ -16,8 +16,9 @@ import RiskWorkflow from "./risk-workflow";
 type Locale = "vi" | "en";
 
 export const metadata: Metadata = {
-  title: "Risk Management",
+  title: "Quản lý rủi ro an toàn lao động",
   description: "Hệ thống nhận diện, đánh giá và kiểm soát rủi ro an toàn lao động toàn diện.",
+  alternates: { canonical: "/risk-management" },
 };
 
 const csmsAsset = (name: string) => `/assets/csms/${name}`;

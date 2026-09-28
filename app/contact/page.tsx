@@ -9,7 +9,7 @@ import ContactMap from "./contact-map";
 import styles from "./contact.module.css";
 
 type Locale = "vi" | "en";
-export const metadata: Metadata = { title:"Liên hệ", description:"Liên hệ HSE Provider để được tư vấn phần mềm quản lý an toàn, sức khỏe nghề nghiệp và môi trường." };
+export const metadata: Metadata = { title:"Liên hệ", description:"Liên hệ HSE Provider để được tư vấn phần mềm quản lý an toàn, sức khỏe nghề nghiệp và môi trường.", alternates:{ canonical:"/contact" } };
 const asset = (name:string) => `/assets/csms/${name}`;
 const copy = {
   vi:{ hero:"Liên hệ", heroText:"Chúng tôi luôn sẵn sàng lắng nghe và đồng hành cùng sự an toàn của doanh nghiệp bạn.", title:"Chúng tôi sẵn sàng lắng nghe nhu cầu của bạn", office:"Văn phòng", address:"Địa chỉ", addressText:"Số 20 Đường ĐX 94, Khu phố 6, phường An Phú, TP Hồ Chí Minh", hotline:"Hotline hỗ trợ", solutions:"GIẢI PHÁP", company:"CÔNG TY", contact:"LIÊN HỆ", footer:"Giải pháp phần mềm quản lý Sức khỏe, An toàn và Môi trường tại Việt Nam, giúp doanh nghiệp đạt chuẩn quốc tế.", terms:"Điều khoản sử dụng", privacy:"Chính sách bảo mật"},

@@ -11,6 +11,7 @@ type Locale = "vi" | "en";
 export const metadata: Metadata = {
   title: "Khách hàng",
   description: "Các doanh nghiệp đồng hành cùng HSE Provider trong xây dựng môi trường làm việc an toàn và bền vững.",
+  alternates: { canonical: "/customers" },
 };
 
 const customers = [
