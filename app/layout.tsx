@@ -9,6 +9,9 @@ import ScrollToTopButton from "./shared/scroll-to-top-button";
 import FloatingContact from "./shared/floating-contact";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const googleSiteVerification =
+  process.env.GOOGLE_SEARCH_CONSOLE_VERIFICATION?.trim() ||
+  "-7b6qYgG7qZbKEAr4qnT81GNxmrKlqFl-Lx1M7nD040";
 
 const inter = Inter({
   subsets: ["latin", "vietnamese"],
@@ -56,7 +59,7 @@ export const metadata: Metadata = {
     description: "Giải pháp chuyển đổi số toàn diện cho quản lý An toàn lao động, Sức khỏe và Môi trường.",
   },
   verification: {
-    google: "-7b6qYgG7qZbKEAr4qnT81GNxmrKlqFl-Lx1M7nD040",
+    google: googleSiteVerification,
   },
   icons: { icon: "/assets/csms/hse-provider-logo.png" },
 };
