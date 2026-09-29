@@ -118,3 +118,38 @@ export async function sendLeadEmail(lead: Lead) {
   });
   return "sent" as const;
 }
+
+export async function sendLeadReminderEmail(lead: Lead, waitingHours: number) {
+  const host = env("SMTP_HOST");
+  const user = env("SMTP_USER");
+  const pass = env("SMTP_PASS");
+  const admin = env("LEAD_NOTIFICATION_EMAIL");
+  if (!host || !user || !pass || !admin) return "skipped" as const;
+
+  const transporter = nodemailer.createTransport({
+    host,
+    port: Number(env("SMTP_PORT") || 587),
+    secure: env("SMTP_SECURE") === "true",
+    auth: { user, pass },
+  });
+  const from = env("SMTP_FROM") || user;
+  const subject = `[HSE Provider] Cần theo dõi lead: ${lead.name}`;
+  const text = `${lead.name} (${lead.company || "Chưa có công ty"}) vẫn ở trạng thái Mới sau ${waitingHours} giờ.\nEmail: ${lead.email}\nĐiện thoại: ${lead.phone || "-"}\nNgày/giờ mong muốn: ${lead.preferredDate || "-"} ${lead.preferredTime || ""}`;
+  const html = emailShell(`
+    <div style="display:inline-block;padding:6px 10px;border-radius:999px;background:#fff3d6;color:#9a5b00;font-size:12px;font-weight:700">CẦN THEO DÕI</div>
+    <h1 style="margin:14px 0 8px;font-size:25px;line-height:1.3;color:#082f54">Lead chưa được xử lý</h1>
+    <p style="margin:0 0 22px;color:#60758a;font-size:14px;line-height:1.6">Lead này vẫn ở trạng thái <strong>Mới</strong> sau ${waitingHours} giờ. Vui lòng liên hệ khách hàng hoặc cập nhật cột Trạng thái trong Google Sheets.</p>
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border:1px solid #dfeaf4;border-radius:12px;border-collapse:separate;overflow:hidden">
+      ${detailRow("Họ tên", lead.name)}
+      ${detailRow("Email", lead.email)}
+      ${detailRow("Điện thoại", lead.phone || "-")}
+      ${detailRow("Công ty", lead.company || "-")}
+      ${detailRow("Loại yêu cầu", lead.requestType || "-")}
+      ${detailRow("Ngày hẹn", lead.preferredDate || "-")}
+      ${detailRow("Giờ hẹn", lead.preferredTime || "-")}
+    </table>
+  `);
+
+  await transporter.sendMail({ from, to: admin, replyTo: lead.email, subject, text, html });
+  return "sent" as const;
+}

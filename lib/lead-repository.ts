@@ -1,7 +1,7 @@
 import type { ObjectId } from "mongodb";
 
 import { mongoCollection } from "@/lib/mongodb";
-import type { Lead, LeadInput } from "@/types/lead";
+import type { Lead, LeadInput, LeadStatus } from "@/types/lead";
 
 export function normalized(value: unknown) {
   return String(value ?? "").trim();
@@ -11,7 +11,7 @@ export async function findDuplicate(email: string, phoneNormalized: string) {
   const collection = await mongoCollection();
   return collection.findOne({
     $or: [{ emailNormalized: email }, ...(phoneNormalized ? [{ phoneNormalized }] : [])],
-    status: { $ne: "rejected" },
+    status: { $nin: ["not_qualified", "rejected"] },
   });
 }
 
@@ -27,6 +27,26 @@ export async function updateLeadIntegrations(
   await (await mongoCollection()).updateOne(
     { _id: id },
     { $set: { updatedAt: new Date(), "integration.email": email, "integration.sheets": sheets } },
+  );
+}
+
+export async function updateLeadStatus(id: ObjectId, status: LeadStatus) {
+  await (await mongoCollection()).updateOne(
+    { _id: id },
+    { $set: { status, updatedAt: new Date() } },
+  );
+}
+
+export async function recordLeadReminder(id: ObjectId, sentCount: number) {
+  await (await mongoCollection()).updateOne(
+    { _id: id },
+    {
+      $set: {
+        updatedAt: new Date(),
+        "reminder.lastSentAt": new Date(),
+        "reminder.sentCount": sentCount,
+      },
+    },
   );
 }
 
